@@ -1,0 +1,316 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  -webkit-user-select: none;
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+  background-color: #f5f5f5;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+/*@media (min-width: 768px) {*/
+  .sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+/*}*/
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+  margin-top: 30px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+/*@media (min-width: 768px) {*/
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+/*}*/
+.main .page-header {
+  margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: #8b8b8b;
+}
+
+.main h2{
+    padding-top: 21px;
+    padding-bottom: 40px;
+    font-size: 28px;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.navbar-brand .glyphicon{
+    top: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.navbar-brand .badge{
+    position: relative;
+    top: -1px;
+    background-color: red;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #337ab7;
+}
+
+#vk{
+    margin-top: 0px;
+}
+
+/*Чтобы табы не налазили*/
+ul.nav.navbar-nav.navbar-left.nav-tabs>li>a{
+    margin-left: 0;
+}
+
+/*Модальное окно LIKE*/
+#modal-like .modal-content{
+  background-color: #428bca;
+  color: #fff;
+  border-radius: 0; 
+  text-align: center;
+}
+
+#modal-like.modal h2{
+  color: #fff;
+}
+
+#modal-like .modal-content .modal-header {
+    padding: 15px;
+    border-bottom: 0;
+}
+
+#modal-like .modal-content .modal-header button{
+    padding: 0px;
+}
+/*END Модальное окно LIKE*/
+
+/*Модальное окно "Редактировать" и "Добавить"*/
+.modal-service, .modal-service h2{
+  color: #000;
+}
+
+.modal-service h2 span{
+  position: relative;
+  top: -4px;
+}
+/*END Модальное окно "Редактировать" и "Добавить"*/
+
+.notifications.top-right,
+.notifications.top-left{
+    top: 50px;
+}
+
+.notifications .alert a.close.pull-right{
+    padding-left: 10px;
+}
+
+.service_block{
+  height: 100px;
+  background-color: #f6f6f6;
+  margin-bottom: 20px;
+  padding: 15px;
+  text-align: center;
+  color: #428bca;
+}
+
+.service_block:hover{
+  background-color: #eee;
+}
+
+.available-services-block{
+  color: #428bca;
+  border-top: solid #ddd 1px;
+  border-bottom: solid #ddd 1px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  margin-bottom: 50px;
+}
+
+.available-services-block:hover{
+  background-color: #eee;
+}
+
+.available-services-block > span{
+  padding-left: 5px;
+}
+
+.available-services-block > span.pull-right{
+  color: #8b8b8b;
+  padding-right: 10px;
+  padding-top: 4px;
+  font-size: 16px;
+}
+
+span.service-icon-small > img{
+  margin-right: 15px;
+  margin-top: -14px;
+  width: 25px;
+}
+
+.ptr{
+  cursor: pointer;
+}
+
+.settings-block{
+
+}
+
+.container-fluid {
+  padding-left: 0; 
+}
+
+.top-main-menu-left{
+  /*width: 80%;*/
+}
+.top-main-menu-right{
+  /*position: relative;*/
+}
+
+/*СИНЯЯ ПОЛОСКА В ВЕРХНЕМ МЕНЮ*/
+.container-fluid{
+      -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 3px solid #428bca;
+}
+.nav.navbar-nav.navbar-left.nav-tabs.top-main-menu-left > li{
+    position: relative;
+    top: 3px;
+}
+.nav-tabs{
+  border-bottom: 0;
+}
+.nav.navbar-nav.navbar-left.nav-tabs.top-main-menu-left > li > a:hover{
+  background-color: transparent;
+  border-color: transparent;
+  color: #337ab7;
+}
+/*END СИНЯЯ ПОЛОСКА В ВЕРХНЕМ МЕНЮ*/
+
+/*От прыжков при смене ширины*/
+.navbar-nav {
+    margin: 0;
+}
+.navbar-nav>li>a{
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/*END От прыжков при смене ширины*/
+
+/*Popover в верхнем правом меню*/
+.popover {
+  max-width: 400px;
+  position: fixed;
+}
+.popover-content{
+  background-color: #f5f5f5;
+  width: 400px;
+  /*position:fixed;*/
+}
+.popover-content span.glyphicon{
+  margin: 5px;
+  color: #337ab7;
+}
+.top-popover-switcher{
+  margin: 2px;
+}
+/*END Popover в верхнем правом меню*/
