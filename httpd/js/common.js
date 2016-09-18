@@ -26,9 +26,12 @@ $(document).ready(function(){
 	var notifBtnCounter = 0;
 	$('#header-top-notification-btn').click(function(){
 
-		var text = 'Уведомления включены!';
+		var l12n = window.localization,
+			data = l12n.getData('notice');
+
+		var text = data['enabled'];
 		if(++notifBtnCounter%2){
-			text = 'Уведомления отлючены!';
+			text = data['disabled'];
 		}
 
 		$('.top-right').notify({

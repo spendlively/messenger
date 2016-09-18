@@ -12,9 +12,9 @@ var SettingsBlock = React.createClass({
 
   	componentDidMount: function() {
   		
-		var l12n = window.localization;
+  		var l12n = window.localization;
 
-		l12n.registerClass('settings', this);
+  		l12n.registerClass('settings', this);
   	},
 
   	getDefaultProps: function(){

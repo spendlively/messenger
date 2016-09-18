@@ -19,5 +19,44 @@
         ],
 		"cache": "Кэш",
 		"clearCache": "Очистить кэш"
-	}
+	},
+    "leftMenu": {
+        "enabledServices": "Доступные сервисы",
+        "addService": "Добавить сервис",
+        "settings": "Настройки"
+    },
+    "enabledServices": {
+        "title": "Доступные сервисы"
+    },
+    "addService": {
+        "title": "Добавить сервис"
+    },
+    "modalLike": {
+    	"title": "Opios - keep calm & get things done!",
+    	"description": "Расскажите вашим друзьям и коллегам насколько Opios великолепен, чтобы о нас узнали во всем мире."
+    },
+    "addServiceModal": {
+    	"add": "Добавить",
+    	"name": "Имя",
+    	"showNotices": "Показывать уведомления",
+    	"disableSounds": "Отключить все звуки",
+    	"notice": "Не забудьте включить уведомления для рабочего стола в настройках",
+    	"closeBtn": "Закрыть",
+    	"addBtn": "Добавить"
+    },
+    "editServiceModal": {
+    	"edit": "Редактировани",
+    	"name": "Имя",
+    	"enableService": "Включить сервис",
+    	"showNotices": "Показывать уведомления",
+    	"disableSounds": "Отключить все звуки",
+    	"notice": "Не забудьте включить уведомления для рабочего стола в настройках",
+    	"removeBtn": "Удалить сервис",
+    	"saveBtn": "Сохранить",
+    	"closeBtn": "Закрыть"
+    },
+    "notice": {
+    	"enabled": "Уведомления включены!",
+    	"disabled": "Уведомления отлючены!"
+    }
 }

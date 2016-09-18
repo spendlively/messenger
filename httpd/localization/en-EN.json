@@ -19,5 +19,44 @@
         ],        
 		"cache": "Cache",
 		"clearCache": "Clear the Franz cache"
-	}
+	},
+    "leftMenu": {
+        "enabledServices": "Enabled services",
+        "addService": "Add a new service",
+        "settings": "Settings"
+    },
+    "enabledServices": {
+        "title": "Enabled services"
+    },
+    "addService": {
+        "title": "Add a new service"
+    },
+    "modalLike": {
+    	"title": "Opios - keep calm & get things done!",
+    	"description": "Tell your friends and colleagues how awesome Opios is and help us to spread the world."
+    },
+    "addServiceModal": {
+    	"add": "Add",
+    	"name": "Name",
+    	"showNotices": "Show notifications",
+    	"disableSounds": "Mute all sounds",
+    	"notice": "Remember to enable desktop notifications in your settings",
+    	"closeBtn": "Close",
+    	"addBtn": "Add"
+    },
+    "editServiceModal": {
+    	"edit": "Edit",
+    	"name": "Name",
+    	"enableService": "Enable service",
+    	"showNotices": "Show notifications",
+    	"disableSounds": "Mute all sounds",
+    	"notice": "Remember to enable desktop notifications in your settings",
+    	"removeBtn": "Delete service",
+    	"saveBtn": "Close",
+    	"closeBtn": "Save"
+    },
+    "notice": {
+    	"enabled": "Enabled all notifications!",
+    	"disabled": "Disabled all notifications!"
+    }    
 }

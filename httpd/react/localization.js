@@ -50,6 +50,7 @@ var localization = {
 		  	success: function(data){
 		  		var obj = null;
 				if(obj = JSON.parse(data)){
+					me.data = obj;
 					me.updateStates(obj);
 				}
 		  	},

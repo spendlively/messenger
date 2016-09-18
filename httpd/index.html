@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MyApp</title>
+        <title>Opios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
 
@@ -110,182 +110,16 @@
                 <div class="row">
 
                     <!-- ЛЕВОЕ МЕНЮ -->
-                    <div id="left-menu-target">
-                        
-                    <!-- <div class="col-xs-4 col-sm-3 col-md-2 sidebar">
-                        <ul class="nav nav-sidebar lmenu">
-                            <li class="active" data-element-scroll-to="content-available-services">
-                                <a class="ptr">Доступные сервисы 
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li data-element-scroll-to="content-add-services">
-                                <a class="ptr">
-                                    Добавить сервис
-                                </a>
-                            </li>
-                            <li data-element-scroll-to="content-settings">
-                                <a class="ptr">
-                                    Настройки
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
-                    </div>
+                    <div id="left-menu-target"></div>
 
                     <!-- КОНТЕНТ -->
                     <div class="col-xs-offset-4 col-sm-offset-3 col-md-offset-2 main col-xs-8 col-sm-9 col-md-10">
 
                         <!-- Управление сервисами -->
-                        <h2 id="content-available-services">Доступные сервисы</h2>
-                        <div class="available-services-block ptr" data-toggle="modal" data-target="#modal-edit-service">
-                            <span class="glyphicon service-icon-small" aria-hidden="true">
-                                <img src="services/vk.svg">
-                            </span>
-                            spendlively@mail.ru
-                            <span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
-                        </div>
+                        <div id="enabled-services-target"></div>
 
                         <!-- Добавление сервисов -->
-                        <h2 id="content-add-services">Добавить сервис</h2>
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/slack.svg" />
-                                <h5>Slack</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/messenger.svg" />
-                                <h5>Messenger</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/whatsapp.svg" />
-                                <h5>WhatsApp</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/telegram.svg" />
-                                <h5>Telegram</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/skype.svg" />
-                                <h5>Skype</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/wechat.svg" />
-                                <h5>WeChat</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/hipchat.svg" />
-                                <h5>HipChat</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/chatwork.svg" />
-                                <h5>ChatWork</h5>
-                            </div></div>        
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/flowdock.svg" />
-                                <h5>Flowdock</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/hangouts.svg" />
-                                <h5>Hangouts</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/groupme.svg" />
-                                <h5>GroupMe</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/rocketchat.svg" />
-                                <h5>Rocket Chat</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/mattermost.svg" />
-                                <h5>Mattermost</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block">
-                                <img height="60%" src="services/grape.svg" />
-                                <h5>Grape</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/gitter.svg" />
-                                <h5>Gitter</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/tweetdeck.svg" />
-                                <h5>TweetDeck</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/dingtalk.svg" />
-                                <h5>DingTalk</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/steamchat.svg" />
-                                <h5>Steam Chat</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/discord.svg" />
-                                <h5>Discord</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/mysms.svg" />
-                                <h5>MySMS</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/googleinbox.svg" />
-                                <h5>Inbox by Gmail</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/googlegmail.svg" />
-                                <h5>Gmail</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/outlookdotcom.svg" />
-                                <h5>Outlook.com</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/vk.svg" />
-                                <h5>VK</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/wire.svg" />
-                                <h5>Wire</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/icq.svg" />
-                                <h5>ICQ</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/irccloud.svg" />
-                                <h5>IRCCloud</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/ciscospark.svg" />
-                                <h5>Cisco Spark</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/facebookpages.svg" />
-                                <h5>Facebook Page</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/linkedin.svg" />
-                                <h5>LinkedId</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/hibox.svg" />
-                                <h5>Hibox</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/coupleme.svg" />
-                                <h5>Couple.me</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/yahoomessenger.svg" />
-                                <h5>Yahoo! Messenger</h5>
-                            </div></div>
-                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div class="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
-                                <img height="60%" src="services/zendesk.svg" />
-                                <h5>Zendesk</h5>
-                            </div></div>
-                        </div>
+                        <div id="add-service-target"></div>
 
                         <!-- Настройка приложения -->
                         <div id="settings-block" class="settings-block"></div>
@@ -302,159 +136,22 @@
     </div>
 
     <!--Модальное окно "Поделиться"-->
-   <div class="modal fade" id="modal-like" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h2>Franz - вместе лучше!</h2>
-                    <p>Расскажите вашим друзьям и коллегам насколько Franz великолепен, чтобы о нас узнали во всем мире!</p>
-                </div>
-                <div class="modal-body"></div>
-            </div>
-        </div>
-    </div>
+   <div class="modal fade" id="modal-like" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
 
-    <!--Модальное окно "Поделиться"-->
-   <div class="modal fade modal-service" id="modal-edit-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h2>
-                        <span class="glyphicon service-icon-small" aria-hidden="true">
-                            <img src="services/vk.svg">
-                        </span>
-                        Редактировать VK
-                    </h2>
-                </div>
-
-                <div class="modal-body">
-                    <form class="form-horizontal">
-
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Имя</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="" value="spendlively@mail.ru">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="switch-modal" class="col-sm-3 control-label">Enable service</label>
-                            <div class="col-sm-9">
-                                <input class="switch-button" id="switch-modal" type="checkbox" checked>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Показывать уведомления
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Отключить все звуки
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>                
-
-                    <div class="alert alert-info" role="alert">Не забудьте включить уведомления для рабочего стола в настройках VK.</div>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger pull-left">Удалить сервис</button>
-                    <button type="button" class="btn btn-default pull-right">Закрыть</button>
-                    <button type="button" class="btn btn-primary pull-right">Сохранить</button>
-                </div>
-            </div>
-        </div>
-    </div>    
+    <!--Модальное окно "Редактировать сервес"-->
+    <div id="editServiceTarget"></div>
 
     <!--Модальное окно "Добавить сервис"-->
-   <div class="modal fade modal-service" id="modal-add-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h2>
-                        <span class="glyphicon service-icon-small" aria-hidden="true">
-                            <img src="services/vk.svg">
-                        </span>
-                        Добавить VK
-                    </h2>
-                </div>
-
-                <div class="modal-body">
-                    <form class="form-horizontal">
-
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Имя</label>
-                            <div class="col-sm-9">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="" value="">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Показывать уведомления
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox">Отключить все звуки
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>                
-
-                    <div class="alert alert-info" role="alert">Не забудьте включить уведомления для рабочего стола в настройках VK.</div>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Добавить VK</button>
-                </div>
-            </div>
-        </div>
-    </div>        
-
-    <script>
-        // var config = require('electron').remote.getGlobal('config'),
-        //     ipcRenderer = require('electron').ipcRenderer;     
-
-        // console.log(config);
-
-        // config.config.language = "ru-EN";
-
-        // ipcRenderer.send('save-config');
-    </script>
+    <div id="addServiceTarget"></div>
 
     <!-- <script type="text/babel" src="react/launch.js"></script> -->
-    <script type="text/babel" src="react/settings.js"></script>
-    <script type="text/babel" src="react/leftmenu.js"></script>
+    <script type="text/babel" src="react/components/settings.js"></script>
+    <script type="text/babel" src="react/components/leftmenu.js"></script>
+    <script type="text/babel" src="react/components/enabledServices.js"></script>
+    <script type="text/babel" src="react/components/addService.js"></script>
+    <script type="text/babel" src="react/components/modalLike.js"></script>
+    <script type="text/babel" src="react/components/addServiceModal.js"></script>
+    <script type="text/babel" src="react/components/editServiceModal.js"></script>
     <script src="js/common.js"></script>
 </body>
 </html>

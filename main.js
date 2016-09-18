@@ -23,9 +23,9 @@ ipcMain.on('save-config', function(event) {
 // Опционально возможность отправки отчета о ошибках на сервер проекта Electron.
 //electron.crashReporter.start();
 electron.crashReporter.start({
-    productName: 'YourName',
-    companyName: 'YourCompany',
-    submitURL: 'https://your-domain.com/url-to-submit',
+    productName: 'Opios',
+    companyName: 'Opios',
+    submitURL: '',
     autoSubmit: true
 })
 
