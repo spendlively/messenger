@@ -12,7 +12,7 @@ var EditServiceModal = React.createClass({
   		
   		var l12n = window.localization;
 
-  		l12n.registerClass('editServiceModal', this);
+  		l12n.registerComponent('editServiceModal', this);
   	},
 
   	handleChange: function(event){
@@ -97,5 +97,5 @@ var EditServiceModal = React.createClass({
 
 ReactDOM.render(
 	<EditServiceModal />,
-	document.getElementById('editServiceTarget')
+	document.getElementById('editServiceModalTarget')
 );

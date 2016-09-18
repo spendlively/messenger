@@ -30,6 +30,15 @@ var config = {
 		    ipcRenderer = require('electron').ipcRenderer;  
 
 	    return config.languages;
+	},
+
+	service: {},
+	setService: function(service){
+		this.service = service;
+	},
+
+	updateService: function(data){
+		this.service.setState(data);
 	}
 };
 

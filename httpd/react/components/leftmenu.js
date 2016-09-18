@@ -12,7 +12,7 @@ var LeftMenu = React.createClass({
   		
   		var l12n = window.localization;
 
-  		l12n.registerClass('leftMenu', this);
+  		l12n.registerComponent('leftMenu', this);
   	},
 
 	render: function(){

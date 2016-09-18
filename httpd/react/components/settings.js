@@ -14,7 +14,7 @@ var SettingsBlock = React.createClass({
   		
   		var l12n = window.localization;
 
-  		l12n.registerClass('settings', this);
+  		l12n.registerComponent('settings', this);
   	},
 
   	getDefaultProps: function(){
@@ -34,9 +34,9 @@ var SettingsBlock = React.createClass({
   			name = target.name,
   			checked = target.checked;
 
-		if(name){
-			window.config.save(name, checked);
-		}
+  		if(name){
+  			window.config.save(name, checked);
+  		}
   	},
 
   	handleChangeEmail: function(event){

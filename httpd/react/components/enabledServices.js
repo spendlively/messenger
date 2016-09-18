@@ -12,7 +12,7 @@ var EnabledServices = React.createClass({
   		
   		var l12n = window.localization;
 
-  		l12n.registerClass('enabledServices', this);
+  		l12n.registerComponent('enabledServices', this);
   	},
 
 	render: function(){

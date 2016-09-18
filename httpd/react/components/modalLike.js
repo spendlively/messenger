@@ -12,7 +12,7 @@ var ModalLike = React.createClass({
   		
   		var l12n = window.localization;
 
-  		l12n.registerClass('modalLike', this);
+  		l12n.registerComponent('modalLike', this);
   	},
 
 	render: function(){

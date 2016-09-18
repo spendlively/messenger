@@ -5,21 +5,26 @@ var AddServiceModal = React.createClass({
 		var l12n = window.localization,
 			data = l12n.getData('addServiceModal');
 
+		data.img = '';
+		data.title = '';
+
     	return data;
 	},
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization;
+  		var l12n = window.localization,
+  			config = window.config;
 
-  		l12n.registerClass('addServiceModal', this);
+  		l12n.registerComponent('addServiceModal', this);
+  		config.setService(this);
   	},
 
 
 	render: function(){
 
 		return (
-			<div className="modal fade modal-service" id="modal-add-service" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
 	        	<div className="modal-dialog" role="document">
 		            <div className="modal-content">
 		                <div className="modal-header">
@@ -28,9 +33,9 @@ var AddServiceModal = React.createClass({
 		                    </button>
 		                    <h2>
 		                        <span className="glyphicon service-icon-small" aria-hidden="true">
-		                            <img src="services/vk.svg" />
+		                            <img src={this.state.img} />
 		                        </span>
-		                        {this.state.add} VK
+		                        {this.state.add} {this.state.title}
 		                    </h2>
 		                </div>
 
@@ -81,5 +86,5 @@ var AddServiceModal = React.createClass({
 
 ReactDOM.render(
 	<AddServiceModal />,
-	document.getElementById('addServiceTarget')
+	document.getElementById('addServiceModalTarget')
 );

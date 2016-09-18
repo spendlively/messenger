@@ -19,8 +19,6 @@ $(document).ready(function(){
 		$('html, body').animate({
             scrollTop: offset +  'px'
         }, 'fast');
-
-
 	});
 
 	var notifBtnCounter = 0;

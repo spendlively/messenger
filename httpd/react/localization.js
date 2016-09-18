@@ -8,14 +8,14 @@ var localization = {
 
 	data: {},
 
-	clses: {},
+	components: {},
 
-	registerClass: function(name, cls){
+	registerComponent: function(name, cls){
 
 		var me = this;
 
 		if(cls){
-			me.clses[name] = cls;
+			me.components[name] = cls;
 		}
 
 		// setTimeout(function(){
@@ -63,13 +63,11 @@ var localization = {
 	updateStates: function(data){
 
 		var me = this,
-			cls = null;
+			cmp = null;
 
-		for(var i in me.clses){
-			cls = me.clses[i];
-			// console.log(i)
-			// console.log(cls)
-			cls.setState(data[i]);
+		for(var i in me.components){
+			cmp = me.components[i];
+			cmp.setState(data[i]);
 		}
 	}
 };
