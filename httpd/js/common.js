@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 	//Обработка клика по кнопке левого бокового меню
 	$('ul.lmenu>li').click(function(){
-
+// debugger;
 		var targetId = $(this).attr('data-element-scroll-to'),
 			marginTop = parseInt($('#' + targetId).css('margin-top')),
 			topOffset = document.getElementById('top-navbar').getBoundingClientRect().bottom,

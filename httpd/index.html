@@ -11,15 +11,6 @@
         <script src="react/browser.min.js"></script>
         <script src="react/remarkable.min.js"></script>
 
-<!-- <script type="text/babel" src="react/classes/settings/SettingsLanguage.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsLaunchOnStart.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsLeaveRunning.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsNonProfitUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsCommercialUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsPersonalUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SubscriptionCb.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsBlock.js"></script> -->
-
         <!--Bootstrap's JavaScript requires jQuery-->
         <!--http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined-->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -27,12 +18,12 @@
 
         <script src="react/config.js"></script>
         <script src="react/localization.js"></script>
-        
+
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <script src="js/bootstrap.min.js"></script>
         <script src="js/popover.js"></script>
-        <script src="js/common.js"></script>
+        <!-- <script src="js/common.js"></script> -->
 
         <!-- Нотификатор -->
         <script src="js/bootstrap-notify.js"></script>
@@ -119,7 +110,9 @@
                 <div class="row">
 
                     <!-- ЛЕВОЕ МЕНЮ -->
-                    <div class="col-xs-4 col-sm-3 col-md-2 sidebar">
+                    <div id="left-menu-target">
+                        
+                    <!-- <div class="col-xs-4 col-sm-3 col-md-2 sidebar">
                         <ul class="nav nav-sidebar lmenu">
                             <li class="active" data-element-scroll-to="content-available-services">
                                 <a class="ptr">Доступные сервисы 
@@ -137,6 +130,7 @@
                                 </a>
                             </li>
                         </ul>
+                    </div> -->
                     </div>
 
                     <!-- КОНТЕНТ -->
@@ -460,6 +454,8 @@
 
     <!-- <script type="text/babel" src="react/launch.js"></script> -->
     <script type="text/babel" src="react/settings.js"></script>
+    <script type="text/babel" src="react/leftmenu.js"></script>
+    <script src="js/common.js"></script>
 </body>
 </html>
 
