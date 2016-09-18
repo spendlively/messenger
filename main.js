@@ -8,7 +8,7 @@ const ipcMain = require('electron').ipcMain;
 var configEncoded = fs.readFileSync('data/config.json', 'utf8');
 var configText = decodeURIComponent(configEncoded);
 var config = JSON.parse(configText);
-// console.log(content);
+// console.log(config);
 
 //Расшариваю конфиг
 global.config = config;

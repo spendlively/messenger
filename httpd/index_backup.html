@@ -9,25 +9,11 @@
         <script src="react/react.js"></script>
         <script src="react/react-dom.js"></script>
         <script src="react/browser.min.js"></script>
-        <script src="react/remarkable.min.js"></script>
-
-<!-- <script type="text/babel" src="react/classes/settings/SettingsLanguage.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsLaunchOnStart.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsLeaveRunning.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsNonProfitUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsCommercialUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsPersonalUse.js"></script>
-<script type="text/babel" src="react/classes/settings/SubscriptionCb.js"></script>
-<script type="text/babel" src="react/classes/settings/SettingsBlock.js"></script> -->
 
         <!--Bootstrap's JavaScript requires jQuery-->
         <!--http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined-->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="js/jquery-3.1.0.js"></script>
-
-        <script src="react/config.js"></script>
-        <script src="react/localization.js"></script>
-        
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <script src="js/bootstrap.min.js"></script>
@@ -294,7 +280,44 @@
                         </div>
 
                         <!-- Настройка приложения -->
-                        <div id="settings-block" class="settings-block"></div>
+                        <h2 id="content-settings">Настройки</h2>
+                        <div class="settings-block">
+                            <h3>Account</h3>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">Please subscribe me the Franz newslater
+                                </label>
+                            </div>
+                            <p>I use Franz for</p>
+                            <div class="checkbox">
+                                <label><input type="checkbox">Personal use</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox">Commercial use</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox">Non profit/NGO use</label>
+                            </div>
+                            <h3>App</h3>
+                            <p>General</p>
+                            <div class="checkbox">
+                                <label><input type="checkbox">Leave Franz running in the noification area when window is closed</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox">Launch Franz on start</label>
+                            </div>
+                            <p>Language</p>
+                            <select class="form-control">
+                              <option>Русский - Russian</option>
+                              <option>Английский - English</option>
+                            </select>
+                            <h3>Cache</h3>
+                            <button type="button" class="btn btn-default">Clear the Franz cache</button>
+                        </div>    
 
                     </div>
                 </div>
@@ -448,18 +471,15 @@
     </div>        
 
     <script>
-        // var config = require('electron').remote.getGlobal('config'),
-        //     ipcRenderer = require('electron').ipcRenderer;     
+        var config = require('electron').remote.getGlobal('config'),
+            ipcRenderer = require('electron').ipcRenderer;     
 
-        // console.log(config);
+        console.log(config);
 
-        // config.config.language = "ru-EN";
+        config.config.language = "ru-EN";
 
-        // ipcRenderer.send('save-config');
+        ipcRenderer.send('save-config');
     </script>
-
-    <!-- <script type="text/babel" src="react/launch.js"></script> -->
-    <script type="text/babel" src="react/settings.js"></script>
 </body>
 </html>
 

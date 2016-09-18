@@ -1,0 +1,23 @@
+{
+	"settings": {
+		"title": "Настройки",
+		"account": "Аккаунт",
+		"email": "Email",
+		"subscribeText": "Подписаться на новости",
+		"useText": "Я использую Franz для:",
+		"personalText": "Частного использования",
+		"commercialText": "Коммерческого использования",
+		"nonProfitText": "Некоммерческого использования",
+		"app": "Приложение",
+		"general": "Основные",
+		"leaveRunningText": "Оставлять уведомления, когда окно закрыто",
+		"launchText": "Запускать Franz при старте",
+        "language": "Язык",
+		"languages": [
+            {"id": 1, "value": "Русский - Russian"},
+            {"id": 2, "value": "Английский - English"}
+        ],
+		"cache": "Кэш",
+		"clearCache": "Очистить кэш"
+	}
+}

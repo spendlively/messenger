@@ -1,0 +1,23 @@
+{
+	"settings": {
+		"title": "Settings",
+		"account": "Account",
+		"email": "Email",
+		"subscribeText": "Please subscribe me the Franz newslater",
+		"useText": "I use Franz for",
+		"personalText": "Personal use",
+		"commercialText": "Commercial use",
+		"nonProfitText": "Non profit/NGO use",
+		"app": "App",
+		"general": "General",
+		"leaveRunningText": "Leave Franz running in the noification area when window is closed",
+		"launchText": "Launch Franz on start",
+		"language": "Language",
+        "languages": [
+            {"id": 1, "value": "Russian - Russian"},
+            {"id": 2, "value": "English - English"}
+        ],        
+		"cache": "Cache",
+		"clearCache": "Clear the Franz cache"
+	}
+}
