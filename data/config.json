@@ -1,1 +1,1 @@
-{"config":{"email":"spendlively@mail.ru","subscription":true,"personalUse":false,"commercialUse":false,"nonProfitUse":false,"leaveRunning":false,"launchOnStart":false,"language":"1"},"languages":[{"id":1,"value":"Русский - Russian"},{"id":2,"value":"Английский - English"}]}
+{"config":{"email":"spendlively@mail.ru","subscription":false,"personalUse":false,"commercialUse":false,"nonProfitUse":false,"leaveRunning":false,"launchOnStart":true,"language":"en-EN"}}

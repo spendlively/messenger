@@ -2,7 +2,8 @@ var localization = {
 
 	getCurrentLang: function(){
 
-		return 'ru-RU';
+		// return 'ru-RU';
+		return window.config.get('language');
 	},
 
 	data: {},
@@ -17,9 +18,9 @@ var localization = {
 			me.clses[name] = cls;
 		}
 
-		setTimeout(function(){
-			me.loadLang('en-EN');
-		}, 3000);
+		// setTimeout(function(){
+		// 	me.loadLang('en-EN');
+		// }, 3000);
 	},
 
 	getData: function(name){

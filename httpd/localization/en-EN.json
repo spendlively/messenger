@@ -14,8 +14,8 @@
 		"launchText": "Launch Franz on start",
 		"language": "Language",
         "languages": [
-            {"id": 1, "value": "Russian - Russian"},
-            {"id": 2, "value": "English - English"}
+            {"id": 1, "value": "Russian - Russian", "code": "ru-RU"},
+            {"id": 2, "value": "English - English", "code": "en-EN"}
         ],        
 		"cache": "Cache",
 		"clearCache": "Clear the Franz cache"

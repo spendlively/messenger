@@ -21,7 +21,11 @@ window.SettingsLanguage = React.createClass({
 		return (
 			<div>
 			    <p>Language</p>
-			    <select value={selectedLang} className="form-control" onChange={this.handleChange}>
+			    <select 
+			    	value={selectedLang} 
+		    		className="form-control" 
+		    		onChange={this.handleChange}
+	    		>
 			      {langs}
 			    </select>
 		    </div>

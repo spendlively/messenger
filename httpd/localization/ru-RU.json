@@ -14,8 +14,8 @@
 		"launchText": "Запускать Franz при старте",
         "language": "Язык",
 		"languages": [
-            {"id": 1, "value": "Русский - Russian"},
-            {"id": 2, "value": "Английский - English"}
+            {"id": 1, "value": "Русский - Russian", "code": "ru-RU"},
+            {"id": 2, "value": "Английский - English", "code": "en-EN"}
         ],
 		"cache": "Кэш",
 		"clearCache": "Очистить кэш"
