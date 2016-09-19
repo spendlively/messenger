@@ -57,6 +57,7 @@ app.on('ready', function() {
 
     // и загружаем файл index.html нашего веб приложения.
    mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
+//   mainWindow.loadURL('file://' + __dirname + '/index.html');
     // mainWindow.loadURL('http://127.0.0.1:8888/index.html');
 
     // Открываем DevTools.

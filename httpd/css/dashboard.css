@@ -137,8 +137,8 @@ h1, h2, h3, h4, h5, h6{
 
 .navbar-brand .glyphicon{
     top: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .navbar-brand .badge{
@@ -314,3 +314,8 @@ span.service-icon-small > img{
   margin: 2px;
 }
 /*END Popover в верхнем правом меню*/
+
+/*.top-main-menu-left ul li a.navbar-brand span.glyphicon{*/
+    /*margin-left: 0;*/
+    /*margin-right: 0;*/
+/*}*/

@@ -24,6 +24,10 @@ var EditServiceModal = React.createClass({
 		// window.config.save("email", value);
   	},
 
+    closeWindow: function(){
+        $('#modal-edit-service').modal('hide');
+    },
+
 	render: function(){
 
 		return (
@@ -84,9 +88,9 @@ var EditServiceModal = React.createClass({
 		                </div>
 
 		                <div className="modal-footer">
-		                    <button type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
-		                    <button type="button" className="btn btn-default pull-right">{this.state.saveBtn}</button>
-		                    <button type="button" className="btn btn-primary pull-right">{this.state.closeBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-default pull-right">{this.state.saveBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-primary pull-right">{this.state.closeBtn}</button>
 		                </div>
 		            </div>
 		        </div>

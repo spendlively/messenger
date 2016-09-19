@@ -9,3 +9,17 @@
 - redux
 - как отправить данные из javascript в nodejs
 - сборка проекта react
+
+
+//Что дальше
+- Разобраться с webpack для сборки js и использования модулей
+- Просмотреть примеры по react, чтобы понять как правильно вставлять/удалять элементы dom
+(по какому событию, как именно вставлять/удалять, как возобновлять вставленные при загрузке)
+    - Thinking in React
+    https://facebook.github.io/react/docs/thinking-in-react.html
+
+    - React Tutorial
+    https://www.youtube.com/watch?v=IR6smI_YJDE
+
+    - 5 практических примеров для изучения фреймворка React
+    https://habrahabr.ru/post/229629/

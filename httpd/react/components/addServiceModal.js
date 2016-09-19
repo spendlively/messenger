@@ -20,8 +20,28 @@ var AddServiceModal = React.createClass({
   		config.setService(this);
   	},
 
+    addService: function(state){
+
+        var title = state.title,
+            img = state.img,
+            url = state.url;
+
+        $('#modal-add-service').modal('hide');
+
+//        $("#tabs-container .tab-pane.webview").remove();
+
+        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+title+'"><webview id="wv-'+title+'" src="'+url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
+        $("#navbar-left ul.top-main-menu-left").append('<li role="presentation"><a class="navbar-brand ptr" href="#'+title+'" aria-controls="'+title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+img+'"></span>'+title+'</div></a></li>');
+
+    },
+
+    closeWindow: function(){
+        $('#modal-add-service').modal('hide');
+    },
 
 	render: function(){
+
+        var me = this;
 
 		return (
 			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -69,13 +89,13 @@ var AddServiceModal = React.createClass({
 		                        </div>
 		                    </form>                
 
-		                    <div className="alert alert-info" role="alert">{this.state.notice} VK.</div>
+		                    <div className="alert alert-info" role="alert">{this.state.notice} {this.state.title}.</div>
 
 		                </div>
 
 		                <div className="modal-footer">
-		                    <button type="button" className="btn btn-default">{this.state.closeBtn}</button>
-		                    <button type="button" className="btn btn-primary">{this.state.addBtn} VK</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-default">{this.state.closeBtn}</button>
+		                    <button onClick={function(){me.addService(me.state)}} type="button" className="btn btn-primary">{this.state.addBtn} {this.state.title}</button>
 		                </div>
 		            </div>
 		        </div>
