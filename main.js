@@ -5,7 +5,7 @@ const fs = require('fs');
 const ipcMain = require('electron').ipcMain;
 
 //Чтение конфига
-var configEncoded = fs.readFileSync('data/config.json', 'utf8');
+var configEncoded = fs.readFileSync(__dirname + '/data/config.json', 'utf8');
 var configText = decodeURIComponent(configEncoded);
 var config = JSON.parse(configText);
 // console.log(config);
@@ -17,7 +17,7 @@ global.config = config;
 ipcMain.on('save-config', function(event) {
     config = global.config;
     configText = JSON.stringify(config);
-    fs.writeFileSync('data/config.json', configText);
+    fs.writeFileSync(__dirname + '/data/config.json', configText);
 });
 
 // Опционально возможность отправки отчета о ошибках на сервер проекта Electron.
@@ -61,7 +61,7 @@ app.on('ready', function() {
     // mainWindow.loadURL('http://127.0.0.1:8888/index.html');
 
     // Открываем DevTools.
-   mainWindow.webContents.openDevTools();
+   // mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
