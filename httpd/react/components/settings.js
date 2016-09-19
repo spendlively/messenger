@@ -2,29 +2,38 @@ var SettingsBlock = React.createClass({
 
   	getInitialState: function() {
 
-		var l12n = window.localization,
+    // var l12n = window.localization,
+		var l12n = app.local,
 			settings = l12n.getData('settings');
 
-		settings.emailValue = window.config.get('email');
+    // settings.emailValue = window.config.get('email');
+		settings.emailValue = app.conf.get('email');
 
     	return settings;
   	},
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization;
+      // var l12n = window.localization;
+  		var l12n = app.local;
 
   		l12n.registerComponent('settings', this);
   	},
 
   	getDefaultProps: function(){
   		return {
-  			subscription: window.config.get('subscription'),
-  			personalUse: window.config.get('personalUse'),
-  			commercialUse: window.config.get('commercialUse'),
-  			nonProfitUse: window.config.get('nonProfitUse'),
-  			leaveRunning: window.config.get('leaveRunning'),
-  			launchOnStart: window.config.get('launchOnStart')
+  			// subscription: window.config.get('subscription'),
+  			// personalUse: window.config.get('personalUse'),
+  			// commercialUse: window.config.get('commercialUse'),
+  			// nonProfitUse: window.config.get('nonProfitUse'),
+  			// leaveRunning: window.config.get('leaveRunning'),
+  			// launchOnStart: window.config.get('launchOnStart')
+        subscription: app.conf.get('subscription'),
+        personalUse: app.conf.get('personalUse'),
+        commercialUse: app.conf.get('commercialUse'),
+        nonProfitUse: app.conf.get('nonProfitUse'),
+        leaveRunning: app.conf.get('leaveRunning'),
+        launchOnStart: app.conf.get('launchOnStart')
   		};
   	},
 
@@ -35,7 +44,8 @@ var SettingsBlock = React.createClass({
   			checked = target.checked;
 
   		if(name){
-  			window.config.save(name, checked);
+        // window.config.save(name, checked);
+  			app.conf.save(name, checked);
   		}
   	},
 
@@ -45,7 +55,8 @@ var SettingsBlock = React.createClass({
   			value = target.value;
 
 		this.setState({emailValue: value});
-		window.config.save("email", value);
+    // window.config.save("email", value);
+		app.conf.save("email", value);
   	},
 
   	handleChangeLang: function(event){
@@ -64,8 +75,10 @@ var SettingsBlock = React.createClass({
   			}
   		}
   		if(code){
-  			window.config.save('language', code);
-  			window.localization.loadLang(code);
+        // window.config.save('language', code);
+  			app.conf.save('language', code);
+        // window.localization.loadLang(code);
+  			app.local.loadLang(code);
   		}
   	},
 
@@ -166,7 +179,8 @@ var SettingsBlock = React.createClass({
 
   	getOptions: function(){
 
-		var langCode = window.config.get('language'),
+    // var langCode = window.config.get('language'),
+		var langCode = app.conf.get('language'),
 			selectedLang = '';
 
 		var options = this.state.languages.map(function(opt){

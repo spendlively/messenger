@@ -1,9 +1,15 @@
-var localization = {
+var conf = require('./conf');
+
+var local = {
 
 	getCurrentLang: function(){
 
+// conf.test();
+
 		// return 'ru-RU';
-		return window.config.get('language');
+		// return window.config.get('language');
+		return conf.get('language');
+		// return app.conf.get('language');
 	},
 
 	data: {},
@@ -34,8 +40,8 @@ var localization = {
 
 	getLanguages: function(){
 
-		var config = require('electron').remote.getGlobal('config'),
-		    ipcRenderer = require('electron').ipcRenderer;  
+		var config = window.require('electron').remote.getGlobal('config'),
+		    ipcRenderer = window.require('electron').ipcRenderer;  
 
 	    return config.languages;
 	},
@@ -69,17 +75,22 @@ var localization = {
 			cmp = me.components[i];
 			cmp.setState(data[i]);
 		}
+	},
+
+	test: function(){
+		alert('localization');
 	}
 };
 
 $.ajax({
-  	url: 'localization/' + localization.getCurrentLang() + '.json',
+  	url: 'localization/' + local.getCurrentLang() + '.json',
   	success: function(data){
-		localization.data = JSON.parse(data) || {};
+		local.data = JSON.parse(data) || {};
   	},
   	error: function(xhr, status, err){
 		console.log("Ошибка загрузки файла локализации");
   	}
 });
 
-window.localization = localization;
+// window.local = local;
+module.exports = local;

@@ -2,7 +2,11 @@ var AddService = React.createClass({
 
 	getInitialState: function(){
 
-		var l12n = window.localization,
+// console.log(app.local.getData())
+// console.log()
+
+    // var l12n = window.localization,
+		var l12n = app.local,
 			data = l12n.getData('addService');
 
     	return data;
@@ -10,7 +14,8 @@ var AddService = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization;
+      // var l12n = window.localization;
+  		var l12n = app.local;
 
       l12n.registerComponent('addService', this);
   	},
@@ -18,7 +23,8 @@ var AddService = React.createClass({
   clickHandler: function(id){
 
       var me = this,
-          config = window.config,
+          // config = window.config,
+          config = app.conf,
           data = me.getData();
 
       if(id && data.length){

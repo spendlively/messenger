@@ -2,7 +2,8 @@ var EditServiceModal = React.createClass({
 
 	getInitialState: function(){
 
-		var l12n = window.localization,
+		// var l12n = window.localization,
+		var l12n = app.local,
 			data = l12n.getData('editServiceModal');
 
     	return data;
@@ -10,7 +11,8 @@ var EditServiceModal = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization;
+  		// var l12n = window.localization;
+  		var l12n = app.local;
 
   		l12n.registerComponent('editServiceModal', this);
   	},

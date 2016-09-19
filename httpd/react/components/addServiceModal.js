@@ -2,7 +2,8 @@ var AddServiceModal = React.createClass({
 
 	getInitialState: function(){
 
-		var l12n = window.localization,
+		// var l12n = window.localization,
+		var l12n = app.local,
 			data = l12n.getData('addServiceModal');
 
 		data.img = '';
@@ -14,8 +15,10 @@ var AddServiceModal = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization,
-  			config = window.config;
+  		// var l12n = window.localization,
+  		var l12n = app.local,
+  			// config = window.config;
+  			config = app.conf;
 
   		l12n.registerComponent('addServiceModal', this);
   		config.setService(this);
