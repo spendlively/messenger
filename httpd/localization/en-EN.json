@@ -3,22 +3,22 @@
 		"title": "Settings",
 		"account": "Account",
 		"email": "Email",
-		"subscribeText": "Please subscribe me the Franz newslater",
-		"useText": "I use Franz for",
+		"subscribeText": "Please subscribe me the Opios newslater",
+		"useText": "I use Opios for",
 		"personalText": "Personal use",
 		"commercialText": "Commercial use",
 		"nonProfitText": "Non profit/NGO use",
 		"app": "App",
 		"general": "General",
-		"leaveRunningText": "Leave Franz running in the noification area when window is closed",
-		"launchText": "Launch Franz on start",
+		"leaveRunningText": "Leave Opios running in the noification area when window is closed",
+		"launchText": "Launch Opios on start",
 		"language": "Language",
         "languages": [
             {"id": 1, "value": "Russian - Russian", "code": "ru-RU"},
             {"id": 2, "value": "English - English", "code": "en-EN"}
         ],        
 		"cache": "Cache",
-		"clearCache": "Clear the Franz cache"
+		"clearCache": "Clear the Opios cache"
 	},
     "leftMenu": {
         "enabledServices": "Enabled services",
