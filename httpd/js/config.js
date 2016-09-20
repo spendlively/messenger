@@ -42,16 +42,5 @@ var config = {
 	}
 };
 
-window.config = config;
-
-
-
-
-// var config = require('electron').remote.getGlobal('config'),
-//     ipcRenderer = require('electron').ipcRenderer;     
-
-// console.log(config);
-
-// config.config.language = "ru-EN";
-
-// ipcRenderer.send('save-config');
+// window.config = config;
+module.exports = config;

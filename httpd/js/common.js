@@ -25,7 +25,7 @@ setTimeout(function(){
 	var notifBtnCounter = 0;
 	$('#header-top-notification-btn').click(function(){
 
-		var l12n = window.localization,
+		var l12n = app.localization,
 			data = l12n.getData('notice');
 
 		var text = data['enabled'];

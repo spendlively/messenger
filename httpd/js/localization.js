@@ -1,9 +1,11 @@
+var config = require('./config');
+
 var localization = {
 
 	getCurrentLang: function(){
 
 		// return 'ru-RU';
-		return window.config.get('language');
+		return config.get('language');
 	},
 
 	data: {},
@@ -82,4 +84,5 @@ $.ajax({
   	}
 });
 
-window.localization = localization;
+// window.localization = localization;
+module.exports = localization;

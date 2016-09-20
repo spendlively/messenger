@@ -2,7 +2,7 @@ var LeftMenu = React.createClass({
 
 	getInitialState: function(){
 
-		var l12n = window.localization,
+		var l12n = app.localization,
 			data = l12n.getData('leftMenu');
 
     	return data;
@@ -10,7 +10,7 @@ var LeftMenu = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization;
+  		var l12n = app.localization;
 
   		l12n.registerComponent('leftMenu', this);
   	},

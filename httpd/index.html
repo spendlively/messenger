@@ -6,27 +6,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0">
 
         <!-- React -->
-        <script src="react/react.js"></script>
-        <script src="react/react-dom.js"></script>
-        <script src="react/browser.min.js"></script>
-        <script src="react/remarkable.min.js"></script>
+        <script src="lib/react.js"></script>
+        <script src="lib/react-dom.js"></script>
+        <script src="lib/browser.min.js"></script>
+        <script src="lib/remarkable.min.js"></script>
 
         <!--Bootstrap's JavaScript requires jQuery-->
         <!--http://stackoverflow.com/questions/32621988/electron-jquery-is-not-defined-->
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-        <script src="js/jquery-3.1.0.js"></script>
+        <script src="lib/jquery-3.1.0.js"></script>
 
-        <script src="react/config.js"></script>
-        <script src="react/localization.js"></script>
+<!-- <script src="js/config.js"></script>
+<script src="js/localization.js"></script> -->
+<script src="build.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/popover.js"></script>
+        <script src="lib/bootstrap.min.js"></script>
+        <script src="lib/popover.js"></script>
         <!-- <script src="js/common.js"></script> -->
 
         <!-- Нотификатор -->
-        <script src="js/bootstrap-notify.js"></script>
+        <script src="lib/bootstrap-notify.js"></script>
         <link rel="stylesheet" href="css/bootstrap-notify.css">
 
         <link rel="stylesheet" href="css/dashboard.css">
@@ -35,7 +36,7 @@
 
         <!-- Кнопочки switcher -->
         <link rel="stylesheet" href="css/bootstrap-switch.css">
-        <script src="js/bootstrap-switch.js"></script>
+        <script src="lib/bootstrap-switch.js"></script>
         
 
         <!--Bootstrap's JavaScript requires jQuery-->
@@ -54,15 +55,6 @@
                     <li role="presentation" class="active"><a class="navbar-brand ptr" href="#home" aria-controls="home" role="tab" data-toggle="tab">
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     </a></li>
-                    <!--<li role="presentation"><a class="navbar-brand ptr" href="#vk" aria-controls="vk" role="tab" data-toggle="tab">-->
-                        <!--<div>-->
-                            <!--<span class="glyphicon service-icon-small" aria-hidden="true">-->
-                                <!--<img src="services/vk.svg">-->
-                            <!--</span>-->
-                            <!--spendlively@mail.ru-->
-                            <!--&lt;!&ndash;<span class="badge badge-active">4</span>&ndash;&gt;-->
-                        <!--</div>-->
-                    <!--</a></li>-->
                 </ul>
 
                 <!-- HEADER ПРАВОЕ МЕНЮ -->
@@ -128,46 +120,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Контент вкладки vk.com -->
-        <!--<div role="tabpanel" class="tab-pane" id="vk">-->
-            <!--<webview id="foo" src="https://www.vk.com/" style="display:inline-flex; width:100%; height:780px"></webview>-->
-        <!--</div>-->
-
-        <!--<div role="tabpanel" class="tab-pane webview" id="Slack"><webview id="wv-Slack" src="https://slack.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Messenger"><webview id="wv-Messenger" src="https://www.messenger.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="WhatsApp"><webview id="wv-WhatsApp" src="https://www.whatsapp.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Telegram"><webview id="wv-Telegram" src="https://web.telegram.org/#/login" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Skype"><webview id="wv-Skype" src="https://login.skype.com/login" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="WeChat"><webview id="wv-WeChat" src="https://www.wechat.com/ru/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="HipChat"><webview id="wv-HipChat" src="https://www.hipchat.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="ChatWork"><webview id="wv-ChatWork" src="http://www.chatwork.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Flowdock"><webview id="wv-Flowdock" src="https://www.flowdock.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Hangouts"><webview id="wv-Hangouts" src="https://hangouts.google.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="GroupMe"><webview id="wv-GroupMe" src="https://groupme.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Rocket Chat"><webview id="wv-Rocket Chat" src="https://rocket.chat/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Mattermost"><webview id="wv-Mattermost" src="https://www.mattermost.org/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Grape"><webview id="wv-Grape" src="https://chatgrape.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Gitter"><webview id="wv-Gitter" src="https://gitter.im/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="TweetDeck"><webview id="wv-TweetDeck" src="https://tweetdeck.twitter.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="DingTalk"><webview id="wv-DingTalk" src="http://www.dingtalk.com/index-b.html" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Steam Chat"><webview id="wv-Steam Chat" src="https://steamcommunity.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Discord"><webview id="wv-Discord" src="https://discordapp.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="MySMS"><webview id="wv-MySMS" src="https://www.mysms.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Inbox by Gmail"><webview id="wv-Inbox by Gmail" src="https://inbox.google.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Gmail"><webview id="wv-Gmail" src="https://mail.google.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Outlook.com"><webview id="wv-Outlook.com" src="https://login.live.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="VK"><webview id="wv-VK" src="https://vk.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Wire"><webview id="wv-Wire" src="https://wire.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="ICQ"><webview id="wv-ICQ" src="https://icq.com/windows/ru" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="IRCCloud"><webview id="wv-IRCCloud" src="https://www.irccloud.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Cisco Spark"><webview id="wv-Cisco Spark" src="https://www.ciscospark.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Facebook Page"><webview id="wv-Facebook Page" src="https://www.facebook.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="LinkedId"><webview id="wv-LinkedId" src="https://www.linkedin.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Hibox"><webview id="wv-Hibox" src="http://www.hibox.tv/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Couple.me"><webview id="wv-Couple.me" src="https://couple.me/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Yahoo! Messenger"><webview id="wv-Yahoo! Messenger" src="https://messenger.yahoo.com/" style="display:inline-flex; width:100%; height:780px"></webview></div>-->
-        <!--<div role="tabpanel" class="tab-pane" id="Zendesk"><webview id="wv-Zendesk" src="https://www.zendesk.com.ru/" style="display:inline-flex; width:100%; height:780px"></webview></div>        -->
     </div>
 
     <!--Модальное окно "Поделиться"-->
@@ -180,18 +132,17 @@
     <div id="addServiceModalTarget"></div>
 
     <!-- <script type="text/babel" src="react/launch.js"></script> -->
-    <script type="text/babel" src="react/components/settings.js"></script>
-    <script type="text/babel" src="react/components/leftmenu.js"></script>
-    <script type="text/babel" src="react/components/enabledServices.js"></script>
-    <script type="text/babel" src="react/components/addService.js"></script>
-    <script type="text/babel" src="react/components/modalLike.js"></script>
-    <script type="text/babel" src="react/components/addServiceModal.js"></script>
-    <script type="text/babel" src="react/components/editServiceModal.js"></script>
-
-    <!--<script type="text/babel" src="ex.js"></script>-->
-    <!--<script type="text/babel" src="im.js"></script>-->
+    <script type="text/babel" src="js/components/settings.js"></script>
+    <script type="text/babel" src="js/components/leftmenu.js"></script>
+    <script type="text/babel" src="js/components/enabledServices.js"></script>
+    <script type="text/babel" src="js/components/addService.js"></script>
+    <script type="text/babel" src="js/components/modalLike.js"></script>
+    <script type="text/babel" src="js/components/addServiceModal.js"></script>
+    <script type="text/babel" src="js/components/editServiceModal.js"></script>
 
     <script src="js/common.js"></script>
+
+
 </body>
 </html>
 

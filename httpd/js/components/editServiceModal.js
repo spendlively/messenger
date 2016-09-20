@@ -1,53 +1,38 @@
-var AddServiceModal = React.createClass({
+var EditServiceModal = React.createClass({
 
 	getInitialState: function(){
 
-		var l12n = window.localization,
-			data = l12n.getData('addServiceModal');
-
-		data.img = '';
-		data.title = '';
-		data.id = '';
+		var l12n = app.localization,
+			data = l12n.getData('editServiceModal');
 
     	return data;
 	},
 
   	componentDidMount: function() {
   		
-  		var l12n = window.localization,
-  			config = window.config;
+  		var l12n = app.localization;
 
-  		l12n.registerComponent('addServiceModal', this);
-  		config.setService(this);
+  		l12n.registerComponent('editServiceModal', this);
   	},
 
-    addService: function(state){
+  	handleChange: function(event){
 
-        var title = state.title,
-            img = state.img,
-            id = state.id,
-            url = state.url;
-// console.log(img, id, url)
-        $('#modal-add-service').modal('hide');
+  		// var target = event.target,
+  			// value = target.value;
 
-//        $("#tabs-container .tab-pane.webview").remove();
-
-        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+id+'"><webview id="wv-'+id+'" src="'+url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
-        $("#navbar-left ul.top-main-menu-left").append('<li role="presentation"><a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+img+'"></span>'+title+'</div></a></li>');
-
-    },
+		// this.setState({emailValue: value});
+		// app.config.save("email", value);
+  	},
 
     closeWindow: function(){
-        $('#modal-add-service').modal('hide');
+        $('#modal-edit-service').modal('hide');
     },
 
 	render: function(){
 
-        var me = this;
-
 		return (
-			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
-	        	<div className="modal-dialog" role="document">
+			<div className="modal fade modal-service" id="modal-edit-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
+		        <div className="modal-dialog" role="document">
 		            <div className="modal-content">
 		                <div className="modal-header">
 		                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -55,9 +40,9 @@ var AddServiceModal = React.createClass({
 		                    </button>
 		                    <h2>
 		                        <span className="glyphicon service-icon-small" aria-hidden="true">
-		                            <img src={this.state.img} />
+		                            <img src="services/vk.svg" />
 		                        </span>
-		                        {this.state.add} {this.state.title}
+		                        {this.state.edit} VK
 		                    </h2>
 		                </div>
 
@@ -67,10 +52,17 @@ var AddServiceModal = React.createClass({
 		                        <div className="form-group">
 		                            <label htmlFor="inputEmail3" className="col-sm-3 control-label">{this.state.name}</label>
 		                            <div className="col-sm-9">
-		                                <input type="email" className="form-control" id="inputEmail3" placeholder="" value="" />
+		                                <input onChange={this.handleChange} type="email" className="form-control" id="inputEmail3" placeholder="" value="spendlively@mail.ru" />
 		                            </div>
 		                        </div>
 
+		                        <div className="form-group">
+		                            <label htmlFor="switch-modal" className="col-sm-3 control-label">{this.state.enableService}</label>
+		                            <div className="col-sm-9">
+		                                <input onChange={this.handleChange} className="switch-button" id="switch-modal" type="checkbox" checked />
+		                            </div>
+		                        </div>
+		                        
 		                        <div className="form-group">
 		                            <div className="col-sm-offset-3 col-sm-9">
 		                                <div className="checkbox">
@@ -91,13 +83,14 @@ var AddServiceModal = React.createClass({
 		                        </div>
 		                    </form>                
 
-		                    <div className="alert alert-info" role="alert">{this.state.notice} {this.state.title}.</div>
+		                    <div className="alert alert-info" role="alert">{this.state.notice} VK.</div>
 
 		                </div>
 
 		                <div className="modal-footer">
-		                    <button onClick={this.closeWindow} type="button" className="btn btn-default">{this.state.closeBtn}</button>
-		                    <button onClick={function(){me.addService(me.state)}} type="button" className="btn btn-primary">{this.state.addBtn} {this.state.title}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-default pull-right">{this.state.saveBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-primary pull-right">{this.state.closeBtn}</button>
 		                </div>
 		            </div>
 		        </div>
@@ -107,6 +100,6 @@ var AddServiceModal = React.createClass({
 });
 
 ReactDOM.render(
-	<AddServiceModal />,
-	document.getElementById('addServiceModalTarget')
+	<EditServiceModal />,
+	document.getElementById('editServiceModalTarget')
 );
