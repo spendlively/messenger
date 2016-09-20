@@ -13,6 +13,23 @@ var LeftMenu = React.createClass({
   		var l12n = app.localization;
 
   		l12n.registerComponent('leftMenu', this);
+
+        //Обработка клика по кнопке левого бокового меню
+        $('ul.lmenu>li').click(function(){
+            var targetId = $(this).attr('data-element-scroll-to'),
+                marginTop = parseInt($('#' + targetId).css('margin-top')),
+                topOffset = document.getElementById('top-navbar').getBoundingClientRect().bottom,
+                offset = $('#' + targetId).offset().top - topOffset - marginTop -20,
+                activeClsName = 'active';
+
+                $('ul.lmenu>li.' + activeClsName).removeClass(activeClsName);
+                $(this).addClass(activeClsName);
+
+            //Скролл на элемент
+            $('html, body').animate({
+                scrollTop: offset +  'px'
+            }, 'fast');
+        });        
   	},
 
 	render: function(){

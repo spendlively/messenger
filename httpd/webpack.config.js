@@ -7,5 +7,6 @@ module.exports = {
         filename: "build.js",
         library: 'app'
     },
-    target: 'electron'
+    target: 'electron',
+    watch: true
 }

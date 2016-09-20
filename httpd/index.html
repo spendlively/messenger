@@ -16,9 +16,7 @@
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="lib/jquery-3.1.0.js"></script>
 
-<!-- <script src="js/config.js"></script>
-<script src="js/localization.js"></script> -->
-<script src="build.js"></script>
+        <script src="build.js"></script>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -50,44 +48,13 @@
             <!-- Верхнее горизонтальное меню -->
             <div id="navbar-left" class="navbar-header-menu">
 
-                <!-- HEADER ЛЕВОЕ МЕНЮ -->
-                <ul class="nav navbar-nav navbar-left nav-tabs top-main-menu-left">
-                    <li role="presentation" class="active"><a class="navbar-brand ptr" href="#home" aria-controls="home" role="tab" data-toggle="tab">
-                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    </a></li>
-                </ul>
 
-                <!-- HEADER ПРАВОЕ МЕНЮ -->
-                <ul class="nav navbar-nav navbar-right top-main-menu-right">
-                    <li>
-                        <a data-placement="bottom" data-toggle="popover" data-container="body"  type="button" data-html="true" href="#">
-                            <span class="glyphicon glyphicon-menu-hamburger"></span>
-                        </a>
-                    </li>
-                    <li><a class="ptr" id="header-top-notification-btn" href="#" id="rmenu-alert-btn" data-dismiss="alert" aria-label="Close">
-                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-                    </a></li>
-                    <li><a href="#" class="ptr" data-toggle="modal" data-target="#modal-like">
-                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                    </a></li>
-                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Popover верхнего меню вкл/выкл сервисов -->
-    <div id="popover-content" class="hide">
-
-        <span class="glyphicon service-icon-small" aria-hidden="true">
-            <img src="services/vk.svg">
-        </span>
-        spendlively@mail.ru
-        <span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
-        <span class="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>
-        <div class="top-popover-switcher pull-right">
-            <input class="switch-button" id="popover-switch-service" type="checkbox" checked data-size="mini">
-        </div>
-    </div>
+    <div id="popover-content" class="hide"></div>
 
     <!-- Placeholder'ы для нотификатора -->
     <div class='notifications top-right'></div>
@@ -132,9 +99,11 @@
     <div id="addServiceModalTarget"></div>
 
     <!-- <script type="text/babel" src="react/launch.js"></script> -->
+    <script type="text/babel" src="js/components/headerMenu.js"></script>
     <script type="text/babel" src="js/components/settings.js"></script>
     <script type="text/babel" src="js/components/leftmenu.js"></script>
     <script type="text/babel" src="js/components/enabledServices.js"></script>
+    <script type="text/babel" src="js/components/editService.js"></script>
     <script type="text/babel" src="js/components/addService.js"></script>
     <script type="text/babel" src="js/components/modalLike.js"></script>
     <script type="text/babel" src="js/components/addServiceModal.js"></script>
