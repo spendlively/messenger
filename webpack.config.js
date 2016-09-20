@@ -5,8 +5,9 @@ module.exports = {
         filename: "build.js",
         library: "app"
     },
-    node: {
-    	fs: 'empty',
-    	electron: 'empty'
-    }
+    target: 'electron'
+//    node: {
+//    	fs: 'empty',
+//    	electron: 'empty'
+//    }
 };

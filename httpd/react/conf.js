@@ -3,8 +3,8 @@ var conf = {
 	save: function(name, value){
 
 		var me = this, 
-			config = window.require('electron').remote.getGlobal('config'),
-		    ipcRenderer = window.require('electron').ipcRenderer;     
+			config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;     
 
 	    if(typeof config.config[name] !== 'undefined'){
     		config.config[name] = value;
@@ -15,8 +15,8 @@ var conf = {
 
 	get: function(name){
 
-		var config = window.require('electron').remote.getGlobal('config');
-		    ipcRenderer = window.require('electron').ipcRenderer;     
+		var config = require('electron').remote.getGlobal('config');
+		    ipcRenderer = require('electron').ipcRenderer;     
 		    
 	    if(typeof config.config[name] !== 'undefined'){
     		return config.config[name];
@@ -26,8 +26,8 @@ var conf = {
 
 	getLanguages: function(){
 
-		var config = window.require('electron').remote.getGlobal('config'),
-		    ipcRenderer = window.require('electron').ipcRenderer;  
+		var config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;  
 
 	    return config.languages;
 	},

@@ -40,8 +40,8 @@ var local = {
 
 	getLanguages: function(){
 
-		var config = window.require('electron').remote.getGlobal('config'),
-		    ipcRenderer = window.require('electron').ipcRenderer;  
+		var config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;  
 
 	    return config.languages;
 	},
