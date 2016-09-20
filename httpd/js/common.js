@@ -7,5 +7,6 @@ setTimeout(function(){
 	//Switcher кнопочки
 	$('input#switch-modal').bootstrapSwitch('state', true, true);
 
+
 }, 1000);
 });

@@ -48,7 +48,7 @@ var localization = {
 			lang = lang || me.getCurrentLang();
 
 		$.ajax({
-		  	url: 'localization/' + lang + '.json',
+		  	url: 'data/localization/' + lang + '.json',
 		  	success: function(data){
 		  		var obj = null;
 				if(obj = JSON.parse(data)){
@@ -75,7 +75,7 @@ var localization = {
 };
 
 $.ajax({
-  	url: 'localization/' + localization.getCurrentLang() + '.json',
+  	url: 'data/localization/' + localization.getCurrentLang() + '.json',
   	success: function(data){
 		localization.data = JSON.parse(data) || {};
   	},

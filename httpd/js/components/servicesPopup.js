@@ -1,4 +1,4 @@
-var EditService = React.createClass({
+var ServicesPopup = React.createClass({
 
 	onChangeHandler: function(event){
 
@@ -47,6 +47,6 @@ var EditService = React.createClass({
 });
 
 ReactDOM.render(
-	<EditService />,
+	<ServicesPopup />,
 	document.getElementById('popover-content')
 );

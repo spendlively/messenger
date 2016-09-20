@@ -27,14 +27,8 @@ var AddServiceModal = React.createClass({
             img = state.img,
             id = state.id,
             url = state.url;
-// console.log(img, id, url)
-        $('#modal-add-service').modal('hide');
 
-//        $("#tabs-container .tab-pane.webview").remove();
-
-        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+id+'"><webview id="wv-'+id+'" src="'+url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
-        $("#navbar-left ul.top-main-menu-left").append('<li role="presentation"><a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+img+'"></span>'+title+'</div></a></li>');
-
+        app.services.addService(id);
     },
 
     closeWindow: function(){

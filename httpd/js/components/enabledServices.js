@@ -13,22 +13,19 @@ var EnabledServices = React.createClass({
   		var l12n = app.localization;
 
   		l12n.registerComponent('enabledServices', this);
+
+      //Восстановление сервисов
+      app.services.restoreServices();
   	},
 
 	render: function(){
 
-		return (
+    return (
             <div>
                 <h2 id="content-available-services">{this.state.title}</h2>
-                <div className="available-services-block ptr" data-toggle="modal" data-target="#modal-edit-service">
-                    <span className="glyphicon service-icon-small" aria-hidden="true">
-                        <img src="services/vk.svg" />
-                    </span>
-                        spendlively@mail.ru
-                    <span className="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
-                </div>            
+                <div id="edit-services-list" className="available-services-block ptr" data-toggle="modal" data-target="#modal-edit-service"></div>
             </div>
-		);
+    );
 	}
 });
 

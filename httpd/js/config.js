@@ -13,6 +13,28 @@ var config = {
 	    }
 	},
 
+	saveService: function(id){
+
+		var me = this, 
+			config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;     
+
+	    var ss = [];
+	    if(config.services.length){
+	    	for(var s in config.services){
+	    		ss.push(config.services[s]);
+	    	}
+	    }
+
+	    if(ss.indexOf(id === -1)){
+			ss.push(id);
+			config.services = ss;
+	    }
+
+		ipcRenderer.send('save-config');
+		console.log("Saving service", id);
+	},
+
 	get: function(name){
 
 		var config = require('electron').remote.getGlobal('config'),
@@ -23,6 +45,14 @@ var config = {
 	    }
 	    return null;
 	},
+
+	getAddedServices: function(){
+
+		var config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;     
+
+	    return config.services;
+	},	
 
 	getLanguages: function(){
 

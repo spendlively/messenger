@@ -16,7 +16,11 @@
         <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
         <script src="lib/jquery-3.1.0.js"></script>
 
+        <!-- Сборка config.js и localization.js -->
         <script src="build.js"></script>
+        <!-- <script>
+            app.services.test();
+        </script> -->
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -98,19 +102,17 @@
     <!--Модальное окно "Добавить сервис"-->
     <div id="addServiceModalTarget"></div>
 
-    <!-- <script type="text/babel" src="react/launch.js"></script> -->
     <script type="text/babel" src="js/components/headerMenu.js"></script>
     <script type="text/babel" src="js/components/settings.js"></script>
     <script type="text/babel" src="js/components/leftmenu.js"></script>
     <script type="text/babel" src="js/components/enabledServices.js"></script>
-    <script type="text/babel" src="js/components/editService.js"></script>
+    <script type="text/babel" src="js/components/servicesPopup.js"></script>
     <script type="text/babel" src="js/components/addService.js"></script>
     <script type="text/babel" src="js/components/modalLike.js"></script>
     <script type="text/babel" src="js/components/addServiceModal.js"></script>
     <script type="text/babel" src="js/components/editServiceModal.js"></script>
 
     <script src="js/common.js"></script>
-
 
 </body>
 </html>

@@ -47,9 +47,11 @@ var app =
 
 	var config = __webpack_require__(1);
 	var localization = __webpack_require__(3);
+	var services = __webpack_require__(4);
 
 	module.exports.config = config;
 	module.exports.localization = localization;
+	module.exports.services = services;
 
 /***/ },
 /* 1 */
@@ -70,6 +72,28 @@ var app =
 		    }
 		},
 
+		saveService: function(id){
+
+			var me = this, 
+				config = __webpack_require__(2).remote.getGlobal('config'),
+			    ipcRenderer = __webpack_require__(2).ipcRenderer;     
+
+		    var ss = [];
+		    if(config.services.length){
+		    	for(var s in config.services){
+		    		ss.push(config.services[s]);
+		    	}
+		    }
+
+		    if(ss.indexOf(id === -1)){
+				ss.push(id);
+				config.services = ss;
+		    }
+
+			ipcRenderer.send('save-config');
+			console.log("Saving service", id);
+		},
+
 		get: function(name){
 
 			var config = __webpack_require__(2).remote.getGlobal('config'),
@@ -80,6 +104,14 @@ var app =
 		    }
 		    return null;
 		},
+
+		getAddedServices: function(){
+
+			var config = __webpack_require__(2).remote.getGlobal('config'),
+			    ipcRenderer = __webpack_require__(2).ipcRenderer;     
+
+		    return config.services;
+		},	
 
 		getLanguages: function(){
 
@@ -163,7 +195,7 @@ var app =
 				lang = lang || me.getCurrentLang();
 
 			$.ajax({
-			  	url: 'localization/' + lang + '.json',
+			  	url: 'data/localization/' + lang + '.json',
 			  	success: function(data){
 			  		var obj = null;
 					if(obj = JSON.parse(data)){
@@ -190,7 +222,7 @@ var app =
 	};
 
 	$.ajax({
-	  	url: 'localization/' + localization.getCurrentLang() + '.json',
+	  	url: 'data/localization/' + localization.getCurrentLang() + '.json',
 	  	success: function(data){
 			localization.data = JSON.parse(data) || {};
 	  	},
@@ -201,6 +233,113 @@ var app =
 
 	// window.localization = localization;
 	module.exports = localization;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	var services = {
+
+		allServices: [],
+
+		services: [],
+
+		addService: function(id){
+
+			var me = this;
+
+			//Закрыть модальное окно
+	        $('#modal-add-service').modal('hide');
+
+	        if(me.services.indexOf(id) !== -1){
+	        	return;
+	        }
+
+			me._addService(id);
+
+	        app.config.saveService(id);
+	        me.services = me.getAddedServices();
+		},
+
+		_addService: function(id){
+
+			var me = this,
+				service = me.getServiceById(id);
+
+			//Создать webview
+	        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+id+'"><webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
+
+			//Создать таб-вкладку
+	        $("#navbar-left ul.top-main-menu-left").append('<li id="tab-'+id+'" role="presentation"><a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+service.img+'"></span>'+service.title+'</div></a></li>');
+
+	        //Создать edit-панель
+	        $("#edit-services-list").append(
+	    			'<div class="margin10">'+
+	                    '<span class="glyphicon service-icon-small" aria-hidden="true">'+
+	                        '<img src="'+service.img+'" />'+
+	                    '</span>'+
+	                        service.title+
+	                    '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+	                '</div>'
+	    	);
+		},	
+
+		restoreServices: function(id){
+
+			var me = this;
+
+			me.services = services.getAddedServices();
+
+			if(me.services.length){
+				for(var s in me.services){
+					me._addService(me.services[s]);
+				}
+			}
+		},
+
+		removeService: function(id){
+
+			$('#tab-'+id).remove();
+			$('#'+id).remove();
+		},
+
+		getAddedServices: function(){
+
+			return app.config.getAddedServices();
+		},
+
+		getAll: function(){
+
+			return this.allServices;
+		},
+
+		getServiceById: function(id){
+
+			var me = this;
+
+			if(me.allServices.length){
+
+				for(var s in me.allServices){
+					if(me.allServices[s].id == id){
+						return me.allServices[s];
+					}
+				}
+			}
+
+			return null;
+		}
+	}
+	$.ajax({
+	  	url: 'data/services.json',
+	  	success: function(data){
+			services.allServices = JSON.parse(data) || {};
+	  	},
+	  	error: function(xhr, status, err){
+			console.log("Ошибка загрузки списка сервисов");
+	  	}
+	});
+
+	module.exports = services;
 
 /***/ }
 /******/ ]);
