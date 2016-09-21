@@ -109,7 +109,7 @@ var app =
 
 	        var ind = ss.indexOf(id);
 	        if(ind !== -1){
-	            delete ss.push[ind];
+	            delete ss[ind];
 	            config.services = ss;
 	        }
 
