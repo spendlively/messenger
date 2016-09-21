@@ -1,1 +1,1 @@
-{"config":{"email":"spendlively@mail.com","subscription":true,"personalUse":false,"commercialUse":false,"nonProfitUse":false,"leaveRunning":false,"launchOnStart":true,"language":"ru-RU"},"services":[]}
+{"config":{"email":"spendlively@mail.com","subscription":true,"personalUse":true,"commercialUse":true,"nonProfitUse":true,"leaveRunning":true,"launchOnStart":true,"language":"ru-RU"},"services":["messenger"]}

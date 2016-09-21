@@ -48,10 +48,12 @@ var app =
 	var config = __webpack_require__(1);
 	var localization = __webpack_require__(3);
 	var services = __webpack_require__(4);
+	var componentsObserver = __webpack_require__(5);
 
 	module.exports.config = config;
 	module.exports.localization = localization;
 	module.exports.services = services;
+	module.exports.componentsObserver = componentsObserver;
 
 /***/ },
 /* 1 */
@@ -182,18 +184,14 @@ var app =
 
 		components: {},
 
-		registerComponent: function(name, cls){
+		// registerComponent: function(name, cls){
 
-			var me = this;
+		// 	var me = this;
 
-			if(cls){
-				me.components[name] = cls;
-			}
-
-			// setTimeout(function(){
-			// 	me.loadLang('en-EN');
-			// }, 3000);
-		},
+		// 	if(cls){
+		// 		me.components[name] = cls;
+		// 	}
+		// },
 
 		getData: function(name){
 
@@ -235,11 +233,14 @@ var app =
 		updateStates: function(data){
 
 			var me = this,
-				cmp = null;
+				cmp = null,
+				components = app.componentsObserver.getComponents();
 
-			for(var i in me.components){
-				cmp = me.components[i];
-				cmp.setState(data[i]);
+			for(var c in components){
+				cmp = components[c];
+				if(typeof data[c] !== 'undefined'){
+					cmp.setState(data[c]);
+				}
 			}
 		}
 	};
@@ -321,7 +322,7 @@ var app =
 	        ).appendTo("#edit-services-list").click(function(el){
 
 	                var l12n = app.localization,
-	                    editServiceModal = l12n.components['editServiceModal'];
+	                    editServiceModal = app.componentsObserver.getComponent('editServiceModal');
 	                editServiceModal.setState(service);
 	        });
 		},
@@ -389,6 +390,41 @@ var app =
 	});
 
 	module.exports = services;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	var componentsObserver = {
+
+		components: {},
+
+		registerComponent(name, cmp){
+
+			if(typeof this.components[name] === 'undefined'){
+
+				this.components[name] = cmp;
+			}
+		},
+
+		getComponent: function(name){
+			
+			if(typeof this.components[name] !== 'undefined'){
+
+				return this.components[name];
+			}
+
+			return null;
+		},
+
+		getComponents: function(){
+
+			return this.components;
+		}
+	}
+
+	module.exports = componentsObserver;
+
 
 /***/ }
 /******/ ]);

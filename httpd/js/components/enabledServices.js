@@ -10,9 +10,7 @@ var EnabledServices = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization;
-
-  		l12n.registerComponent('enabledServices', this);
+  		app.componentsObserver.registerComponent('enabledServices', this);
 
       //Восстановление сервисов
       app.services.restoreServices();

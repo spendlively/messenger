@@ -14,9 +14,7 @@ var EditServiceModal = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization;
-
-  		l12n.registerComponent('editServiceModal', this);
+  		app.componentsObserver.registerComponent('editServiceModal', this);
   	},
 
   	handleChange: function(event){

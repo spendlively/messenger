@@ -7,6 +7,8 @@ var ServicesPopup = React.createClass({
 
 	componentDidMount: function(){
 
+		app.componentsObserver.registerComponent('servicesPopup', this);
+
 		//Popover верхнего меню вкл/выкл сервисов
 		var switcherFlag = false;
 		$("[data-toggle=popover]").popover({

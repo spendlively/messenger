@@ -10,9 +10,7 @@ var AddService = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization;
-
-      l12n.registerComponent('addService', this);
+      app.componentsObserver.registerComponent('addService', this);
   	},
 
   clickHandler: function(id){

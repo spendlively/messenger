@@ -58,7 +58,7 @@ var services = {
         ).appendTo("#edit-services-list").click(function(el){
 
                 var l12n = app.localization,
-                    editServiceModal = l12n.components['editServiceModal'];
+                    editServiceModal = app.componentsObserver.getComponent('editServiceModal');
                 editServiceModal.setState(service);
         });
 	},

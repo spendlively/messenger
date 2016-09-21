@@ -14,10 +14,9 @@ var AddServiceModal = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization,
-  			config = app.config;
+  		var config = app.config;
 
-  		l12n.registerComponent('addServiceModal', this);
+  		app.componentsObserver.registerComponent('addServiceModal', this);
   		config.setService(this);
   	},
 
