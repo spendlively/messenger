@@ -5,9 +5,9 @@ var EditServiceModal = React.createClass({
 		var l12n = app.localization,
 			data = l12n.getData('editServiceModal');
 
-        data.img = 'services/vk.svg';
-        data.title = 'VK';
-        data.id = 'vk';
+        data.img = '';
+        data.title = '';
+        data.id = '';
 
     	return data;
 	},
