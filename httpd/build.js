@@ -94,6 +94,29 @@ var app =
 			console.log("Saving service", id);
 		},
 
+	    removeService: function(id){
+
+	        var me = this,
+	            config = __webpack_require__(2).remote.getGlobal('config'),
+	            ipcRenderer = __webpack_require__(2).ipcRenderer;
+
+	        var ss = [];
+	        if(config.services.length){
+	            for(var s in config.services){
+	                ss.push(config.services[s]);
+	            }
+	        }
+
+	        var ind = ss.indexOf(id);
+	        if(ind !== -1){
+	            delete ss.push[ind];
+	            config.services = ss;
+	        }
+
+	        ipcRenderer.send('save-config');
+	        console.log("Saving service", id);
+	    },
+
 		get: function(name){
 
 			var config = __webpack_require__(2).remote.getGlobal('config'),
@@ -267,22 +290,41 @@ var app =
 				service = me.getServiceById(id);
 
 			//Создать webview
-	        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+id+'"><webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
+	        $("#tabs-container").append(
+	            '<div role="tabpanel" class="tab-pane webview" id="'+id+'">' +
+	                '<webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview>' +
+	            '</div>'
+	        );
 
 			//Создать таб-вкладку
-	        $("#navbar-left ul.top-main-menu-left").append('<li id="tab-'+id+'" role="presentation"><a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+service.img+'"></span>'+service.title+'</div></a></li>');
+	        $("#navbar-left ul.top-main-menu-left").append(
+	            '<li id="tab-'+id+'" role="presentation">' +
+	                '<a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab">' +
+	                    '<div>' +
+	                        '<span class="glyphicon service-icon-small" aria-hidden="true">' +
+	                            '<img src="'+service.img+'">' +
+	                        '</span>'+service.title+'' +
+	                    '</div>' +
+	                '</a>' +
+	            '</li>'
+	        );
 
 	        //Создать edit-панель
-	        $("#edit-services-list").append(
-	    			'<div class="margin10">'+
-	                    '<span class="glyphicon service-icon-small" aria-hidden="true">'+
-	                        '<img src="'+service.img+'" />'+
-	                    '</span>'+
-	                        service.title+
-	                    '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
-	                '</div>'
-	    	);
-		},	
+	        $(
+	            '<div class="margin10" id="edit-item-'+id+'">'+
+	                '<span class="glyphicon service-icon-small" aria-hidden="true">'+
+	                    '<img src="'+service.img+'" />'+
+	                '</span>'+
+	                    service.title+
+	                '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+	            '</div>'
+	        ).appendTo("#edit-services-list").click(function(el){
+
+	                var l12n = app.localization,
+	                    editServiceModal = l12n.components['editServiceModal'];
+	                editServiceModal.setState(service);
+	        });
+		},
 
 		restoreServices: function(id){
 
@@ -299,9 +341,16 @@ var app =
 
 		removeService: function(id){
 
-			$('#tab-'+id).remove();
-			$('#'+id).remove();
+	        this._removeService(id);
+	        app.config.removeService(id);
 		},
+
+	    _removeService: function(id){
+
+	        $('#tab-'+id).remove();
+	        $('#'+id).remove();
+	        $("#edit-item-"+id).remove();
+	    },
 
 		getAddedServices: function(){
 

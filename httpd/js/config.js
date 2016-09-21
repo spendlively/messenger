@@ -35,6 +35,29 @@ var config = {
 		console.log("Saving service", id);
 	},
 
+    removeService: function(id){
+
+        var me = this,
+            config = require('electron').remote.getGlobal('config'),
+            ipcRenderer = require('electron').ipcRenderer;
+
+        var ss = [];
+        if(config.services.length){
+            for(var s in config.services){
+                ss.push(config.services[s]);
+            }
+        }
+
+        var ind = ss.indexOf(id);
+        if(ind !== -1){
+            delete ss.push[ind];
+            config.services = ss;
+        }
+
+        ipcRenderer.send('save-config');
+        console.log("Saving service", id);
+    },
+
 	get: function(name){
 
 		var config = require('electron').remote.getGlobal('config'),

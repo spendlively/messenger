@@ -45,7 +45,7 @@
     	"addBtn": "Добавить"
     },
     "editServiceModal": {
-    	"edit": "Редактировани",
+    	"edit": "Редактирование",
     	"name": "Имя",
     	"enableService": "Включить сервис",
     	"showNotices": "Показывать уведомления",

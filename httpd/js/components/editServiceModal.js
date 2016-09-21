@@ -5,6 +5,10 @@ var EditServiceModal = React.createClass({
 		var l12n = app.localization,
 			data = l12n.getData('editServiceModal');
 
+        data.img = 'services/vk.svg';
+        data.title = 'VK';
+        data.id = 'vk';
+
     	return data;
 	},
 
@@ -28,6 +32,11 @@ var EditServiceModal = React.createClass({
         $('#modal-edit-service').modal('hide');
     },
 
+    removeService: function(){
+        app.services.removeService(this.state.id);
+        $('#modal-edit-service').modal('hide');
+    },
+
 	render: function(){
 
 		return (
@@ -40,9 +49,9 @@ var EditServiceModal = React.createClass({
 		                    </button>
 		                    <h2>
 		                        <span className="glyphicon service-icon-small" aria-hidden="true">
-		                            <img src="services/vk.svg" />
+		                            <img src={this.state.img} />
 		                        </span>
-		                        {this.state.edit} VK
+		                        {this.state.edit} {this.state.title}
 		                    </h2>
 		                </div>
 
@@ -88,7 +97,7 @@ var EditServiceModal = React.createClass({
 		                </div>
 
 		                <div className="modal-footer">
-		                    <button onClick={this.closeWindow} type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
+		                    <button onClick={this.removeService} type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
 		                    <button onClick={this.closeWindow} type="button" className="btn btn-default pull-right">{this.state.saveBtn}</button>
 		                    <button onClick={this.closeWindow} type="button" className="btn btn-primary pull-right">{this.state.closeBtn}</button>
 		                </div>

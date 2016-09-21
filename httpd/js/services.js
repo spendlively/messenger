@@ -27,22 +27,41 @@ var services = {
 			service = me.getServiceById(id);
 
 		//Создать webview
-        $("#tabs-container").append('<div role="tabpanel" class="tab-pane webview" id="'+id+'"><webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview></div>');
+        $("#tabs-container").append(
+            '<div role="tabpanel" class="tab-pane webview" id="'+id+'">' +
+                '<webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview>' +
+            '</div>'
+        );
 
 		//Создать таб-вкладку
-        $("#navbar-left ul.top-main-menu-left").append('<li id="tab-'+id+'" role="presentation"><a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="'+service.img+'"></span>'+service.title+'</div></a></li>');
+        $("#navbar-left ul.top-main-menu-left").append(
+            '<li id="tab-'+id+'" role="presentation">' +
+                '<a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab">' +
+                    '<div>' +
+                        '<span class="glyphicon service-icon-small" aria-hidden="true">' +
+                            '<img src="'+service.img+'">' +
+                        '</span>'+service.title+'' +
+                    '</div>' +
+                '</a>' +
+            '</li>'
+        );
 
         //Создать edit-панель
-        $("#edit-services-list").append(
-    			'<div class="margin10">'+
-                    '<span class="glyphicon service-icon-small" aria-hidden="true">'+
-                        '<img src="'+service.img+'" />'+
-                    '</span>'+
-                        service.title+
-                    '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
-                '</div>'
-    	);
-	},	
+        $(
+            '<div class="margin10" id="edit-item-'+id+'">'+
+                '<span class="glyphicon service-icon-small" aria-hidden="true">'+
+                    '<img src="'+service.img+'" />'+
+                '</span>'+
+                    service.title+
+                '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+            '</div>'
+        ).appendTo("#edit-services-list").click(function(el){
+
+                var l12n = app.localization,
+                    editServiceModal = l12n.components['editServiceModal'];
+                editServiceModal.setState(service);
+        });
+	},
 
 	restoreServices: function(id){
 
@@ -59,9 +78,16 @@ var services = {
 
 	removeService: function(id){
 
-		$('#tab-'+id).remove();
-		$('#'+id).remove();
+        this._removeService(id);
+        app.config.removeService(id);
 	},
+
+    _removeService: function(id){
+
+        $('#tab-'+id).remove();
+        $('#'+id).remove();
+        $("#edit-item-"+id).remove();
+    },
 
 	getAddedServices: function(){
 
