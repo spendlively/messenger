@@ -56,12 +56,26 @@ var EditServiceModal = React.createClass({
         $('#modal-edit-service').modal('hide');
     },
 
-	render: function(){
+	keyPressHandler: function(event){
 
-		// data.showNoticesField = false;
-		// data.disableSoundsField = false;
-		// data.nameField = '';        
-		// data.enabled = '';
+         if(event.keyCode == 13){
+         	this.saveService();
+         	event.stopPropagation();
+         	event.preventDefault();
+         }		
+	},
+
+    componentDidUpdate: function(){
+
+        setTimeout(function(){
+	        var el = document.getElementById('inputEditNameField');
+	        if(el){
+	        	el.focus();
+	        }
+        }, 500);
+    },
+
+	render: function(){
 
 		return (
 			<div className="modal fade modal-service" id="modal-edit-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -87,8 +101,9 @@ var EditServiceModal = React.createClass({
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 
+		                                	onKeyDown={this.keyPressHandler}
 		                                	className="form-control" 
-		                                	id="inputEmail3" 
+		                                	id="inputEditNameField" 
 		                                	placeholder="" 
 		                                	value={this.state.nameField} 
 	                                	/>

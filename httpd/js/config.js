@@ -42,10 +42,6 @@ var config = {
 	    var ss = [];
 	    if(config.services.length){
 	    	for(var s in config.services){
-// console.log(serviceData)	    		
-// console.log(config.services[s].id)	    		
-// console.log(serviceData.id)	    		
-// console.log(11111111111111111111111111)	    		
 	    		if(config.services[s].id === serviceData.id){
 					ss.push(serviceData);
 	    		}

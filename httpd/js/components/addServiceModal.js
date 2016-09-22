@@ -48,9 +48,30 @@ var AddServiceModal = React.createClass({
 		this.setState({nameField: event.target.value});
 	},
 
+	keyPressHandler: function(event){
+
+         if(event.keyCode == 13){
+         	this.addService();
+         	event.stopPropagation();
+         	event.preventDefault();
+         }		
+	},
+
+    componentDidUpdate: function(){
+
+        setTimeout(function(){
+	        var el = document.getElementById('inputAddNameField');
+	        if(el){
+	        	el.focus();
+	        }
+        }, 500);
+    },
+
 	render: function(){
 
         var me = this;
+
+
 
 		return (
 			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -76,8 +97,9 @@ var AddServiceModal = React.createClass({
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 
+		                                	onKeyDown={this.keyPressHandler}
 		                                	className="form-control" 
-		                                	id="inputEmail3" 
+		                                	id="inputAddNameField" 
 		                                	placeholder="" 
 		                                	value={this.state.nameField} 
 	                                	/>

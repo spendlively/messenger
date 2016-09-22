@@ -23,3 +23,12 @@
 
     - 5 практических примеров для изучения фреймворка React
     https://habrahabr.ru/post/229629/
+
+
+(+) Дефолтное имя для сервиса
+(+) Enter в input поле name
+(+) focus в input поле name
+(+) сохранение сессии во вкладках сервисов
+( ) <webview>.setAudioMuted(muted) <webview>.isAudioMuted()
+(+) Открытие edit по нажатию только на кнопку
+( ) XSS уязвимость при вводе скрипта в поле имя

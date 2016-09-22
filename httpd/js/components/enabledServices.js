@@ -18,10 +18,12 @@ var EnabledServices = React.createClass({
 
 	render: function(){
 
+//                 <div id="edit-services-list" className="available-services-block ptr" data-toggle="modal" data-target="#modal-edit-service"></div>
+
     return (
             <div>
                 <h2 id="content-available-services">{this.state.title}</h2>
-                <div id="edit-services-list" className="available-services-block ptr" data-toggle="modal" data-target="#modal-edit-service"></div>
+                <div id="edit-services-list" className="available-services-block ptr"></div>
             </div>
     );
 	}
