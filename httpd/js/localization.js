@@ -12,18 +12,14 @@ var localization = {
 
 	components: {},
 
-	registerComponent: function(name, cls){
+	// registerComponent: function(name, cls){
 
-		var me = this;
+	// 	var me = this;
 
-		if(cls){
-			me.components[name] = cls;
-		}
-
-		// setTimeout(function(){
-		// 	me.loadLang('en-EN');
-		// }, 3000);
-	},
+	// 	if(cls){
+	// 		me.components[name] = cls;
+	// 	}
+	// },
 
 	getData: function(name){
 
@@ -65,11 +61,14 @@ var localization = {
 	updateStates: function(data){
 
 		var me = this,
-			cmp = null;
+			cmp = null,
+			components = app.componentsObserver.getComponents();
 
-		for(var i in me.components){
-			cmp = me.components[i];
-			cmp.setState(data[i]);
+		for(var c in components){
+			cmp = components[c];
+			if(typeof data[c] !== 'undefined'){
+				cmp.setState(data[c]);
+			}
 		}
 	}
 };

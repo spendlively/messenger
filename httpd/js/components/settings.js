@@ -3,7 +3,7 @@ var SettingsBlock = React.createClass({
   	getInitialState: function() {
 
 		var l12n = app.localization,
-			settings = l12n.getData('settings');
+			settings = l12n.getData('settingsBlock');
 
 		settings.emailValue = app.config.get('email');
 
@@ -12,9 +12,7 @@ var SettingsBlock = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization;
-
-  		l12n.registerComponent('settings', this);
+  		app.componentsObserver.registerComponent('settingsBlock', this);
   	},
 
   	getDefaultProps: function(){

@@ -20,6 +20,7 @@ var HeaderMenu = React.createClass({
 
 	componentDidMount: function(){
 
+		app.componentsObserver.registerComponent('headerMenu', this)
 
 	},
 

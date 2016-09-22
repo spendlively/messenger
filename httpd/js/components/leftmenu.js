@@ -10,9 +10,7 @@ var LeftMenu = React.createClass({
 
   	componentDidMount: function() {
   		
-  		var l12n = app.localization;
-
-  		l12n.registerComponent('leftMenu', this);
+  		app.componentsObserver.registerComponent('leftMenu', this);
 
         //Обработка клика по кнопке левого бокового меню
         $('ul.lmenu>li').click(function(){
