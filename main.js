@@ -3,12 +3,12 @@ const app = electron.app;  // Модуль контролирующей жизн
 const BrowserWindow = electron.BrowserWindow;  // Модуль создающий браузерное окно.
 const fs = require('fs');
 const ipcMain = require('electron').ipcMain;
+const pathToConfig = __dirname + '/httpd/data/config.json';
 
 //Чтение конфига
-var configEncoded = fs.readFileSync(__dirname + '/httpd/data/config.json', 'utf8');
+var configEncoded = fs.readFileSync(pathToConfig, 'utf8');
 var configText = decodeURIComponent(configEncoded);
 var config = JSON.parse(configText);
-// console.log(config);
 
 //Расшариваю конфиг
 global.config = config;
@@ -17,7 +17,8 @@ global.config = config;
 ipcMain.on('save-config', function(event) {
     config = global.config;
     configText = JSON.stringify(config);
-    fs.writeFileSync(__dirname + '/httpd/data/config.json', configText);
+    fs.chmodSync(pathToConfig, 0777);
+    fs.writeFileSync(pathToConfig, configText);
 });
 
 // Опционально возможность отправки отчета о ошибках на сервер проекта Electron.
