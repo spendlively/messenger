@@ -87,11 +87,11 @@ var SettingsBlock = React.createClass({
                     <div className="checkbox">
                         <label>
         					<input 
-								defaultChecked={this.props.subscription}
-								onChange={this.handleChangeCb}
-								name="subscription"
-								type="checkbox" 
-							/>
+    								defaultChecked={this.props.subscription}
+    								onChange={this.handleChangeCb}
+    								name="subscription"
+    								type="checkbox" 
+    							/>
                             {this.state.subscribeText}
                         </label>
                     </div>
@@ -99,11 +99,11 @@ var SettingsBlock = React.createClass({
                     <div className="checkbox">
                         <label>
         					<input 
-								defaultChecked={this.props.personalUse}
-								onChange={this.handleChangeCb}
-								name="personalUse"
-								type="checkbox" 
-							/>
+    								defaultChecked={this.props.personalUse}
+    								onChange={this.handleChangeCb}
+    								name="personalUse"
+    								type="checkbox" 
+    							/>
                         	{this.state.personalText}
                     	</label>
                     </div>

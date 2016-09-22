@@ -13,7 +13,7 @@ var config = {
 	    }
 	},
 
-	saveService: function(id){
+	addService: function(serviceData){
 
 		var me = this, 
 			config = require('electron').remote.getGlobal('config'),
@@ -26,13 +26,39 @@ var config = {
 	    	}
 	    }
 
-	    if(ss.indexOf(id === -1)){
-			ss.push(id);
-			config.services = ss;
-	    }
+		ss.push(serviceData);
+		config.services = ss;
 
 		ipcRenderer.send('save-config');
-		console.log("Saving service", id);
+		console.log("Saving service", serviceData.id);
+	},
+
+	saveService: function(serviceData){
+
+		var me = this, 
+			config = require('electron').remote.getGlobal('config'),
+		    ipcRenderer = require('electron').ipcRenderer;     
+
+	    var ss = [];
+	    if(config.services.length){
+	    	for(var s in config.services){
+// console.log(serviceData)	    		
+// console.log(config.services[s].id)	    		
+// console.log(serviceData.id)	    		
+// console.log(11111111111111111111111111)	    		
+	    		if(config.services[s].id === serviceData.id){
+					ss.push(serviceData);
+	    		}
+	    		else{
+	    			ss.push(config.services[s]);
+	    		}
+	    	}
+	    }
+
+		config.services = ss;
+
+		ipcRenderer.send('save-config');
+		console.log("Saving service", serviceData.id);
 	},
 
     removeService: function(id){
@@ -44,15 +70,13 @@ var config = {
         var ss = [];
         if(config.services.length){
             for(var s in config.services){
-                ss.push(config.services[s]);
+            	if(config.services[s].id !== id){
+                	ss.push(config.services[s]);
+            	}
             }
         }
 
-        var ind = ss.indexOf(id);
-        if(ind !== -1){
-            delete ss[ind];
-            config.services = ss;
-        }
+        config.services = ss;
 
         ipcRenderer.send('save-config');
         console.log("Saving service", id);
@@ -91,6 +115,11 @@ var config = {
 	},
 
 	updateService: function(data){
+
+		data.showNoticesField = false;
+		data.disableSoundsField = false;
+		data.nameField = '';
+
 		this.service.setState(data);
 	}
 };

@@ -74,7 +74,7 @@ var app =
 		    }
 		},
 
-		saveService: function(id){
+		addService: function(serviceData){
 
 			var me = this, 
 				config = __webpack_require__(2).remote.getGlobal('config'),
@@ -87,13 +87,39 @@ var app =
 		    	}
 		    }
 
-		    if(ss.indexOf(id === -1)){
-				ss.push(id);
-				config.services = ss;
-		    }
+			ss.push(serviceData);
+			config.services = ss;
 
 			ipcRenderer.send('save-config');
-			console.log("Saving service", id);
+			console.log("Saving service", serviceData.id);
+		},
+
+		saveService: function(serviceData){
+
+			var me = this, 
+				config = __webpack_require__(2).remote.getGlobal('config'),
+			    ipcRenderer = __webpack_require__(2).ipcRenderer;     
+
+		    var ss = [];
+		    if(config.services.length){
+		    	for(var s in config.services){
+	// console.log(serviceData)	    		
+	// console.log(config.services[s].id)	    		
+	// console.log(serviceData.id)	    		
+	// console.log(11111111111111111111111111)	    		
+		    		if(config.services[s].id === serviceData.id){
+						ss.push(serviceData);
+		    		}
+		    		else{
+		    			ss.push(config.services[s]);
+		    		}
+		    	}
+		    }
+
+			config.services = ss;
+
+			ipcRenderer.send('save-config');
+			console.log("Saving service", serviceData.id);
 		},
 
 	    removeService: function(id){
@@ -105,15 +131,13 @@ var app =
 	        var ss = [];
 	        if(config.services.length){
 	            for(var s in config.services){
-	                ss.push(config.services[s]);
+	            	if(config.services[s].id !== id){
+	                	ss.push(config.services[s]);
+	            	}
 	            }
 	        }
 
-	        var ind = ss.indexOf(id);
-	        if(ind !== -1){
-	            delete ss[ind];
-	            config.services = ss;
-	        }
+	        config.services = ss;
 
 	        ipcRenderer.send('save-config');
 	        console.log("Saving service", id);
@@ -152,6 +176,11 @@ var app =
 		},
 
 		updateService: function(data){
+
+			data.showNoticesField = false;
+			data.disableSoundsField = false;
+			data.nameField = '';
+
 			this.service.setState(data);
 		}
 	};
@@ -268,9 +297,28 @@ var app =
 
 		services: [],
 
-		addService: function(id){
+	    increment: new Date().getTime(),
 
-			var me = this;
+	    getNextId: function(){
+
+	        return 'service-' + this.increment++;
+	    },
+
+		addService: function(state){
+
+			var me = this,
+	            id = me.getNextId(),
+	            serviceData = {
+	                title: state.title,
+	                img: state.img,
+	                id: me.getNextId(),
+	                url: state.url,
+	                showNoticesField: state.showNoticesField,
+	                disableSoundsField: state.disableSoundsField,
+	                nameField: state.nameField,
+	                enabled: true
+	            };
+
 
 			//Закрыть модальное окно
 	        $('#modal-add-service').modal('hide');
@@ -279,32 +327,52 @@ var app =
 	        	return;
 	        }
 
-			me._addService(id);
+			me._addService(serviceData);
 
-	        app.config.saveService(id);
+	        app.config.addService(serviceData);
+
 	        me.services = me.getAddedServices();
 		},
 
-		_addService: function(id){
+	    saveService: function(state){
 
-			var me = this,
-				service = me.getServiceById(id);
+	        var me = this,
+	            serviceData = {
+	                title: state.title,
+	                img: state.img,
+	                id: state.id,
+	                url: state.url,
+	                showNoticesField: state.showNoticesField,
+	                disableSoundsField: state.disableSoundsField,
+	                nameField: state.nameField,
+	                enabled: true
+	            };        
+
+	        app.config.saveService(serviceData);
+
+	        $('li#tab-'+serviceData.id+' span.service-tab-name').html(serviceData.nameField);
+	        $('div#edit-item-'+serviceData.id+' span.edit-btn-name').html(serviceData.nameField);
+	    },
+
+		_addService: function(serviceData){
+
+			var me = this;
 
 			//Создать webview
 	        $("#tabs-container").append(
-	            '<div role="tabpanel" class="tab-pane webview" id="'+id+'">' +
-	                '<webview id="wv-'+id+'" src="'+service.url+'" style="display:inline-flex; width:100%; height:780px"></webview>' +
+	            '<div role="tabpanel" class="tab-pane webview" id="'+serviceData.id+'">' +
+	                '<webview id="wv-'+serviceData.id+'" src="'+serviceData.url+'" style="display:inline-flex; width:100%; height:780px"></webview>' +
 	            '</div>'
 	        );
 
 			//Создать таб-вкладку
 	        $("#navbar-left ul.top-main-menu-left").append(
-	            '<li id="tab-'+id+'" role="presentation">' +
-	                '<a class="navbar-brand ptr" href="#'+id+'" aria-controls="'+service.title+'" role="tab" data-toggle="tab">' +
+	            '<li id="tab-'+serviceData.id+'" role="presentation">' +
+	                '<a class="navbar-brand ptr" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" data-toggle="tab">' +
 	                    '<div>' +
 	                        '<span class="glyphicon service-icon-small" aria-hidden="true">' +
-	                            '<img src="'+service.img+'">' +
-	                        '</span>'+service.title+'' +
+	                            '<img src="'+serviceData.img+'">' +
+	                        '</span><span class="service-tab-name">'+serviceData.nameField+'</span>' +
 	                    '</div>' +
 	                '</a>' +
 	            '</li>'
@@ -312,18 +380,18 @@ var app =
 
 	        //Создать edit-панель
 	        $(
-	            '<div class="margin10" id="edit-item-'+id+'">'+
+	            '<div class="margin10" id="edit-item-'+serviceData.id+'">'+
 	                '<span class="glyphicon service-icon-small" aria-hidden="true">'+
-	                    '<img src="'+service.img+'" />'+
+	                    '<img src="'+serviceData.img+'" />'+
 	                '</span>'+
-	                    service.title+
+	                '<span class="edit-btn-name">'+serviceData.nameField+'</span>'+
 	                '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
 	            '</div>'
 	        ).appendTo("#edit-services-list").click(function(el){
 
 	                var l12n = app.localization,
 	                    editServiceModal = app.componentsObserver.getComponent('editServiceModal');
-	                editServiceModal.setState(service);
+	                editServiceModal.setState(serviceData);
 	        });
 		},
 

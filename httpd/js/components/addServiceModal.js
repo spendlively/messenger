@@ -9,6 +9,10 @@ var AddServiceModal = React.createClass({
 		data.title = '';
 		data.id = '';
 
+		data.showNoticesField = false;
+		data.disableSoundsField = false;
+		data.nameField = '';
+
     	return data;
 	},
 
@@ -20,19 +24,29 @@ var AddServiceModal = React.createClass({
   		config.setService(this);
   	},
 
-    addService: function(state){
+    addService: function(){
 
-        var title = state.title,
-            img = state.img,
-            id = state.id,
-            url = state.url;
-
-        app.services.addService(id);
+        app.services.addService(this.state);
     },
 
     closeWindow: function(){
-        $('#modal-add-service').modal('hide');
+    	$('#modal-add-service').modal('hide');
     },
+
+	disableSoundsHandler: function(event){
+
+		this.setState({disableSoundsField: event.target.value});
+	},
+
+	showNoticesHandler: function(event){
+
+		this.setState({showNoticesField: event.target.value});
+	},
+
+	nameHandler: function(event){
+
+		this.setState({nameField: event.target.value});
+	},
 
 	render: function(){
 
@@ -60,7 +74,13 @@ var AddServiceModal = React.createClass({
 		                        <div className="form-group">
 		                            <label htmlFor="inputEmail3" className="col-sm-3 control-label">{this.state.name}</label>
 		                            <div className="col-sm-9">
-		                                <input type="email" className="form-control" id="inputEmail3" placeholder="" value="" />
+		                                <input 
+		                                	onChange={this.nameHandler} 
+		                                	className="form-control" 
+		                                	id="inputEmail3" 
+		                                	placeholder="" 
+		                                	value={this.state.nameField} 
+	                                	/>
 		                            </div>
 		                        </div>
 
@@ -68,7 +88,12 @@ var AddServiceModal = React.createClass({
 		                            <div className="col-sm-offset-3 col-sm-9">
 		                                <div className="checkbox">
 		                                    <label>
-		                                        <input type="checkbox" />{this.state.showNotices}
+		                                        <input 
+		                                        	onChange={this.showNoticesHandler} 
+		                                        	type="checkbox" 
+	                                        		checked={this.state.showNoticesField} 
+                                        		/>
+	                                        		{this.state.showNotices}
 		                                    </label>
 		                                </div>
 		                            </div>
@@ -77,7 +102,12 @@ var AddServiceModal = React.createClass({
 		                            <div className="col-sm-offset-3 col-sm-9">
 		                                <div className="checkbox">
 		                                    <label>
-		                                        <input type="checkbox" />{this.state.disableSounds}
+		                                        <input 
+		                                        	onChange={this.disableSoundsHandler} 
+		                                        	type="checkbox" 
+	                                        		checked={this.state.disableSoundsField} 
+	                                        	/>
+	                                        	{this.state.disableSounds}
 		                                    </label>
 		                                </div>
 		                            </div>
@@ -90,7 +120,7 @@ var AddServiceModal = React.createClass({
 
 		                <div className="modal-footer">
 		                    <button onClick={this.closeWindow} type="button" className="btn btn-default">{this.state.closeBtn}</button>
-		                    <button onClick={function(){me.addService(me.state)}} type="button" className="btn btn-primary">{this.state.addBtn} {this.state.title}</button>
+		                    <button onClick={me.addService} type="button" className="btn btn-primary">{this.state.addBtn} {this.state.title}</button>
 		                </div>
 		            </div>
 		        </div>
