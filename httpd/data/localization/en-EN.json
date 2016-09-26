@@ -52,8 +52,8 @@
     	"disableSounds": "Mute all sounds",
     	"notice": "Remember to enable desktop notifications in your settings",
     	"removeBtn": "Delete service",
-    	"saveBtn": "Close",
-    	"closeBtn": "Save"
+    	"saveBtn": "Save",
+    	"closeBtn": "Close"
     },
     "notice": {
     	"enabled": "Enabled all notifications!",

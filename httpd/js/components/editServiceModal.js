@@ -19,7 +19,38 @@ var EditServiceModal = React.createClass({
 
   	componentDidMount: function() {
   		
+  		var me = this;
+
   		app.componentsObserver.registerComponent('editServiceModal', this);
+
+// bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-switch-modal bootstrap-switch-animate bootstrap-switch-on
+		// setTimeout(function(){
+
+  		// $('.bootstrap-switch-id-switch-modal').click(function(el){
+  		// 	alert("qwerty-asdfgh-zxcvbn");
+  		// });
+
+  		// $('input#switch-modal').click(function(){
+  		// });
+
+
+// $('.bootstrap-switch-id-switch-modal').hide();
+  // 		$("input#switch-modal").change(function() {
+  // 			alert("qwerty")
+		//     if(this.checked) {
+		//         //Do stuff
+		//     }
+		// });
+		// }, 2000);
+
+ 	// 	$('#modal-edit-service').on('hidden.bs.modal', function () {
+  //  			console.log(me.state.nameField)
+  //  			console.log(app.services.escapeString(me.state.nameField))
+  //  			me.setState({
+  //  				// "nameField": app.services.escapeString(me.state.nameField)
+  //  				// nameField: app.services.escapeString(me.state.nameField)
+  //  			});
+		// })
   	},
 
     closeWindow: function(){
@@ -59,9 +90,9 @@ var EditServiceModal = React.createClass({
 	keyPressHandler: function(event){
 
          if(event.keyCode == 13){
-         	this.saveService();
          	event.stopPropagation();
          	event.preventDefault();
+         	this.saveService();
          }		
 	},
 
@@ -97,7 +128,7 @@ var EditServiceModal = React.createClass({
 		                    <form className="form-horizontal">
 
 		                        <div className="form-group">
-		                            <label htmlFor="inputEmail3" className="col-sm-3 control-label">{this.state.name}</label>
+		                            <label htmlFor="inputEditNameField" className="col-sm-3 control-label">{this.state.name}</label>
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 
@@ -157,8 +188,8 @@ var EditServiceModal = React.createClass({
 
 		                <div className="modal-footer">
 		                    <button onClick={this.removeService} type="button" className="btn btn-danger pull-left">{this.state.removeBtn}</button>
-		                    <button onClick={this.saveService} type="button" className="btn btn-default pull-right">{this.state.saveBtn}</button>
-		                    <button onClick={this.closeWindow} type="button" className="btn btn-primary pull-right">{this.state.closeBtn}</button>
+		                    <button onClick={this.saveService} type="button" className="btn btn-primary pull-right">{this.state.saveBtn}</button>
+		                    <button onClick={this.closeWindow} type="button" className="btn btn-default pull-right">{this.state.closeBtn}</button>
 		                </div>
 		            </div>
 		        </div>

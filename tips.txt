@@ -31,4 +31,36 @@
 (+) сохранение сессии во вкладках сервисов
 ( ) <webview>.setAudioMuted(muted) <webview>.isAudioMuted()
 (+) Открытие edit по нажатию только на кнопку
-( ) XSS уязвимость при вводе скрипта в поле имя
+
+(+) XSS уязвимость при вводе скрипта в поле имя
+(+) Не заполнено поля имя в окне редактирования
+( ) Задизейбливание сервиса
+( ) Выключение звука у сервиса <webview>.setAudioMuted(muted) <webview>.isAudioMuted()
+( ) Нотификации сервиса
+( ) Разворачивание окна сервиса на весь экран
+
+( ) Иконки
+( ) Подсказка с количеством новых сообщений
+( ) Сборка в asar
+( ) Автозапуск
+
+//Зависимости
+auto-launch
+windowStateKeeper
+node-notifier
+asar
+
+
+npm install --save auto-launch
+
+npm install path, remote, menu, tray
+
+
+//disable
+ $('#delete').addClass('disabled');
+ $('#delete').removeAttr('data-toggle');
+
+
+//enable
+ $('#delete').removeClass('disabled');
+ $('#delete').attr("data-toggle", "modal");

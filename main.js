@@ -5,6 +5,19 @@ const fs = require('fs');
 const ipcMain = require('electron').ipcMain;
 const pathToConfig = __dirname + '/httpd/data/config.json';
 
+var sanitizer = require('sanitizer');
+// sanitizer.escape();
+// sanitizer.unescapeEntities();
+
+// const notifier = require('node-notifier');
+// // notifier.notify('Message');
+// setTimeout(function(){
+//     notifier.notify({
+//       'title': 'My notification',
+//       'message': 'Hello, there!'
+//     });
+// }, 3000);
+
 //Чтение конфига
 var configEncoded = fs.readFileSync(pathToConfig, 'utf8');
 var configText = decodeURIComponent(configEncoded);

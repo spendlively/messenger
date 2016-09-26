@@ -1,3 +1,5 @@
+var sanitizer = require('sanitizer');
+
 var services = {
 
 	allServices: [],
@@ -51,9 +53,11 @@ var services = {
                 url: state.url,
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
-                nameField: state.nameField,
+                // nameField: me.escapeString(state.nameField),
+                nameField: me.escapeString(me.unescapeString(state.nameField)),
                 enabled: true
             };        
+
 
         app.config.saveService(serviceData);
 
@@ -65,6 +69,11 @@ var services = {
 
 		var me = this,
             text = serviceData.nameField || serviceData.title;
+
+        text = me.escapeString(me.unescapeString(text));
+
+// console.log("restore");
+// console.log(text);
 
 		//Создать webview
         $("#tabs-container").append(
@@ -97,11 +106,24 @@ var services = {
             '</div>'
         ).appendTo("#edit-services-list").click(function(el){
 
-                var l12n = app.localization,
-                    editServiceModal = app.componentsObserver.getComponent('editServiceModal');
-                editServiceModal.setState(serviceData);
+            var l12n = app.localization,
+                editServiceModal = app.componentsObserver.getComponent('editServiceModal'),
+                data = app.config.getServiceById(serviceData.id);
+
+            if(data){
+                data.nameField = me.unescapeString(data.nameField);
+                editServiceModal.setState(data);
+            }
         });
 	},
+
+    escapeString: function(str){
+        return sanitizer.escape(str);
+    },
+
+    unescapeString: function(str){
+        return sanitizer.unescapeEntities(str);
+    },
 
 	restoreServices: function(id){
 

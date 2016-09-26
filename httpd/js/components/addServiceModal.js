@@ -93,7 +93,7 @@ var AddServiceModal = React.createClass({
 		                    <form className="form-horizontal">
 
 		                        <div className="form-group">
-		                            <label htmlFor="inputEmail3" className="col-sm-3 control-label">{this.state.name}</label>
+		                            <label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.name}</label>
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 

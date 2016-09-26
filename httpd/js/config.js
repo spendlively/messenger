@@ -97,6 +97,19 @@ var config = {
 	    return config.services;
 	},	
 
+	getServiceById: function(id){
+
+		var services = this.getAddedServices();
+
+		for(var s in services){
+			if(services[s].id === id){
+				return services[s];
+			}
+		}
+
+	    return null;
+	},
+
 	getLanguages: function(){
 
 		var config = require('electron').remote.getGlobal('config'),
