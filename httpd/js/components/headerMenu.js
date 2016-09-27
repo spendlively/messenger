@@ -24,6 +24,21 @@ var HeaderMenu = React.createClass({
 
 	},
 
+
+	popoverClickCounter: 0,
+	clickOnPopover: function(){
+
+		var me = this,
+			servicesPopup = app.componentsObserver.getComponent('servicesPopup');
+
+		if(++this.popoverClickCounter%2){
+			servicesPopup.openPopoverWindow.call(servicesPopup);
+		}
+		else{
+			servicesPopup.closePopoverWindow.call(servicesPopup);
+		}
+	},
+
 	render: function(){
 
 		return (
@@ -36,7 +51,7 @@ var HeaderMenu = React.createClass({
 
                 <ul className="nav navbar-nav navbar-right top-main-menu-right">
                     <li>
-                        <a data-placement="bottom" data-toggle="popover" data-container="body"  type="button" data-html="true" href="#">
+                        <a onClick={this.clickOnPopover} data-placement="bottom" data-toggle="popover" data-container="body"  type="button" data-html="true" href="#">
                             <span className="glyphicon glyphicon-menu-hamburger"></span>
                         </a>
                     </li>

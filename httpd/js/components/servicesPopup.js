@@ -2,10 +2,11 @@ var ServicesPopup = React.createClass({
 
 	onChangeHandler: function(event){
 
-
 	},
 
 	componentDidMount: function(){
+
+		var  me = this;
 
 		app.componentsObserver.registerComponent('servicesPopup', this);
 
@@ -16,33 +17,86 @@ var ServicesPopup = React.createClass({
 			container: 'body',
 			content: function() {
 
-				//Поскольку bootstrapSwitch() не работает если элемент скрыт
-				//выполняем bootstrapSwitch() после открытия popover
-				if(!switcherFlag){
-					switcherFlag = true;
-					setTimeout(function(){
-						$('input#popover-switch-service').bootstrapSwitch('state', true, true);
-					}, 101);
+				var html = '',
+					items = me.getItems();
 
+				if(items.length){
+					for(var i in items){
+
+						var item = items[i],
+							text = me.escapeString(me.unescapeString(item.nameField));
+
+						html += '<div>'+
+							'<span class="glyphicon service-icon-small" aria-hidden="true">'+
+					            '<img src="'+item.img+'" >'+
+					        '</span>'+
+					        text+
+					        '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+					        '<span class="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>'+
+					        '<div class="top-popover-switcher pull-right">'+
+					            '<input class="switch-button" type="checkbox" checked data-size="mini" />'+
+					        '</div>'+
+					        '<div>';
+				    }
 				}
-	        	return $('#popover-content').html();
+
+				return html;
 	        }
 		});
 	},
 
+    escapeString: function(str){
+        return app.services.escapeString(str);
+    },
+
+    unescapeString: function(str){
+        return app.services.unescapeString(str);
+    },
+
+	getItems: function(){
+
+		var me = this,
+			addedServices = app.config.getAddedServices();
+
+		return addedServices;
+	},
+
+	openPopoverWindow: function(){
+
+		var me = this,
+			items = me.getItems(),
+			container = $('#opios-top-popover-block');
+
+		if(items.length){
+			for(var i in items){
+				var item = items[i];
+				container.append('<p>'+item.title+'</p>');
+			}
+		}
+
+		console.log('openPopoverWindow')
+	},
+
+	closePopoverWindow: function(){
+
+		$('#opios-top-popover-block').empty();
+	},
+
 	render: function(){
 
+			// <div>
+		 //        <span className="glyphicon service-icon-small" aria-hidden="true">
+		 //            <img src="services/vk.svg" />
+		 //        </span>
+		 //        spendlively@mail.ru
+		 //        <span className="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
+		 //        <span className="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>
+		 //        <div className="top-popover-switcher pull-right">
+		 //            <input onChange={this.onChangeHandler} className="switch-button" id="popover-switch-service" type="checkbox" checked data-size="mini" />
+		 //        </div>			
+			// </div>
 		return (
-			<div>
-		        <span className="glyphicon service-icon-small" aria-hidden="true">
-		            <img src="services/vk.svg" />
-		        </span>
-		        spendlively@mail.ru
-		        <span className="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>
-		        <span className="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>
-		        <div className="top-popover-switcher pull-right">
-		            <input onChange={this.onChangeHandler} className="switch-button" id="popover-switch-service" type="checkbox" checked data-size="mini" />
-		        </div>			
+			<div id="opios-top-popover-block">
 			</div>
 		);
 	}

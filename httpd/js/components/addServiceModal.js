@@ -43,7 +43,7 @@ var AddServiceModal = React.createClass({
 
 	nameHandler: function(event){
 
-        if(event.target.value.length > 20) return;
+        if(event.target.value.length > 30) return;
 
 		this.setState({nameField: event.target.value});
 	},
