@@ -82,9 +82,11 @@ var services = {
         );
 
 		//Создать таб-вкладку
+        var disabled = serviceData.enabled ? '' : 'disabled',
+            toggle = serviceData.enabled ? 'data-toggle="tab"' : '';
         $("#navbar-left ul.top-main-menu-left").append(
             '<li id="tab-'+serviceData.id+'" role="presentation">' +
-                '<a class="navbar-brand ptr" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" data-toggle="tab">' +
+                '<a class="navbar-brand ptr '+disabled+'" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" '+toggle+'">' +
                     '<div>' +
                         '<span class="glyphicon service-icon-small" aria-hidden="true">' +
                             '<img src="'+serviceData.img+'">' +

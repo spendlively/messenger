@@ -24,16 +24,6 @@ var EditServiceModal = React.createClass({
         $("[name='my-checkbox']").bootstrapSwitch({
             onSwitchChange: function(ths, value){
                 me.setState({enabled: value});
-                //<a class="navbar-brand ptr"          href="#service-1474994316268" aria-controls="Slack" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="services/slack.svg"></span><span class="service-tab-name">Slack</span></div></a>
-                //<a class="navbar-brand ptr disabled" href="#service-1474994316268" aria-controls="Slack" role="tab">                  <div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="services/slack.svg"></span><span class="service-tab-name">Slack</span></div></a>
-                //<a class="navbar-brand ptr"          href="#service-1474994316268" aria-controls="Slack" role="tab" data-toggle="tab"><div><span class="glyphicon service-icon-small" aria-hidden="true"><img src="services/slack.svg"></span><span class="service-tab-name">Slack</span></div></a>
-                if(!value){
-                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
-
-                }
-                else{
-                    $('li#tab-'+me.state.id+' a').removeClass('disabled').attr('data-toggle', 'tab');
-                }
             }
         });
   	},
@@ -65,6 +55,16 @@ var EditServiceModal = React.createClass({
 	},
 
     saveService: function(){
+
+    	var me = this;
+    	
+    	//Задизейбливание сервиса
+		if(this.state.enabled){
+            $('li#tab-'+me.state.id+' a').removeClass('disabled').attr('data-toggle', 'tab');
+        }
+        else{
+            $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
+        }
 
         app.services.saveService(this.state);
         $('#modal-edit-service').modal('hide');
