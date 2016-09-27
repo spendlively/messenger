@@ -59,13 +59,3 @@ asar
 npm install --save auto-launch
 
 npm install path, remote, menu, tray
-
-
-//disable
- $('#delete').addClass('disabled');
- $('#delete').removeAttr('data-toggle');
-
-
-//enable
- $('#delete').removeClass('disabled');
- $('#delete').attr("data-toggle", "modal");
