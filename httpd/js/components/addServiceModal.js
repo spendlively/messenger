@@ -25,7 +25,6 @@ var AddServiceModal = React.createClass({
   	},
 
     addService: function(){
-
         app.services.addService(this.state);
     },
 
@@ -35,12 +34,11 @@ var AddServiceModal = React.createClass({
 
 	disableSoundsHandler: function(event){
 
-		this.setState({disableSoundsField: event.target.value});
+		this.setState({disableSoundsField: event.target.checked});
 	},
 
 	showNoticesHandler: function(event){
-
-		this.setState({showNoticesField: event.target.value});
+		this.setState({showNoticesField: event.target.checked});
 	},
 
 	nameHandler: function(event){
@@ -59,14 +57,25 @@ var AddServiceModal = React.createClass({
          }		
 	},
 
-    componentDidUpdate: function(){
+    beforeOpen: function(){
 
+    	var me = this;
+
+ 		//Установка фокуса при открытии окна
         setTimeout(function(){
 	        var el = document.getElementById('inputAddNameField');
 	        if(el){
 	        	el.focus();
 	        }
         }, 500);
+    },
+
+    afterOpen: function(){
+    	//никто не вызывает
+    },
+
+    componentDidUpdate: function(){
+
     },
 
 	render: function(){

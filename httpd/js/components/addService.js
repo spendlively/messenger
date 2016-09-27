@@ -17,7 +17,10 @@ var AddService = React.createClass({
 
       var me = this,
           config = app.config,
-          data = me.getData();
+          data = me.getData(),
+          addServiceModal = app.componentsObserver.getComponent('addServiceModal');
+
+      addServiceModal.beforeOpen.call(addServiceModal);
 
       if(id && data.length){
         for(var d in data){

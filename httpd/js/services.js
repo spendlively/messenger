@@ -105,14 +105,19 @@ var services = {
             '</div>'
         ).appendTo("#edit-services-list").click(function(el){
 
+
             var l12n = app.localization,
                 editServiceModal = app.componentsObserver.getComponent('editServiceModal'),
                 data = app.config.getServiceById(serviceData.id);
+
+            editServiceModal.beforeOpen.call(editServiceModal);
 
             if(data){
                 data.nameField = me.unescapeString(data.nameField);
                 editServiceModal.setState(data);
             }
+
+            editServiceModal.afterOpen.call(editServiceModal);
         });
 	},
 

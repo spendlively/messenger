@@ -194,6 +194,26 @@ var app =
 		}
 	};
 
+	window.q = function(ind){
+		var ss = config.getAddedServices();
+		var m = 1;
+		for(var s in ss){
+			var srv = {};
+			for(var i in ss[s]){
+				if(ss[s].hasOwnProperty(i)){
+					srv[i] = ss[s][i];
+				}
+			}
+			if(ind){
+				if(ind === m) console.log(srv)
+			}
+			else{
+				console.log(srv)
+			}
+			m++;
+		}
+	}
+
 	// window.config = config;
 	module.exports = config;
 
@@ -407,14 +427,19 @@ var app =
 	            '</div>'
 	        ).appendTo("#edit-services-list").click(function(el){
 
+
 	            var l12n = app.localization,
 	                editServiceModal = app.componentsObserver.getComponent('editServiceModal'),
 	                data = app.config.getServiceById(serviceData.id);
+
+	            editServiceModal.beforeOpen.call(editServiceModal);
 
 	            if(data){
 	                data.nameField = me.unescapeString(data.nameField);
 	                editServiceModal.setState(data);
 	            }
+
+	            editServiceModal.afterOpen.call(editServiceModal);
 	        });
 		},
 

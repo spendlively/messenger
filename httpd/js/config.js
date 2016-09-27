@@ -133,5 +133,25 @@ var config = {
 	}
 };
 
+window.q = function(ind){
+	var ss = config.getAddedServices();
+	var m = 1;
+	for(var s in ss){
+		var srv = {};
+		for(var i in ss[s]){
+			if(ss[s].hasOwnProperty(i)){
+				srv[i] = ss[s][i];
+			}
+		}
+		if(ind){
+			if(ind === m) console.log(srv)
+		}
+		else{
+			console.log(srv)
+		}
+		m++;
+	}
+}
+
 // window.config = config;
 module.exports = config;

@@ -11,9 +11,7 @@ var EditServiceModal = React.createClass({
 
 		data.showNoticesField = false;
 		data.disableSoundsField = false;
-		data.nameField = '';        
-		data.enabled = true;
-//console.log(data)
+		data.nameField = '';
     	return data;
 	},
 
@@ -23,45 +21,14 @@ var EditServiceModal = React.createClass({
 
   		app.componentsObserver.registerComponent('editServiceModal', this);
 
-// bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-id-switch-modal bootstrap-switch-animate bootstrap-switch-on
-		// setTimeout(function(){
-
-  		// $('.bootstrap-switch-id-switch-modal').click(function(el){
-  		// 	alert("qwerty-asdfgh-zxcvbn");
-  		// });
-
-  		// $('input#switch-modal').click(function(){
-  		// });
-
-
-// $('.bootstrap-switch-id-switch-modal').hide();
-  // 		$("input#switch-modal").change(function() {
-  // 			alert("qwerty")
-		//     if(this.checked) {
-		//         //Do stuff
-		//     }
-		// });
-		// }, 2000);
-
- 	// 	$('#modal-edit-service').on('hidden.bs.modal', function () {
-  //  			console.log(me.state.nameField)
-  //  			console.log(app.services.escapeString(me.state.nameField))
-  //  			me.setState({
-  //  				// "nameField": app.services.escapeString(me.state.nameField)
-  //  				// nameField: app.services.escapeString(me.state.nameField)
-  //  			});
-		// })
-
-//console.log(me.state.enabled)
-//        $("[name='my-checkbox']").bootstrapSwitch({
-//            state: me.state.enabled,
-//            onSwitchChange: function(ths, value){
-//                me.setState({enabled: value});
-//                if(!value){
-//                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
-//                }
-//            }
-//        });
+        $("[name='my-checkbox']").bootstrapSwitch({
+            onSwitchChange: function(ths, value){
+                me.setState({enabled: value});
+                if(!value){
+                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
+                }
+            }
+        });
   	},
 
     closeWindow: function(){
@@ -75,12 +42,12 @@ var EditServiceModal = React.createClass({
 
 	disableSoundsHandler: function(event){
 
-		this.setState({disableSoundsField: event.target.value});
+		this.setState({disableSoundsField: event.target.checked});
 	},
 
 	showNoticesHandler: function(event){
 
-		this.setState({showNoticesField: event.target.value});
+		this.setState({showNoticesField: event.target.checked});
 	},
 
 	nameHandler: function(event){
@@ -107,37 +74,35 @@ var EditServiceModal = React.createClass({
 
     componentDidUpdate: function(){
 
-        setTimeout(function(){
-	        var el = document.getElementById('inputEditNameField');
-	        if(el){
-	        	el.focus();
-	        }
-        }, 500);
-
         var me = this;
-//        console.log(me.state.enabled)
-        $("[name='my-checkbox']").bootstrapSwitch({
-            state: me.state.enabled,
-            onSwitchChange: function(ths, value){
-                me.setState({enabled: value});
-                if(!value){
-                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
-                }
-            }
-        });
     },
 
     switchEnabled: function(event){
         this.setState({enabled: event.target.checked});
     },
 
-	render: function(){
+    beforeOpen: function(){
 
-//        <input
-//        className="switch-button"
-//        id="switch-modal"
-//        type="checkbox"
-//        />
+    	var me = this;
+    },
+
+    afterOpen: function(){
+
+    	var me = this;
+
+    	//Установка переключателя при открытии окна
+ 		$("[name='my-checkbox']").bootstrapSwitch('state', me.state.enabled, true);
+
+ 		//Установка фокуса при открытии окна
+        setTimeout(function(){
+	        var el = document.getElementById('inputEditNameField');
+	        if(el){
+	        	el.focus();
+	        }
+        }, 500);
+    },
+
+	render: function(){
 
 		return (
 			<div className="modal fade modal-service" id="modal-edit-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
