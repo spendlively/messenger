@@ -85,6 +85,8 @@ var EditServiceModal = React.createClass({
 
 	nameHandler: function(event){
 
+        if(event.target.value.length > 20) return;
+
 		this.setState({nameField: event.target.value});
 	},
 
@@ -113,7 +115,7 @@ var EditServiceModal = React.createClass({
         }, 500);
 
         var me = this;
-        console.log(me.state.enabled)
+//        console.log(me.state.enabled)
         $("[name='my-checkbox']").bootstrapSwitch({
             state: me.state.enabled,
             onSwitchChange: function(ths, value){

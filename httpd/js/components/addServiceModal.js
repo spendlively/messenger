@@ -45,6 +45,8 @@ var AddServiceModal = React.createClass({
 
 	nameHandler: function(event){
 
+        if(event.target.value.length > 20) return;
+
 		this.setState({nameField: event.target.value});
 	},
 
@@ -70,8 +72,6 @@ var AddServiceModal = React.createClass({
 	render: function(){
 
         var me = this;
-
-
 
 		return (
 			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
