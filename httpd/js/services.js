@@ -24,10 +24,9 @@ var services = {
                 url: state.url,
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
-                nameField: state.nameField,
+                nameField: state.nameField || state.title,
                 enabled: true
             };
-
 
 		//Закрыть модальное окно
         $('#modal-add-service').modal('hide');
@@ -55,7 +54,7 @@ var services = {
                 disableSoundsField: state.disableSoundsField,
                 // nameField: me.escapeString(state.nameField),
                 nameField: me.escapeString(me.unescapeString(state.nameField)),
-                enabled: true
+                enabled: state.enabled
             };        
 
 

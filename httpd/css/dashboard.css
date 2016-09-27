@@ -135,6 +135,10 @@ h1, h2, h3, h4, h5, h6{
   float: right!important;
 }
 
+a.navbar-brand.disabled, a.navbar-brand.disabled:hover span{
+    color: #777;
+}
+
 .navbar-brand .glyphicon{
     top: 3px;
     margin-left: 0;
@@ -330,3 +334,4 @@ span.service-icon-small > img{
 .available-services-block .margin10:hover{
   background-color: #eee;
 }
+

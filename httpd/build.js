@@ -48,7 +48,7 @@ var app =
 	var config = __webpack_require__(1);
 	var localization = __webpack_require__(3);
 	var services = __webpack_require__(4);
-	var componentsObserver = __webpack_require__(5);
+	var componentsObserver = __webpack_require__(8);
 
 	module.exports.config = config;
 	module.exports.localization = localization;
@@ -300,7 +300,7 @@ var app =
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var sanitizer = __webpack_require__(6);
+	var sanitizer = __webpack_require__(5);
 
 	var services = {
 
@@ -326,10 +326,9 @@ var app =
 	                url: state.url,
 	                showNoticesField: state.showNoticesField,
 	                disableSoundsField: state.disableSoundsField,
-	                nameField: state.nameField,
+	                nameField: state.nameField || state.title,
 	                enabled: true
 	            };
-
 
 			//Закрыть модальное окно
 	        $('#modal-add-service').modal('hide');
@@ -357,7 +356,7 @@ var app =
 	                disableSoundsField: state.disableSoundsField,
 	                // nameField: me.escapeString(state.nameField),
 	                nameField: me.escapeString(me.unescapeString(state.nameField)),
-	                enabled: true
+	                enabled: state.enabled
 	            };        
 
 
@@ -493,45 +492,10 @@ var app =
 
 /***/ },
 /* 5 */
-/***/ function(module, exports) {
-
-	var componentsObserver = {
-
-		components: {},
-
-		registerComponent(name, cmp){
-
-			if(typeof this.components[name] === 'undefined'){
-
-				this.components[name] = cmp;
-			}
-		},
-
-		getComponent: function(name){
-			
-			if(typeof this.components[name] !== 'undefined'){
-
-				return this.components[name];
-			}
-
-			return null;
-		},
-
-		getComponents: function(){
-
-			return this.components;
-		}
-	}
-
-	module.exports = componentsObserver;
-
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var html4 = __webpack_require__(7);
-	var URI = __webpack_require__(8);
+	var html4 = __webpack_require__(6);
+	var URI = __webpack_require__(7);
 
 	// Copyright (C) 2006 Google Inc.
 	//
@@ -1656,7 +1620,7 @@ var app =
 
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright Google Inc.
@@ -2033,7 +1997,7 @@ var app =
 
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright (C) 2010 Google Inc.
@@ -2788,6 +2752,41 @@ var app =
 	        window['URI'] = URI;
 	    }
 	}
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	var componentsObserver = {
+
+		components: {},
+
+		registerComponent(name, cmp){
+
+			if(typeof this.components[name] === 'undefined'){
+
+				this.components[name] = cmp;
+			}
+		},
+
+		getComponent: function(name){
+			
+			if(typeof this.components[name] !== 'undefined'){
+
+				return this.components[name];
+			}
+
+			return null;
+		},
+
+		getComponents: function(){
+
+			return this.components;
+		}
+	}
+
+	module.exports = componentsObserver;
 
 
 /***/ }

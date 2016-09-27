@@ -64,7 +64,8 @@ app.on('ready', function() {
         width: 800, 
         height: 580,
         minWidth: 600,
-        minHeight: 480
+        minHeight: 480,
+        icon: __dirname + '/opios.png'
         // 'min-width': 300,
         // 'min-height': 300,
     });

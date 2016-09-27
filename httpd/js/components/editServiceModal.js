@@ -12,8 +12,8 @@ var EditServiceModal = React.createClass({
 		data.showNoticesField = false;
 		data.disableSoundsField = false;
 		data.nameField = '';        
-		data.enabled = '';
-
+		data.enabled = true;
+//console.log(data)
     	return data;
 	},
 
@@ -51,6 +51,17 @@ var EditServiceModal = React.createClass({
   //  				// nameField: app.services.escapeString(me.state.nameField)
   //  			});
 		// })
+
+//console.log(me.state.enabled)
+//        $("[name='my-checkbox']").bootstrapSwitch({
+//            state: me.state.enabled,
+//            onSwitchChange: function(ths, value){
+//                me.setState({enabled: value});
+//                if(!value){
+//                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
+//                }
+//            }
+//        });
   	},
 
     closeWindow: function(){
@@ -70,10 +81,6 @@ var EditServiceModal = React.createClass({
 	showNoticesHandler: function(event){
 
 		this.setState({showNoticesField: event.target.value});
-	},
-
-	enableHandler: function(){
-
 	},
 
 	nameHandler: function(event){
@@ -104,9 +111,31 @@ var EditServiceModal = React.createClass({
 	        	el.focus();
 	        }
         }, 500);
+
+        var me = this;
+        console.log(me.state.enabled)
+        $("[name='my-checkbox']").bootstrapSwitch({
+            state: me.state.enabled,
+            onSwitchChange: function(ths, value){
+                me.setState({enabled: value});
+                if(!value){
+                    $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
+                }
+            }
+        });
+    },
+
+    switchEnabled: function(event){
+        this.setState({enabled: event.target.checked});
     },
 
 	render: function(){
+
+//        <input
+//        className="switch-button"
+//        id="switch-modal"
+//        type="checkbox"
+//        />
 
 		return (
 			<div className="modal fade modal-service" id="modal-edit-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -144,11 +173,8 @@ var EditServiceModal = React.createClass({
 		                        <div className="form-group">
 		                            <label htmlFor="switch-modal" className="col-sm-3 control-label">{this.state.enableService}</label>
 		                            <div className="col-sm-9">
-		                                <input 
-		                                	className="switch-button" 
-		                                	id="switch-modal" 
-		                                	type="checkbox" 
-	                                	/>
+
+                                        <input type="checkbox" name="my-checkbox" defaultChecked={this.state.enabled} onChange={this.switchEnabled} />
 		                            </div>
 		                        </div>
 		                        
