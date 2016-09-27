@@ -57,13 +57,15 @@ var EditServiceModal = React.createClass({
     saveService: function(){
 
     	var me = this;
-    	
+
     	//Задизейбливание сервиса
 		if(this.state.enabled){
             $('li#tab-'+me.state.id+' a').removeClass('disabled').attr('data-toggle', 'tab');
+            $('li#tab-'+me.state.id+' a img').css({opacity:'1',cursor:'pointer'});
         }
         else{
             $('li#tab-'+me.state.id+' a').addClass('disabled').removeAttr('data-toggle');
+            $('li#tab-'+me.state.id+' a img').css({opacity:'0.3',cursor:'default'});
         }
 
         app.services.saveService(this.state);

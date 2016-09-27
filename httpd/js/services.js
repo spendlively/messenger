@@ -83,13 +83,15 @@ var services = {
 
 		//Создать таб-вкладку
         var disabled = serviceData.enabled ? '' : 'disabled',
-            toggle = serviceData.enabled ? 'data-toggle="tab"' : '';
+            toggle = serviceData.enabled ? 'data-toggle="tab"' : '',
+            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"';
+
         $("#navbar-left ul.top-main-menu-left").append(
             '<li id="tab-'+serviceData.id+'" role="presentation">' +
                 '<a class="navbar-brand ptr '+disabled+'" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" '+toggle+'">' +
                     '<div>' +
                         '<span class="glyphicon service-icon-small" aria-hidden="true">' +
-                            '<img src="'+serviceData.img+'">' +
+                            '<img src="'+serviceData.img+'" '+style+'>' +
                         '</span><span class="service-tab-name">'+text+'</span>' +
                     '</div>' +
                 '</a>' +
