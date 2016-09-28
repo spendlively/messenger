@@ -83,3 +83,46 @@ npm install path, remote, menu, tray
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+wv.addEventListener('load-commit', function(event){console.log("load-commit");});
+wv.addEventListener('did-finish-load', function(event){console.log("did-finish-load");});
+wv.addEventListener('did-fail-load', function(event){console.log("did-fail-load");});
+wv.addEventListener('did-frame-finish-load', function(event){console.log("did-frame-finish-load");});
+wv.addEventListener('did-start-loading', function(event){console.log("did-start-loading");});
+wv.addEventListener('did-stop-loading', function(event){console.log("did-stop-loading");});
+wv.addEventListener('did-get-response-details', function(event){console.log("did-get-response-details");});
+wv.addEventListener('did-get-redirect-request', function(event){console.log("did-get-redirect-request");});
+wv.addEventListener('dom-ready', function(event){console.log("dom-ready");});
+wv.addEventListener('page-title-updated', function(event){console.log("page-title-updated");});
+wv.addEventListener('page-favicon-updated', function(event){console.log("page-favicon-updated");});
+wv.addEventListener('enter-html-full-screen', function(event){console.log("enter-html-full-screen");});
+wv.addEventListener('leave-html-full-screen', function(event){console.log("leave-html-full-screen");});
+wv.addEventListener('console-message', function(event){console.log("console-message");});
+wv.addEventListener('found-in-page', function(event){console.log("found-in-page");});
+wv.addEventListener('new-window', function(event){console.log("new-window");});
+wv.addEventListener('will-navigate', function(event){console.log("will-navigate");});
+wv.addEventListener('did-navigate', function(event){console.log("did-navigate");});
+wv.addEventListener('did-navigate-in-page', function(event){console.log("did-navigate-in-page");});
+wv.addEventListener('close', function(event){console.log("close");});
+wv.addEventListener('ipc-message', function(event){console.log("ipc-message");});
+wv.addEventListener('crashed', function(event){console.log("crashed");});
+wv.addEventListener('gpu-crashed', function(event){console.log("gpu-crashed");});
+wv.addEventListener('plugin-crashed', function(event){console.log("plugin-crashed");});
+wv.addEventListener('destroyed', function(event){console.log("destroyed");});
+wv.addEventListener('media-started-playing', function(event){console.log("media-started-playing");});
+wv.addEventListener('media-paused', function(event){console.log("media-paused");});
+wv.addEventListener('did-change-theme-color', function(event){console.log("did-change-theme-color");});
+wv.addEventListener('update-target-url', function(event){console.log("update-target-url");});
+wv.addEventListener('devtools-opened', function(event){console.log("devtools-opened");});
+wv.addEventListener('devtools-closed', function(event){console.log("devtools-closed");});
+wv.addEventListener('devtools-focused', function(event){console.log("devtools-focused");});

@@ -71,15 +71,10 @@ var services = {
 
         text = me.escapeString(me.unescapeString(text));
 
-// console.log("restore");
-// console.log(text);
-
 		//Создать webview
-        $("#tabs-container").append(
-            '<div role="tabpanel" class="tab-pane webview" id="'+serviceData.id+'">' +
-                '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:780px"></webview>' +
-            '</div>'
-        );
+        $('<div role="tabpanel" class="tab-pane webview" id="'+serviceData.id+'">' +
+            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:780px"></webview>' +
+        '</div>').appendTo("#tabs-container");
 
 		//Создать таб-вкладку
         var disabled = serviceData.enabled ? '' : 'disabled',
@@ -92,7 +87,9 @@ var services = {
                     '<div>' +
                         '<span class="glyphicon service-icon-small" aria-hidden="true">' +
                             '<img src="'+serviceData.img+'" '+style+'>' +
-                        '</span><span class="service-tab-name">'+text+'</span>' +
+                        '</span>'+
+                        '<span class="service-tab-name">'+text+'</span>' +
+                        '<span class="badge badge-active"></span>'+
                     '</div>' +
                 '</a>' +
             '</li>'
@@ -124,24 +121,34 @@ var services = {
             editServiceModal.afterOpen.call(editServiceModal);
         });
 
-//        var wv = document.getElementById('wv-'+serviceData.id);
-//        wv.addEventListener('did-get-response-details', function(event){
-//            console.log('==========================================================================');
-//            console.log('did-get-response-details' + serviceData.title);
-//            console.log(event);
-//        });
-//        wv.addEventListener('page-title-updated', function(event){
-//            console.log('==========================================================================');
-//            console.log('page-title-updated' + serviceData.title);
-//            console.log(event);
-//        });
-//        wv.addEventListener('page-favicon-updated', function(event){
-//            console.log('==========================================================================');
-//            console.log('page-favicon-updated' + serviceData.title);
-//            console.log(event);
-//        });
+        //Отображение badges c количеством новых уведомлений
+        var wv = document.getElementById('wv-'+serviceData.id);
+        wv.addEventListener('page-title-updated', function(event){
+            var count = me.findNewMessagesInTitle(event.title);
 
+            me.updateBudges(serviceData.id, count);
+        });
 	},
+
+    updateBudges: function(id, count){
+
+        var me = this,
+            tab = document.getElementById('tab-'+id);
+
+        $('#tab-'+id+' a div span.badge.badge-active').html(count);
+    },
+
+    findNewMessagesInTitle: function(title){
+
+        var re = /\(([\d]+)\)/ui;
+        var results = re.exec(title) || [];
+
+        if(results[1]){
+            return results[1];
+        }
+
+        return null;
+    },
 
     escapeString: function(str){
         return sanitizer.escape(str);
@@ -160,8 +167,13 @@ var services = {
 		if(me.services.length){
 			for(var s in me.services){
 				me._addService(me.services[s]);
-			}
-		}
+            }
+        }
+
+        //Предзагрузка сервисов (рендеринг webview)
+        setTimeout(function(){
+            $('.tab-pane.webview').addClass('active');
+        }, 5000);
 	},
 
 	removeService: function(id){
