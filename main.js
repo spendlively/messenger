@@ -70,6 +70,8 @@ app.on('ready', function() {
         // 'min-height': 300,
     });
 
+    mainWindow.setOverlayIcon(__dirname + '/tray.png', 'Имеется 1 уведомление!')
+
     // и загружаем файл index.html нашего веб приложения.
    mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
 //   mainWindow.loadURL('file://' + __dirname + '/index.html');

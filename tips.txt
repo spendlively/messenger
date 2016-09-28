@@ -43,6 +43,7 @@
 ( ) Отключение звука <webview>.setAudioMuted(muted) <webview>.isAudioMuted()
 ( ) Обновление из верхней панели
 ( ) Разворачивание окна сервиса на весь экран
+( ) Copy/paste
 
 ( ) Нотификации сервиса
 ( ) Подсказка с количеством новых сообщений
@@ -60,3 +61,25 @@ asar
 npm install --save auto-launch
 
 npm install path, remote, menu, tray
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

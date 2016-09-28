@@ -445,6 +445,24 @@ var app =
 
 	            editServiceModal.afterOpen.call(editServiceModal);
 	        });
+
+	//        var wv = document.getElementById('wv-'+serviceData.id);
+	//        wv.addEventListener('did-get-response-details', function(event){
+	//            console.log('==========================================================================');
+	//            console.log('did-get-response-details' + serviceData.title);
+	//            console.log(event);
+	//        });
+	//        wv.addEventListener('page-title-updated', function(event){
+	//            console.log('==========================================================================');
+	//            console.log('page-title-updated' + serviceData.title);
+	//            console.log(event);
+	//        });
+	//        wv.addEventListener('page-favicon-updated', function(event){
+	//            console.log('==========================================================================');
+	//            console.log('page-favicon-updated' + serviceData.title);
+	//            console.log(event);
+	//        });
+
 		},
 
 	    escapeString: function(str){
