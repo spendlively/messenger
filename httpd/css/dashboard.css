@@ -335,3 +335,9 @@ span.service-icon-small > img{
   background-color: #eee;
 }
 
+/*Класс-контейнер в 1px высотой, добавляется чтобы во время предзагрузки*/
+/*сервис не был виден на главной странице*/
+.unvisible{
+    height: 1px;
+    overflow: hidden;
+}

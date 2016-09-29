@@ -403,31 +403,30 @@ var app =
 	            toggle = serviceData.enabled ? 'data-toggle="tab"' : '',
 	            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"';
 
-	        $("#navbar-left ul.top-main-menu-left").append(
-	            '<li id="tab-'+serviceData.id+'" role="presentation">' +
-	                '<a class="navbar-brand ptr '+disabled+'" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" '+toggle+'">' +
-	                    '<div>' +
-	                        '<span class="glyphicon service-icon-small" aria-hidden="true">' +
-	                            '<img src="'+serviceData.img+'" '+style+'>' +
-	                        '</span>'+
-	                        '<span class="service-tab-name">'+text+'</span>' +
-	                        '<span class="badge badge-active"></span>'+
-	                    '</div>' +
-	                '</a>' +
-	            '</li>'
-	        );
+	        $('<li id="tab-'+serviceData.id+'" role="presentation">' +
+	            '<a class="navbar-brand ptr '+disabled+'" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" '+toggle+'">' +
+	                '<div>' +
+	                    '<span class="glyphicon service-icon-small" aria-hidden="true">' +
+	                        '<img src="'+serviceData.img+'" '+style+'>' +
+	                    '</span>'+
+	                    '<span class="service-tab-name">'+text+'</span>' +
+	                    '<span class="badge badge-active"></span>'+
+	                '</div>' +
+	            '</a>' +
+	        '</li>').appendTo("#navbar-left ul.top-main-menu-left").mousedown(function(){
+	            //Перед раскрытием webview удаляется класс unvisible, нужный для предхагрузки,
+	            //чтобы показать содержимое webview
+	            $('.tab-pane.webview').removeClass('unvisible');
+	        });
 
 	        //Создать edit-панель
-	        $(
-	            '<div class="margin10" id="edit-item-'+serviceData.id+'" data-toggle="modal" data-target="#modal-edit-service">'+
-	                '<span class="glyphicon service-icon-small" aria-hidden="true">'+
-	                    '<img src="'+serviceData.img+'" />'+
-	                '</span>'+
-	                '<span class="edit-btn-name">'+text+'</span>'+
-	                '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
-	            '</div>'
-	        ).appendTo("#edit-services-list").click(function(el){
-
+	        $('<div class="margin10" id="edit-item-'+serviceData.id+'" data-toggle="modal" data-target="#modal-edit-service">'+
+	            '<span class="glyphicon service-icon-small" aria-hidden="true">'+
+	                '<img src="'+serviceData.img+'" />'+
+	            '</span>'+
+	            '<span class="edit-btn-name">'+text+'</span>'+
+	            '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+	        '</div>').appendTo("#edit-services-list").click(function(el){
 
 	            var l12n = app.localization,
 	                editServiceModal = app.componentsObserver.getComponent('editServiceModal'),
@@ -492,10 +491,8 @@ var app =
 	            }
 	        }
 
-	        //Предзагрузка сервисов (рендеринг webview)
-	        setTimeout(function(){
-	            $('.tab-pane.webview').addClass('active');
-	        }, 5000);
+	        //Предзагрузка сервисов (рендеринг webview) в контейнере 1px
+	        $('.tab-pane.webview').addClass('unvisible').addClass('active');
 		},
 
 		removeService: function(id){
