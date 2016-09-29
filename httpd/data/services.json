@@ -15,7 +15,7 @@
   "img": "services/whatsapp.svg",
   "title": "WhatsApp",
   "id": "whatsApp",
-  "url": "https://www.whatsapp.com/"
+  "url": "https://web.whatsapp.com/"
 },
 {
   "img": "services/telegram.svg",
@@ -27,7 +27,7 @@
   "img": "services/skype.svg",
   "title": "Skype",
   "id": "skype",
-  "url": "https://web.skype.com/ru/"
+  "url": "https://web.skype.com/ru/?intcmp=accountweb-_-uktrybeta"
 },
 {
   "img": "services/wechat.svg",
