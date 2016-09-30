@@ -63,12 +63,34 @@ npm install --save auto-launch
 npm install path, remote, menu, tray
 
 
+npm -v
+3.10.3
 
+node -v
+v6.5.0
 
+npm list
+electron@1.3.5 extraneous
+electron-packager@8.0.0 extraneous
+UNMET DEPENDENCY electron-prebuilt@^1.3.4
 
+//Переустановка 1
+rm -rf node_modules/
+sudo npm cache clean
 
+//Переустановка 2
+rm -rf node_modules/
+sudo npm update -g npm
+npm install
 
+//Переустановка 3
+npm update -g
 
+//Переустановка 4
+rm -rf node_modules/
+sudo npm cache clean
+npm install --dev
+npm update --dev
 
 
 
