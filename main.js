@@ -51,9 +51,9 @@ var mainWindow = null;
 app.on('window-all-closed', function() {
     // В OS X обычное поведение приложений и их menu bar
     //  оставаться активными до тех пор пока пользователь закроет их явно комбинацией клавиш Cmd + Q
-    if (process.platform != 'darwin') {
+    // if (process.platform != 'darwin') {
         app.quit();
-    }
+    // }
 });
 
 // Этот метод будет вызван когда Electron закончит инициализацию 
