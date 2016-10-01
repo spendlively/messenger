@@ -2,6 +2,12 @@
  * Base structure
  */
 
+/*Высота 100%*/
+html, body, .container, .height100, #tabs-container{
+    height: 100%;
+}
+/*END Высота 100%*/
+
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;

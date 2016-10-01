@@ -394,8 +394,8 @@ var app =
 	        text = me.escapeString(me.unescapeString(text));
 
 			//Создать webview
-	        $('<div role="tabpanel" class="tab-pane webview" id="'+serviceData.id+'">' +
-	            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:780px"></webview>' +
+	        $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
+	            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:100%;"></webview>' +
 	        '</div>').appendTo("#tabs-container");
 
 			//Создать таб-вкладку
@@ -417,6 +417,13 @@ var app =
 	            //Перед раскрытием webview удаляется класс unvisible, нужный для предхагрузки,
 	            //чтобы показать содержимое webview
 	            $('.tab-pane.webview').removeClass('unvisible');
+
+
+	            setTimeout(function(){
+	                var wv = document.getElementById('wv-'+serviceData.id);
+	                if(wv.style.height === '100%') wv.style.height = '99%';
+	                else wv.style.height = '100%';
+	            }, 100);
 	        });
 
 	        //Создать edit-панель
@@ -442,8 +449,9 @@ var app =
 	            editServiceModal.afterOpen.call(editServiceModal);
 	        });
 
-	        //Отображение badges c количеством новых уведомлений
 	        var wv = document.getElementById('wv-'+serviceData.id);
+
+	        //Отображение badges c количеством новых уведомлений
 	        wv.addEventListener('page-title-updated', function(event){
 	            var count = me.findNewMessagesInTitle(event.title);
 
