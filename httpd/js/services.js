@@ -127,6 +127,13 @@ var services = {
 
             me.updateBudges(serviceData.id, count);
         });
+
+        //Открытие ссылки в браузере по умолчанию
+        wv.addEventListener('new-window', function(e){
+            e.preventDefault();
+            require('electron').shell.openExternal(e.url);
+        });
+
 	},
 
     updateBudges: function(id, count){

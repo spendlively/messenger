@@ -449,6 +449,13 @@ var app =
 
 	            me.updateBudges(serviceData.id, count);
 	        });
+
+	        //Открытие ссылки в браузере по умолчанию
+	        wv.addEventListener('new-window', function(e){
+	            e.preventDefault();
+	            __webpack_require__(2).shell.openExternal(e.url);
+	        });
+
 		},
 
 	    updateBudges: function(id, count){
