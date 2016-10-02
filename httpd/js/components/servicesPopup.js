@@ -6,7 +6,8 @@ var ServicesPopup = React.createClass({
 
 	componentDidMount: function(){
 
-		var  me = this;
+		var me = this,
+			items = me.getItems();
 
 		app.componentsObserver.registerComponent('servicesPopup', this);
 
@@ -17,28 +18,30 @@ var ServicesPopup = React.createClass({
 			container: 'body',
 			content: function() {
 
-				var html = '',
-					items = me.getItems();
-
+				var html = '';
+					
 				if(items.length){
 					for(var i in items){
 
 						var item = items[i],
 							text = me.escapeString(me.unescapeString(item.nameField));
 
-						html += '<div>'+
-							'<span class="glyphicon service-icon-small" aria-hidden="true">'+
-					            '<img src="'+item.img+'" >'+
-					        '</span>'+
-					        text+
-					        '<span class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
-					        '<span class="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>'+
-					        '<div class="top-popover-switcher pull-right">'+
-					            '<input class="switch-button" type="checkbox" checked data-size="mini" />'+
-					        '</div>'+
-					        '<div>';
+						html += 
+							'<div>'+
+								'<span class="glyphicon service-icon-small" aria-hidden="true">'+
+					            	'<img src="'+item.img+'" >'+
+					        	'</span>'+
+					        	text+
+					        	'<span onclick="app.services.showProps(\''+item.id+'\');" id="top-menu-props-'+item.id+'" class="glyphicon glyphicon-cog pull-right" aria-hidden="true"></span>'+
+					        	'<span onclick="app.services.refresh(\''+item.id+'\');" id="top-menu-refresh-'+item.id+'" class="glyphicon glyphicon-refresh pull-right" aria-hidden="true"></span>'+
+					        	// '<div class="top-popover-switcher pull-right">'+
+					            	// '<input class="switch-button" type="checkbox" checked data-size="mini" />'+
+					        	// '</div>'+
+					        '</div>';
 				    }
 				}
+
+// return $(html).html();
 
 				return html;
 	        }

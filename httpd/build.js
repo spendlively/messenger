@@ -386,23 +386,29 @@ var app =
 	        $('div#edit-item-'+serviceData.id+' span.edit-btn-name').html(serviceData.nameField);
 	    },
 
+	    getWv: function(id){
+
+	        return document.getElementById('wv-'+id);
+	    },
+
 		_addService: function(serviceData){
 
 			var me = this,
-	            text = serviceData.nameField || serviceData.title;
+	            text = serviceData.nameField || serviceData.title,
+	            disabled = serviceData.enabled ? '' : 'disabled',
+	            toggle = serviceData.enabled ? 'data-toggle="tab"' : '',
+	            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"';
 
 	        text = me.escapeString(me.unescapeString(text));
 
-			//Создать webview
+	        //Создать webview
 	        $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
 	            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:100%;"></webview>' +
 	        '</div>').appendTo("#tabs-container");
 
-			//Создать таб-вкладку
-	        var disabled = serviceData.enabled ? '' : 'disabled',
-	            toggle = serviceData.enabled ? 'data-toggle="tab"' : '',
-	            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"';
+	        var wv = me.getWv(serviceData.id);
 
+	        //Создать таб-вкладку
 	        $('<li id="tab-'+serviceData.id+'" role="presentation">' +
 	            '<a class="navbar-brand ptr '+disabled+'" href="#'+serviceData.id+'" aria-controls="'+serviceData.title+'" role="tab" '+toggle+'">' +
 	                '<div>' +
@@ -417,13 +423,6 @@ var app =
 	            //Перед раскрытием webview удаляется класс unvisible, нужный для предхагрузки,
 	            //чтобы показать содержимое webview
 	            $('.tab-pane.webview').removeClass('unvisible');
-
-
-	            setTimeout(function(){
-	                var wv = document.getElementById('wv-'+serviceData.id);
-	                if(wv.style.height === '100%') wv.style.height = '99%';
-	                else wv.style.height = '100%';
-	            }, 100);
 	        });
 
 	        //Создать edit-панель
@@ -449,8 +448,6 @@ var app =
 	            editServiceModal.afterOpen.call(editServiceModal);
 	        });
 
-	        var wv = document.getElementById('wv-'+serviceData.id);
-
 	        //Отображение badges c количеством новых уведомлений
 	        wv.addEventListener('page-title-updated', function(event){
 	            var count = me.findNewMessagesInTitle(event.title);
@@ -463,7 +460,6 @@ var app =
 	            e.preventDefault();
 	            __webpack_require__(2).shell.openExternal(e.url);
 	        });
-
 		},
 
 	    updateBudges: function(id, count){
@@ -547,7 +543,23 @@ var app =
 			}
 
 			return null;
-		}
+		},
+
+	    showProps: function(id){
+
+	        var me = this,
+	            wv = me.getWv(id);
+
+	        $("#edit-item-"+id).click();
+	    },
+
+	    refresh: function(id){
+	        
+	        var me = this,
+	            wv = me.getWv(id);
+
+	        wv.reloadIgnoringCache();        
+	    }
 	}
 	$.ajax({
 	  	url: 'data/services.json',
