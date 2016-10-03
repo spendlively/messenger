@@ -6,9 +6,13 @@ setTimeout(function(){
 
 	//Switcher кнопочки
 //	$('input#switch-modal').bootstrapSwitch('state', true, true);
-    window.a();
+
+//    window.a();
 
 }, 5000);
+
+
+
 });
 
 

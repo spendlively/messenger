@@ -403,7 +403,7 @@ var app =
 
 	        //Создать webview
 	        $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
-	            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:100%;"></webview>' +
+	            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
 	        '</div>').appendTo("#tabs-container");
 
 	        var wv = me.getWv(serviceData.id);
@@ -423,6 +423,23 @@ var app =
 	            //Перед раскрытием webview удаляется класс unvisible, нужный для предхагрузки,
 	            //чтобы показать содержимое webview
 	            $('.tab-pane.webview').removeClass('unvisible');
+	        });
+
+	        //Изменение размера окна webview
+	        $('#tab-'+serviceData.id+' a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	            e.target // newly activated tab
+	            e.relatedTarget // previous active tab
+	            var wv = me.getWv(serviceData.id);
+	            setTimeout(function(){
+	                if(wv.style.height === '99%'){
+	                    wv.style.height = '98%';
+	//                    console.log(98)
+	                }
+	                else{
+	                    wv.style.height = '99%';
+	//                    console.log(99)
+	                }
+	            }, 500);
 	        });
 
 	        //Создать edit-панель
