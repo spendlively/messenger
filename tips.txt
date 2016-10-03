@@ -92,7 +92,8 @@ sudo npm cache clean
 npm install --dev
 npm update --dev
 
-
+//Tray
+https://github.com/electron/electron/blob/master/docs/api/tray.md
 
 
 

@@ -10,7 +10,7 @@ var sanitizer = require('sanitizer');
 const {Tray} = require('electron');
 let tray = null
 app.on('ready', () => {
-    tray = new Tray(__dirname + '/opios.png')
+    tray = new Tray(__dirname + '/opios16.png')
 const contextMenu = Menu.buildFromTemplate([
     {label: 'Привет :)', type: 'radio'},
     {label: 'Пока :(', type: 'radio'}
