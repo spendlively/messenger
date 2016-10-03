@@ -6,6 +6,18 @@ const ipcMain = require('electron').ipcMain;
 const pathToConfig = __dirname + '/httpd/data/config.json';
 const {Menu} = require('electron');
 var sanitizer = require('sanitizer');
+
+const {Tray} = require('electron');
+let tray = null
+app.on('ready', () => {
+    tray = new Tray(__dirname + '/opios.png')
+const contextMenu = Menu.buildFromTemplate([
+    {label: 'Привет :)', type: 'radio'},
+    {label: 'Пока :(', type: 'radio'}
+])
+tray.setToolTip('This is my application.')
+tray.setContextMenu(contextMenu)
+})
 // sanitizer.escape();
 // sanitizer.unescapeEntities();
 
@@ -66,6 +78,8 @@ app.on('ready', function() {
         minWidth: 600,
         minHeight: 480,
         icon: __dirname + '/opios.png'
+//        skipTaskbar: true
+
         // 'min-width': 300,
         // 'min-height': 300,
     });
