@@ -4,7 +4,7 @@ const BrowserWindow = electron.BrowserWindow;  // Модуль создающи�
 const fs = require('fs');
 const ipcMain = require('electron').ipcMain;
 const pathToConfig = __dirname + '/httpd/data/config.json';
-
+const {Menu} = require('electron');
 var sanitizer = require('sanitizer');
 // sanitizer.escape();
 // sanitizer.unescapeEntities();
@@ -87,4 +87,26 @@ app.on('ready', function() {
         // когда нужно удалить соответствующий элемент.
         mainWindow = null;
     });
+
+    var template = [{
+        label: "Application",
+        submenu: [
+            { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
+            { type: "separator" },
+            { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+        ]}, {
+        label: "Edit",
+        submenu: [
+            { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+            { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+            { type: "separator" },
+            { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+            { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+        ]}
+    ];
+    const menu = Menu.buildFromTemplate(template);
+    Menu.setApplicationMenu(menu);
+//    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 });
