@@ -5,10 +5,10 @@ setTimeout(function(){
 	// $('#rmenu-popover-btn').popover();
 
 	//Switcher кнопочки
-	$('input#switch-modal').bootstrapSwitch('state', true, true);
+//	$('input#switch-modal').bootstrapSwitch('state', true, true);
+    window.a();
 
-
-}, 1000);
+}, 5000);
 });
 
 
@@ -21,7 +21,10 @@ console.log(2)
 
   else if (Notification.permission === "granted") {
 console.log(3)	
-    var notification = new Notification("Hi there!");
+    var notification = new Notification("Новое сообщение", {
+        body: 'Пользователь Аристарх написал вам ...',
+        icon: __dirname + '/../opios.png'
+    });
     console.log(notification);
   }
 
@@ -29,7 +32,10 @@ console.log(3)
 console.log(4)	
     Notification.requestPermission(function (permission) {
       if (permission === "granted") {
-        var notification = new Notification("Hi there!");
+          var notification = new Notification("Новое сообщение", {
+              body: 'Пользователь Аристарх написал вам...',
+              icon: __dirname + '/../opios.png'
+          });
       }
     });
   }
