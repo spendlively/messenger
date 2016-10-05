@@ -51,6 +51,12 @@
 ( ) Сборка в asar
 ( ) Автозапуск
 
+
+
+( ) 
+
+
+
 //Зависимости
 auto-launch
 windowStateKeeper

@@ -49,11 +49,13 @@ var app =
 	var localization = __webpack_require__(3);
 	var services = __webpack_require__(4);
 	var componentsObserver = __webpack_require__(8);
+	var notifications = __webpack_require__(9);
 
 	module.exports.config = config;
 	module.exports.localization = localization;
 	module.exports.services = services;
 	module.exports.componentsObserver = componentsObserver;
+	module.exports.notifications = notifications;
 
 /***/ },
 /* 1 */
@@ -469,7 +471,7 @@ var app =
 	        wv.addEventListener('page-title-updated', function(event){
 	            var count = me.findNewMessagesInTitle(event.title);
 
-	            me.updateBudges(serviceData.id, count);
+	            me.updateNotifications(serviceData.id, count);
 	        });
 
 	        //Открытие ссылки в браузере по умолчанию
@@ -479,12 +481,14 @@ var app =
 	        });
 		},
 
-	    updateBudges: function(id, count){
+	    updateNotifications: function(id, count){
 
 	        var me = this,
 	            tab = document.getElementById('tab-'+id);
 
 	        $('#tab-'+id+' a div span.badge.badge-active').html(count);
+
+	        app.notifications.update(id, count);
 	    },
 
 	    findNewMessagesInTitle: function(title){
@@ -2887,6 +2891,53 @@ var app =
 	}
 
 	module.exports = componentsObserver;
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var notifications = {
+
+		counter: {},
+
+		update: function(id, cnt){
+
+			var me = this,
+				count = parseInt(cnt) || 0;
+
+			me.counter[id] = count;
+
+			me.updateTray();
+		},
+
+		getCount: function(){
+
+			var me = this,
+				count = 0;
+
+			for(var c in me.counter){
+
+				count += me.counter[c];
+			}
+
+			return count;
+		},
+
+		updateTray: function(){
+
+			var me = this,
+				messages = __webpack_require__(2).remote.getGlobal('messages'),
+			    ipcRenderer = __webpack_require__(2).ipcRenderer;
+
+		    messages.count = me.getCount();
+
+		    ipcRenderer.send('update-tray');
+		}
+
+	};
+
+	module.exports = notifications;
 
 
 /***/ }

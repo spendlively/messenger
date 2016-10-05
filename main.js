@@ -9,17 +9,50 @@ var sanitizer = require('sanitizer');
 
 const {Tray} = require('electron');
 let tray = null
-app.on('ready', () => {
-    tray = new Tray(__dirname + '/opios16.png')
-const contextMenu = Menu.buildFromTemplate([
-    {label: 'Привет :)', type: 'radio'},
-    {label: 'Пока :(', type: 'radio'}
-])
-tray.setToolTip('This is my application.')
-tray.setContextMenu(contextMenu)
-})
-// sanitizer.escape();
-// sanitizer.unescapeEntities();
+app.on('ready', function(){
+
+    tray = new Tray(__dirname + '/opios16.png');
+    // tray = new Tray(__dirname + '/icons/alert.png');
+    const contextMenu = Menu.buildFromTemplate([
+        {
+            label: 'Выйти', 
+            type: 'radio',
+            click (item, focusedWindow) {
+                // if (focusedWindow) focusedWindow.reload();
+                app.quit();
+            }
+        }
+    ]);
+
+    // tray.setToolTip('This is my application.');
+    tray.setContextMenu(contextMenu);
+});
+
+
+var messages = {count: 0},
+    currentCount = 0;
+global.messages = messages;
+
+ipcMain.on('update-tray', function(event) {
+
+    var count = parseInt(messages.count),
+        head = __dirname + '/icons/alert',
+        tail = '.png';
+
+    if(count === currentCount) return;
+
+    if(count > 0 && count < 10){
+        tray.setImage(head + count + tail); 
+    }
+    else if(count >= 10){
+        tray.setImage(head + 10 + tail); 
+    }
+    else{
+        tray.setImage(__dirname + '/opios16.png'); 
+    }
+
+    currentCount = count;
+});
 
 // const notifier = require('node-notifier');
 // // notifier.notify('Message');
@@ -84,7 +117,7 @@ app.on('ready', function() {
         // 'min-height': 300,
     });
 
-    mainWindow.setOverlayIcon(__dirname + '/tray.png', 'Имеется 1 уведомление!')
+    // mainWindow.setOverlayIcon(__dirname + '/tray.png', 'Имеется 1 уведомление!')
 
     // и загружаем файл index.html нашего веб приложения.
    mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
@@ -92,7 +125,7 @@ app.on('ready', function() {
     // mainWindow.loadURL('http://127.0.0.1:8888/index.html');
 
     // Открываем DevTools.
-//   mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {

@@ -147,7 +147,7 @@ var services = {
         wv.addEventListener('page-title-updated', function(event){
             var count = me.findNewMessagesInTitle(event.title);
 
-            me.updateBudges(serviceData.id, count);
+            me.updateNotifications(serviceData.id, count);
         });
 
         //Открытие ссылки в браузере по умолчанию
@@ -157,12 +157,14 @@ var services = {
         });
 	},
 
-    updateBudges: function(id, count){
+    updateNotifications: function(id, count){
 
         var me = this,
             tab = document.getElementById('tab-'+id);
 
         $('#tab-'+id+' a div span.badge.badge-active').html(count);
+
+        app.notifications.update(id, count);
     },
 
     findNewMessagesInTitle: function(title){
