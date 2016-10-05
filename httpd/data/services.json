@@ -9,7 +9,7 @@
   "img": "services/messenger.svg",
   "title": "Messenger",
   "id": "messenger",
-  "url": "https://www.messenger.com/"
+  "url": "https://www.messenger.com/login/"
 },
 {
   "img": "services/whatsapp.svg",
@@ -21,19 +21,19 @@
   "img": "services/telegram.svg",
   "title": "Telegram",
   "id": "telegram",
-  "url": "https://web.telegram.org/#/login"
+  "url": "https://web.telegram.org"
 },
 {
   "img": "services/skype.svg",
   "title": "Skype",
   "id": "skype",
-  "url": "https://web.skype.com/ru/?intcmp=accountweb-_-uktrybeta"
+  "url": "https://web.skype.com/"
 },
 {
   "img": "services/wechat.svg",
   "title": "WeChat",
   "id": "wechat",
-  "url": "https://www.wechat.com/ru/"
+  "url": "https://web.wechat.com/?lang=en_US"
 },
 {
   "img": "services/hipchat.svg",
@@ -45,13 +45,13 @@
   "img": "services/chatwork.svg",
   "title": "ChatWork",
   "id": "chatwork",
-  "url": "http://www.chatwork.com/"
+  "url": "https://www.chatwork.com/login.php"
 },
 {
   "img": "services/flowdock.svg",
   "title": "Flowdock",
   "id": "flowdock",
-  "url": "https://www.flowdock.com/"
+  "url": "https://www.flowdock.com/login"
 },
 {
   "img": "services/hangouts.svg",
@@ -63,7 +63,7 @@
   "img": "services/groupme.svg",
   "title": "GroupMe",
   "id": "groupme",
-  "url": "https://groupme.com/"
+  "url": "https://web.groupme.com"
 },
 {
   "img": "services/rocketchat.svg",
@@ -87,37 +87,37 @@
   "img": "services/gitter.svg",
   "title": "Gitter",
   "id": "gitter",
-  "url": "https://gitter.im/"
+  "url": "https://gitter.im/login/github?action=login"
 },
 {
   "img": "services/tweetdeck.svg",
   "title": "TweetDeck",
   "id": "tweetdeck",
-  "url": "https://tweetdeck.twitter.com/"
+  "url": "https://tweetdeck.twitter.com"
 },
 {
   "img": "services/dingtalk.svg",
   "title": "DingTalk",
   "id": "dingtalk",
-  "url": "http://www.dingtalk.com/index-b.html"
+  "url": "https://im.dingtalk.com/"
 },
 {
   "img": "services/steamchat.svg",
   "title": "Steam Chat",
   "id": "steamchat",
-  "url": "https://steamcommunity.com/"
+  "url": "https://steamcommunity.com/chat"
 },
 {
   "img": "services/discord.svg",
   "title": "Discord",
   "id": "discord",
-  "url": "https://discordapp.com/"
+  "url": "https://discordapp.com/login"
 },
 {
   "img": "services/mysms.svg",
   "title": "MySMS",
   "id": "mysms",
-  "url": "https://www.mysms.com/"
+  "url": "https://app.mysms.com"
 },
 {
   "img": "services/googleinbox.svg",
@@ -129,43 +129,43 @@
   "img": "services/googlegmail.svg",
   "title": "Gmail",
   "id": "gmail",
-  "url": "https://mail.google.com/"
+  "url": "https://gmail.google.com/"
 },
 {
   "img": "services/outlookdotcom.svg",
   "title": "Outlook.com",
   "id": "outlookcom",
-  "url": "https://login.live.com/"
+  "url": "https://outlook.com/"
 },
 {
   "img": "services/vk.svg",
   "title": "VK",
   "id": "vk",
-  "url": "https://vk.com/"
+  "url": "https://vk.com/im"
 },
 {
   "img": "services/wire.svg",
   "title": "Wire",
   "id": "wire",
-  "url": "https://wire.com/"
+  "url": "https://app.wire.com"
 },
 {
   "img": "services/icq.svg",
   "title": "ICQ",
   "id": "icq",
-  "url": "https://icq.com/windows/ru"
+  "url": "https://web.icq.com"
 },
 {
   "img": "services/irccloud.svg",
   "title": "IRCCloud",
   "id": "irccloud",
-  "url": "https://www.irccloud.com/"
+  "url": "https://www.irccloud.com"
 },
 {
   "img": "services/ciscospark.svg",
   "title": "Cisco Spark",
   "id": "ciscospark",
-  "url": "https://www.ciscospark.com/"
+  "url": "https://web.ciscospark.com"
 },
 {
   "img": "services/facebookpages.svg",
@@ -177,19 +177,19 @@
   "img": "services/linkedin.svg",
   "title": "LinkedIn",
   "id": "linkedin",
-  "url": "https://www.linkedin.com/"
+  "url": "https://www.linkedin.com/messaging"
 },
 {
   "img": "services/hibox.svg",
   "title": "Hibox",
   "id": "hibox",
-  "url": "http://www.hibox.tv/"
+  "url": "https://app.hibox.co"
 },
 {
   "img": "services/coupleme.svg",
   "title": "Couple.me",
   "id": "coupleme",
-  "url": "https://couple.me/"
+  "url": "https://app.couple.me/"
 },
 {
   "img": "services/yahoomessenger.svg",
@@ -201,6 +201,6 @@
   "img": "services/zendesk.svg",
   "title": "Zendesk",
   "id": "zendesk",
-  "url": "https://www.zendesk.com.ru/"
+  "url": "https://zendesk.com/agent/"
 }
 ]
