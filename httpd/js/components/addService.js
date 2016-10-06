@@ -8,28 +8,28 @@ var AddService = React.createClass({
     	return data;
 	},
 
-  	componentDidMount: function() {
+	componentDidMount: function() {
   		
-      app.componentsObserver.registerComponent('addService', this);
-  	},
+    app.componentsObserver.registerComponent('addService', this);
+	},
 
   clickHandler: function(id){
 
-      var me = this,
-          config = app.config,
-          data = me.getData(),
-          addServiceModal = app.componentsObserver.getComponent('addServiceModal');
+    var me = this,
+        config = app.config,
+        data = me.getData(),
+        addServiceModal = app.componentsObserver.getComponent('addServiceModal');
 
-      addServiceModal.beforeOpen.call(addServiceModal);
+    addServiceModal.beforeOpen.call(addServiceModal);
 
-      if(id && data.length){
-        for(var d in data){
-          if(id == data[d].id){
-            config.updateService(data[d]);
-            break;
-          }
+    if(id && data.length){
+      for(var d in data){
+        if(id == data[d].id){
+          config.updateService(data[d]);
+          break;
         }
       }
+    }
   },
 
 	render: function(){

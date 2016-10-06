@@ -25,6 +25,9 @@ var services = {
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
                 nameField: state.nameField || state.title,
+                preload: state.preload,
+                useTitle: state.useTitle,
+                hasTeam: state.hasTeam,
                 enabled: true
             };
 
@@ -52,11 +55,12 @@ var services = {
                 url: state.url,
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
-                // nameField: me.escapeString(state.nameField),
                 nameField: me.escapeString(me.unescapeString(state.nameField)),
+                preload: state.preload,
+                useTitle: state.useTitle,
+                hasTeam: state.hasTeam,
                 enabled: state.enabled
             };        
-
 
         app.config.saveService(serviceData);
 
@@ -81,10 +85,28 @@ var services = {
 
         //Создать webview
         $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
-            '<webview partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
+            // '<webview nodeintegration preload="./preload/vk.js" partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
+            '<webview preload="./preload/'+serviceData.preload+'" partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
         '</div>').appendTo("#tabs-container");
 
         var wv = me.getWv(serviceData.id);
+        wv.addEventListener('dom-ready', function(){
+            // wv.openDevTools()
+            wv.send('ping', {
+                id: serviceData.id
+            });
+        });
+
+        // wv.addEventListener('pong', function(event, params){
+        //     console.log(event.channel)
+        //     console.log(params)
+        // });
+
+        wv.addEventListener('ipc-message', function(event){
+            // console.log(event)
+            var params = event.channel;
+            me.updateNotifications(params.id, params.count);
+        });
 
         //Создать таб-вкладку
         $('<li id="tab-'+serviceData.id+'" role="presentation">' +
@@ -111,11 +133,9 @@ var services = {
             setTimeout(function(){
                 if(wv.style.height === '99%'){
                     wv.style.height = '98%';
-//                    console.log(98)
                 }
                 else{
                     wv.style.height = '99%';
-//                    console.log(99)
                 }
             }, 500);
         });
@@ -144,11 +164,13 @@ var services = {
         });
 
         //Отображение badges c количеством новых уведомлений
-        wv.addEventListener('page-title-updated', function(event){
-            var count = me.findNewMessagesInTitle(event.title);
+        if(serviceData.useTitle === true){
+            wv.addEventListener('page-title-updated', function(event){
+                var count = me.findNewMessagesInTitle(event.title);
 
-            me.updateNotifications(serviceData.id, count);
-        });
+                me.updateNotifications(serviceData.id, count);
+            });
+        }
 
         //Открытие ссылки в браузере по умолчанию
         wv.addEventListener('new-window', function(e){

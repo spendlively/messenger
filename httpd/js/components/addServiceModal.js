@@ -12,6 +12,7 @@ var AddServiceModal = React.createClass({
 		data.showNoticesField = false;
 		data.disableSoundsField = false;
 		data.nameField = '';
+		data.teamField = '';
 
     	return data;
 	},
@@ -25,6 +26,7 @@ var AddServiceModal = React.createClass({
   	},
 
     addService: function(){
+
         app.services.addService(this.state);
     },
 
@@ -80,7 +82,24 @@ var AddServiceModal = React.createClass({
 
 	render: function(){
 
-        var me = this;
+        var me = this,
+        	team = '';
+
+   //      if (this.state.hasTeam === true) {
+			// team = <div className="form-group">
+   // 	              	<label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.name}</label>
+   //                  <div className="col-sm-9">
+   //                      <input 
+   //                      	onChange={this.teamHandler} 
+   //                      	onKeyDown={this.teamKeyPressHandler}
+   //                      	className="form-control" 
+   //                      	id="inputAddTeamField" 
+   //                      	placeholder="" 
+   //                      	value={this.state.teamField} 
+   //                  	/>
+   //                  </div>
+   //              </div>
+   //      }
 
 		return (
 			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -114,6 +133,8 @@ var AddServiceModal = React.createClass({
 	                                	/>
 		                            </div>
 		                        </div>
+
+	                        	{team}
 
 		                        <div className="form-group">
 		                            <div className="col-sm-offset-3 col-sm-9">

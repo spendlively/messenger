@@ -12,6 +12,8 @@ var mainWindow = null;
 var messages = {count: 0};
 var currentCount = 0;
 
+var qwe = {asd: 'zxc'};
+module.exports.qwe = qwe;
 
 //Обновление badges
 global.messages = messages;
@@ -98,7 +100,7 @@ function initWindow(){
     //index.html
     mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
 
-    //DevTools.
+    //DevTools
     // mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.

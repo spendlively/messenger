@@ -3,204 +3,304 @@
   "img": "services/slack.svg",
   "title": "Slack",
   "id": "slack",
-  "url": "https://slack.com/"
+  "url": "https://slack.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": true
 },
 {
   "img": "services/messenger.svg",
   "title": "Messenger",
   "id": "messenger",
-  "url": "https://www.messenger.com/login/"
+  "url": "https://www.messenger.com/login/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/whatsapp.svg",
   "title": "WhatsApp",
   "id": "whatsApp",
-  "url": "https://web.whatsapp.com/"
+  "url": "https://web.whatsapp.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/telegram.svg",
   "title": "Telegram",
   "id": "telegram",
-  "url": "https://web.telegram.org"
+  "url": "https://web.telegram.org",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/skype.svg",
   "title": "Skype",
   "id": "skype",
-  "url": "https://web.skype.com/"
+  "url": "https://web.skype.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/wechat.svg",
   "title": "WeChat",
   "id": "wechat",
-  "url": "https://web.wechat.com/?lang=en_US"
+  "url": "https://web.wechat.com/?lang=en_US",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/hipchat.svg",
   "title": "HipChat",
   "id": "hipchat",
-  "url": "https://www.hipchat.com/"
+  "url": "https://www.hipchat.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/chatwork.svg",
   "title": "ChatWork",
   "id": "chatwork",
-  "url": "https://www.chatwork.com/login.php"
+  "url": "https://www.chatwork.com/login.php",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/flowdock.svg",
   "title": "Flowdock",
   "id": "flowdock",
-  "url": "https://www.flowdock.com/login"
+  "url": "https://www.flowdock.com/login",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/hangouts.svg",
   "title": "Hangouts",
   "id": "hangouts",
-  "url": "https://hangouts.google.com/"
+  "url": "https://hangouts.google.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/groupme.svg",
   "title": "GroupMe",
   "id": "groupme",
-  "url": "https://web.groupme.com"
+  "url": "https://web.groupme.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/rocketchat.svg",
   "title": "Rocket Chat",
   "id": "rocketchat",
-  "url": "https://rocket.chat/"
+  "url": "https://rocket.chat/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/mattermost.svg",
   "title": "Mattermost",
   "id": "mattermost",
-  "url": "https://www.mattermost.org/"
+  "url": "https://www.mattermost.org/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/grape.svg",
   "title": "Grape",
   "id": "grape",
-  "url": "https://chatgrape.com/"
+  "url": "https://chatgrape.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/gitter.svg",
   "title": "Gitter",
   "id": "gitter",
-  "url": "https://gitter.im/login/github?action=login"
+  "url": "https://gitter.im/login/github?action=login",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/tweetdeck.svg",
   "title": "TweetDeck",
   "id": "tweetdeck",
-  "url": "https://tweetdeck.twitter.com"
+  "url": "https://tweetdeck.twitter.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/dingtalk.svg",
   "title": "DingTalk",
   "id": "dingtalk",
-  "url": "https://im.dingtalk.com/"
+  "url": "https://im.dingtalk.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/steamchat.svg",
   "title": "Steam Chat",
   "id": "steamchat",
-  "url": "https://steamcommunity.com/chat"
+  "url": "https://steamcommunity.com/chat",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/discord.svg",
   "title": "Discord",
   "id": "discord",
-  "url": "https://discordapp.com/login"
+  "url": "https://discordapp.com/login",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/mysms.svg",
   "title": "MySMS",
   "id": "mysms",
-  "url": "https://app.mysms.com"
+  "url": "https://app.mysms.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/googleinbox.svg",
   "title": "Inbox by Gmail",
   "id": "inboxbygmail",
-  "url": "https://inbox.google.com/"
+  "url": "https://inbox.google.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/googlegmail.svg",
   "title": "Gmail",
   "id": "gmail",
-  "url": "https://gmail.google.com/"
+  "url": "https://gmail.google.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/outlookdotcom.svg",
   "title": "Outlook.com",
   "id": "outlookcom",
-  "url": "https://outlook.com/"
+  "url": "https://outlook.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/vk.svg",
   "title": "VK",
   "id": "vk",
-  "url": "https://vk.com/im"
+  "url": "https://vk.com/im",
+  "preload": "vk.js",
+  "useTitle": false,
+  "hasTeam": false
 },
 {
   "img": "services/wire.svg",
   "title": "Wire",
   "id": "wire",
-  "url": "https://app.wire.com"
+  "url": "https://app.wire.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/icq.svg",
   "title": "ICQ",
   "id": "icq",
-  "url": "https://web.icq.com"
+  "url": "https://web.icq.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/irccloud.svg",
   "title": "IRCCloud",
   "id": "irccloud",
-  "url": "https://www.irccloud.com"
+  "url": "https://www.irccloud.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/ciscospark.svg",
   "title": "Cisco Spark",
   "id": "ciscospark",
-  "url": "https://web.ciscospark.com"
+  "url": "https://web.ciscospark.com",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/facebookpages.svg",
   "title": "Facebook Page",
   "id": "facebookpage",
-  "url": "https://www.facebook.com/"
+  "url": "https://www.facebook.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/linkedin.svg",
   "title": "LinkedIn",
   "id": "linkedin",
-  "url": "https://www.linkedin.com/messaging"
+  "url": "https://www.linkedin.com/messaging",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/hibox.svg",
   "title": "Hibox",
   "id": "hibox",
-  "url": "https://app.hibox.co"
+  "url": "https://app.hibox.co",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/coupleme.svg",
   "title": "Couple.me",
   "id": "coupleme",
-  "url": "https://app.couple.me/"
+  "url": "https://app.couple.me/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/yahoomessenger.svg",
   "title": "Yahoo! Messenger",
   "id": "yahoomessenger",
-  "url": "https://messenger.yahoo.com/"
+  "url": "https://messenger.yahoo.com/",
+  "preload": "default.js",
+  "useTitle": true,
+  "hasTeam": false
 },
 {
   "img": "services/zendesk.svg",
   "title": "Zendesk",
   "id": "zendesk",
-  "url": "https://zendesk.com/agent/"
+  "url": "https://zendesk.com/agent/",
+  "preload": "default.js"
 }
 ]
