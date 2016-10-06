@@ -26,6 +26,11 @@ app.on('ready', function(){
 
     // tray.setToolTip('This is my application.');
     tray.setContextMenu(contextMenu);
+
+    // setTimeout(function(){
+    //     app.setBadgeCount(count);
+    //     app.dock.setBadge('5');
+    // }, 10000);
 });
 
 
@@ -41,23 +46,28 @@ ipcMain.on('update-tray', function(event) {
 
     if(count === currentCount) return;
 
+    app.dock.setIcon(__dirname + '/icons/alert1.png');
+
     if(count > 0 && count < 10){
         tray.setImage(head + count + tail); 
-        try{
-            app.dock.setBadge(count);
-        } catch(e){};
+        // try{
+            // app.dock.setBadge(count);
+            // app.setBadgeCount(count);
+        // } catch(e){};
     }
     else if(count >= 10){
         tray.setImage(head + 10 + tail); 
-        try{
-            app.dock.setBadge(count + '+');
-        } catch(e){};
+        // try{
+            // app.setBadgeCount(count);
+            // app.dock.setBadge(count + '+');
+        // } catch(e){};
     }
     else{
         tray.setImage(__dirname + '/opios16.png'); 
-        try{
-            app.dock.setBadge('');
-        } catch(e){};        
+        // try{
+            // app.setBadgeCount(count);
+            // app.dock.setBadge('');
+        // } catch(e){};        
     }
 
     currentCount = count;
