@@ -64,6 +64,8 @@ ipcMain.on('update-tray', function(event) {
         if(app.dock) app.dock.setBadge("");
     }
 
+    if(app.dock) app.dock.bounce();
+
     currentCount = count;
 });
 
