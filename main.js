@@ -13,19 +13,19 @@ app.on('ready', function(){
 
     tray = new Tray(__dirname + '/opios16.png');
     // tray = new Tray(__dirname + '/icons/alert.png');
-    const contextMenu = Menu.buildFromTemplate([
-        {
-            label: 'Выйти', 
-            type: 'radio',
-            click (item, focusedWindow) {
-                // if (focusedWindow) focusedWindow.reload();
-                app.quit();
-            }
-        }
-    ]);
+    // const contextMenu = Menu.buildFromTemplate([
+    //     {
+    //         label: 'Выйти', 
+    //         type: 'radio',
+    //         click (item, focusedWindow) {
+    //             // if (focusedWindow) focusedWindow.reload();
+    //             app.quit();
+    //         }
+    //     }
+    // ]);
 
     // tray.setToolTip('This is my application.');
-    tray.setContextMenu(contextMenu);
+    // tray.setContextMenu(contextMenu);
 
     // setTimeout(function(){
     //     app.dock.setBadge("1")
