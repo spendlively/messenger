@@ -70,12 +70,6 @@ ipcMain.on('update-tray', function(event) {
         var id = app.dock.bounce('critical');
         setTimeout(function(){
             app.dock.cancelBounce(id);
-            setTimeout(function(){
-                if(currentCount != count){
-                    id = app.dock.bounce('critical');
-                    setTimeout(function(){app.dock.cancelBounce(id)}, 5000);
-                }
-            }, 10000);
         }, 5000);
     }
 });
