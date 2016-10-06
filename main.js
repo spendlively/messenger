@@ -27,15 +27,15 @@ app.on('ready', function(){
     // tray.setToolTip('This is my application.');
     tray.setContextMenu(contextMenu);
 
-    setTimeout(function(){
-        app.dock.setBadge("1")
-    }, 5000);
-    setTimeout(function(){
-        app.setBadgeCount(2);
-    }, 9000);
-    setTimeout(function(){
-        app.dock.setIcon(__dirname + '/icons/alert1.png');
-    }, 13000);
+    // setTimeout(function(){
+    //     app.dock.setBadge("1")
+    // }, 5000);
+    // setTimeout(function(){
+    //     app.setBadgeCount(2);
+    // }, 9000);
+    // setTimeout(function(){
+    //     app.dock.setIcon(__dirname + '/icons/alert1.png');
+    // }, 13000);
 });
 
 
@@ -49,32 +49,19 @@ ipcMain.on('update-tray', function(event) {
         head = __dirname + '/icons/alert',
         tail = '.png';
 
-
-// return;
     if(count === currentCount) return;
-
-
 
     if(count > 0 && count < 10){
         tray.setImage(head + count + tail); 
-        // try{
-            // app.dock.setBadge(count);
-            // app.setBadgeCount(count);
-        // } catch(e){};
+        if(app.dock) app.dock.setBadge(count + "");
     }
     else if(count >= 10){
         tray.setImage(head + 10 + tail); 
-        // try{
-            // app.setBadgeCount(count);
-            // app.dock.setBadge(count + '+');
-        // } catch(e){};
+        if(app.dock) app.dock.setBadge("10+");
     }
     else{
         tray.setImage(__dirname + '/opios16.png'); 
-        // try{
-            // app.setBadgeCount(count);
-            // app.dock.setBadge('');
-        // } catch(e){};        
+        if(app.dock) app.dock.setBadge("");
     }
 
     currentCount = count;
