@@ -43,15 +43,21 @@ ipcMain.on('update-tray', function(event) {
 
     if(count > 0 && count < 10){
         tray.setImage(head + count + tail); 
-        app.dock.setBadge(count);
+        try{
+            app.dock.setBadge(count);
+        } catch(e){};
     }
     else if(count >= 10){
         tray.setImage(head + 10 + tail); 
-        app.dock.setBadge(count + '+');
+        try{
+            app.dock.setBadge(count + '+');
+        } catch(e){};
     }
     else{
         tray.setImage(__dirname + '/opios16.png'); 
-        app.dock.setBadge('');
+        try{
+            app.dock.setBadge('');
+        } catch(e){};        
     }
 
     currentCount = count;
