@@ -27,10 +27,15 @@ app.on('ready', function(){
     // tray.setToolTip('This is my application.');
     tray.setContextMenu(contextMenu);
 
-    // setTimeout(function(){
-    //     app.setBadgeCount(count);
-    //     app.dock.setBadge('5');
-    // }, 10000);
+    setTimeout(function(){
+        app.dock.setBadge("1")
+    }, 5000);
+    setTimeout(function(){
+        app.setBadgeCount(2);
+    }, 9000);
+    setTimeout(function(){
+        app.dock.setIcon(__dirname + '/icons/alert1.png');
+    }, 13000);
 });
 
 
@@ -44,9 +49,11 @@ ipcMain.on('update-tray', function(event) {
         head = __dirname + '/icons/alert',
         tail = '.png';
 
+
+// return;
     if(count === currentCount) return;
 
-    app.dock.setIcon(__dirname + '/icons/alert1.png');
+
 
     if(count > 0 && count < 10){
         tray.setImage(head + count + tail); 
