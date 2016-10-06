@@ -64,14 +64,18 @@ ipcMain.on('update-tray', function(event) {
         if(app.dock) app.dock.setBadge("");
     }
 
+    currentCount = count;
+
     if(app.dock){
         var id = app.dock.bounce('critical');
         setTimeout(function(){app.dock.cancelBounce(id)}, 5000);
         setTimeout(function(){id = app.dock.bounce('critical')}, 15000);
-        setTimeout(function(){app.dock.cancelBounce(id)}, 20000);
-    };
-
-    currentCount = count;
+        setTimeout(function(){
+            if(currentCount != count){
+                app.dock.cancelBounce(id);
+            }
+        }, 20000);
+    }
 });
 
 // const notifier = require('node-notifier');
