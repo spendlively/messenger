@@ -64,14 +64,14 @@ ipcMain.on('update-tray', function(event) {
         if(app.dock) app.dock.setBadge("");
     }
 
-    currentCount = count;
-
     if(app.dock){
         var id = app.dock.bounce('critical');
         setTimeout(function(){
             app.dock.cancelBounce(id);
         }, 5000);
     }
+
+    currentCount = count;
 });
 
 // const notifier = require('node-notifier');
