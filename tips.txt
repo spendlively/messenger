@@ -108,15 +108,20 @@ https://github.com/electron/electron/blob/master/docs/api/tray.md
 
 
 
-
+//1. Установка исходников
 mkdir opios && cd opios
 git clone git@github.com:spendlively/messenger.git
 cd messenger/
 npm install
 
+//2. Запустить проект (из папки messenger/)
+npm start
 
+//3. Сборка проекта (из папки messenger/ в папку messenger/dist/)
+npm run build
 
-
+//4. Сборка dmg (из папки messenger/ в папку messenger/dist/ - проект должен быть собран)
+electron-installer-dmg dist/Opios-darwin-x64/Opios.app/ Opios
 
 
 
