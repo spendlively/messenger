@@ -53,7 +53,7 @@
 
 
 
-( ) 
+npm i electron-installer-dmg --save-dev
 
 
 
@@ -107,6 +107,12 @@ https://github.com/electron/electron/blob/master/docs/api/tray.md
 
 
 
+
+
+mkdir opios && cd opios
+git clone git@github.com:spendlively/messenger.git
+cd messenger/
+npm install
 
 
 
