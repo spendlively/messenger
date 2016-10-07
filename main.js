@@ -105,7 +105,9 @@ function initWindow(){
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
-        mainWindow = null;
+        if (process.platform != 'darwin') {
+            mainWindow = null;
+        }
     });
 }
 
