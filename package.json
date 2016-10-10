@@ -4,11 +4,11 @@
   "main": "main.js",
   "scripts": {
     "start": "./node_modules/.bin/electron .",
-    "build-all": "electron-packager . Opios --all --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
-    "build": "electron-packager . Opios --platform=linux --arch=x64 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
-    "build-darwin": "electron-packager . Opios --platform=darwin --arch=x64 --version=1.3.4 --app-version=0.0.1 --build-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
-    "build-win32": "electron-packager . Opios --platform=win32 --arch=ia32 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
-    "build-win64": "electron-packager . Opios --platform=win32 --arch=x64 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite"
+    "build": "electron-packager . Opios --all --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
+    "build:linux": "electron-packager . Opios --platform=linux --arch=x64 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
+    "build:darwin": "electron-packager . Opios --platform=darwin --arch=x64 --version=1.3.4 --app-version=0.0.1 --build-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
+    "build:win32": "electron-packager . Opios --platform=win32 --arch=ia32 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite --icon=opios.icns",
+    "build:win64": "electron-packager . Opios --platform=win32 --arch=x64 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite"
   },
   "dependencies": {
     "node-notifier": "^4.6.1",
