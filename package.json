@@ -12,15 +12,17 @@
     "build:win64": "electron-packager . Opios --platform=win32 --arch=x64 --version=1.3.4 --app-version=0.0.1 --out=dist --ignore=dist --prune --overwrite"
   },
   "dependencies": {
+    "auto-launch": "^5.0.1",
+    "electron-prebuilt": "^1.3.4",
     "node-notifier": "^4.6.1",
-    "sanitizer": "^0.1.3",
-    "electron-prebuilt": "^1.3.4"
+    "sanitizer": "^0.1.3"
   },
   "description": "",
   "repository": {},
   "license": "",
   "devDependencies": {
-    "electron-packager": "^8.0.0",
-    "electron-installer-dmg": "^0.1.2"
+    "auto-launch": "^5.0.1",
+    "electron-installer-dmg": "^0.1.2",
+    "electron-packager": "^8.0.0"
   }
 }
