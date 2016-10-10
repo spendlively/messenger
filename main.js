@@ -3,6 +3,7 @@ var app = electron.app;  // Модуль контролирующей жизне
 var BrowserWindow = electron.BrowserWindow;  // Модуль создающий браузерное окно.
 var fs = require('fs');
 var ipcMain = require('electron').ipcMain;
+var pathToDefaultConfig = __dirname + '/httpd/data/config-default.json';
 var pathToConfig = __dirname + '/httpd/data/config.json';
 var {Menu} = require('electron');
 var sanitizer = require('sanitizer');
@@ -47,6 +48,11 @@ ipcMain.on('update-tray', function(event) {
 
     currentCount = count;
 });
+
+//Если конфиг не создан - использовать дефолтный
+if(!fs.existsSync(pathToConfig)){
+    fs.createReadStream(pathToDefaultConfig).pipe(fs.createWriteStream(pathToConfig));
+}
 
 //Чтение конфига
 var configEncoded = fs.readFileSync(pathToConfig, 'utf8');
@@ -101,7 +107,7 @@ function initWindow(){
     mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
 
     //DevTools
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
