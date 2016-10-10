@@ -150,6 +150,7 @@ app.on('ready', function() {
         click (item, focusedWindow) {
             if(mainWindow === null){
                 initWindow();
+                mainWindow.focus();
             }
             else{
                 mainWindow.focus();
