@@ -37,7 +37,7 @@
     },
     "addServiceModal": {
     	"add": "Add",
-    	"name": "Name",
+    	"nameLabel": "Name",
     	"showNotices": "Show notifications",
     	"disableSounds": "Mute all sounds",
     	"notice": "Remember to enable desktop notifications in your settings",
@@ -46,7 +46,7 @@
     },
     "editServiceModal": {
     	"edit": "Edit",
-    	"name": "Name",
+    	"nameLabel": "Name",
     	"enableService": "Enable service",
     	"showNotices": "Show notifications",
     	"disableSounds": "Mute all sounds",

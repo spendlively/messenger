@@ -10,6 +10,7 @@ ipcRenderer.on('ping', function(ths, params){
 	}
 });
 
+// alert('VK');
 
 // function updateBudges(){
 

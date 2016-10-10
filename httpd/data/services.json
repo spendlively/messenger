@@ -2,7 +2,7 @@
 {
   "img": "services/slack.svg",
   "title": "Slack",
-  "id": "slack",
+  "name": "slack",
   "url": "https://slack.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -11,7 +11,7 @@
 {
   "img": "services/messenger.svg",
   "title": "Messenger",
-  "id": "messenger",
+  "name": "messenger",
   "url": "https://www.messenger.com/login/",
   "preload": "default.js",
   "useTitle": true,
@@ -20,7 +20,7 @@
 {
   "img": "services/whatsapp.svg",
   "title": "WhatsApp",
-  "id": "whatsApp",
+  "name": "whatsApp",
   "url": "https://web.whatsapp.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -29,7 +29,7 @@
 {
   "img": "services/telegram.svg",
   "title": "Telegram",
-  "id": "telegram",
+  "name": "telegram",
   "url": "https://web.telegram.org",
   "preload": "default.js",
   "useTitle": true,
@@ -38,7 +38,7 @@
 {
   "img": "services/skype.svg",
   "title": "Skype",
-  "id": "skype",
+  "name": "skype",
   "url": "https://web.skype.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -47,7 +47,7 @@
 {
   "img": "services/wechat.svg",
   "title": "WeChat",
-  "id": "wechat",
+  "name": "wechat",
   "url": "https://web.wechat.com/?lang=en_US",
   "preload": "default.js",
   "useTitle": true,
@@ -56,7 +56,7 @@
 {
   "img": "services/hipchat.svg",
   "title": "HipChat",
-  "id": "hipchat",
+  "name": "hipchat",
   "url": "https://www.hipchat.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -65,7 +65,7 @@
 {
   "img": "services/chatwork.svg",
   "title": "ChatWork",
-  "id": "chatwork",
+  "name": "chatwork",
   "url": "https://www.chatwork.com/login.php",
   "preload": "default.js",
   "useTitle": true,
@@ -74,7 +74,7 @@
 {
   "img": "services/flowdock.svg",
   "title": "Flowdock",
-  "id": "flowdock",
+  "name": "flowdock",
   "url": "https://www.flowdock.com/login",
   "preload": "default.js",
   "useTitle": true,
@@ -83,7 +83,7 @@
 {
   "img": "services/hangouts.svg",
   "title": "Hangouts",
-  "id": "hangouts",
+  "name": "hangouts",
   "url": "https://hangouts.google.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -92,7 +92,7 @@
 {
   "img": "services/groupme.svg",
   "title": "GroupMe",
-  "id": "groupme",
+  "name": "groupme",
   "url": "https://web.groupme.com",
   "preload": "default.js",
   "useTitle": true,
@@ -101,7 +101,7 @@
 {
   "img": "services/rocketchat.svg",
   "title": "Rocket Chat",
-  "id": "rocketchat",
+  "name": "rocketchat",
   "url": "https://rocket.chat/",
   "preload": "default.js",
   "useTitle": true,
@@ -110,7 +110,7 @@
 {
   "img": "services/mattermost.svg",
   "title": "Mattermost",
-  "id": "mattermost",
+  "name": "mattermost",
   "url": "https://www.mattermost.org/",
   "preload": "default.js",
   "useTitle": true,
@@ -119,7 +119,7 @@
 {
   "img": "services/grape.svg",
   "title": "Grape",
-  "id": "grape",
+  "name": "grape",
   "url": "https://chatgrape.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -128,7 +128,7 @@
 {
   "img": "services/gitter.svg",
   "title": "Gitter",
-  "id": "gitter",
+  "name": "gitter",
   "url": "https://gitter.im/login/github?action=login",
   "preload": "default.js",
   "useTitle": true,
@@ -137,7 +137,7 @@
 {
   "img": "services/tweetdeck.svg",
   "title": "TweetDeck",
-  "id": "tweetdeck",
+  "name": "tweetdeck",
   "url": "https://tweetdeck.twitter.com",
   "preload": "default.js",
   "useTitle": true,
@@ -146,7 +146,7 @@
 {
   "img": "services/dingtalk.svg",
   "title": "DingTalk",
-  "id": "dingtalk",
+  "name": "dingtalk",
   "url": "https://im.dingtalk.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -155,7 +155,7 @@
 {
   "img": "services/steamchat.svg",
   "title": "Steam Chat",
-  "id": "steamchat",
+  "name": "steamchat",
   "url": "https://steamcommunity.com/chat",
   "preload": "default.js",
   "useTitle": true,
@@ -164,7 +164,7 @@
 {
   "img": "services/discord.svg",
   "title": "Discord",
-  "id": "discord",
+  "name": "discord",
   "url": "https://discordapp.com/login",
   "preload": "default.js",
   "useTitle": true,
@@ -173,7 +173,7 @@
 {
   "img": "services/mysms.svg",
   "title": "MySMS",
-  "id": "mysms",
+  "name": "mysms",
   "url": "https://app.mysms.com",
   "preload": "default.js",
   "useTitle": true,
@@ -182,7 +182,7 @@
 {
   "img": "services/googleinbox.svg",
   "title": "Inbox by Gmail",
-  "id": "inboxbygmail",
+  "name": "inboxbygmail",
   "url": "https://inbox.google.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -191,7 +191,7 @@
 {
   "img": "services/googlegmail.svg",
   "title": "Gmail",
-  "id": "gmail",
+  "name": "gmail",
   "url": "https://gmail.google.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -200,7 +200,7 @@
 {
   "img": "services/outlookdotcom.svg",
   "title": "Outlook.com",
-  "id": "outlookcom",
+  "name": "outlookcom",
   "url": "https://outlook.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -209,7 +209,7 @@
 {
   "img": "services/vk.svg",
   "title": "VK",
-  "id": "vk",
+  "name": "vk",
   "url": "https://vk.com/im",
   "preload": "vk.js",
   "useTitle": false,
@@ -218,7 +218,7 @@
 {
   "img": "services/wire.svg",
   "title": "Wire",
-  "id": "wire",
+  "name": "wire",
   "url": "https://app.wire.com",
   "preload": "default.js",
   "useTitle": true,
@@ -227,7 +227,7 @@
 {
   "img": "services/icq.svg",
   "title": "ICQ",
-  "id": "icq",
+  "name": "icq",
   "url": "https://web.icq.com",
   "preload": "default.js",
   "useTitle": true,
@@ -236,7 +236,7 @@
 {
   "img": "services/irccloud.svg",
   "title": "IRCCloud",
-  "id": "irccloud",
+  "name": "irccloud",
   "url": "https://www.irccloud.com",
   "preload": "default.js",
   "useTitle": true,
@@ -245,7 +245,7 @@
 {
   "img": "services/ciscospark.svg",
   "title": "Cisco Spark",
-  "id": "ciscospark",
+  "name": "ciscospark",
   "url": "https://web.ciscospark.com",
   "preload": "default.js",
   "useTitle": true,
@@ -254,7 +254,7 @@
 {
   "img": "services/facebookpages.svg",
   "title": "Facebook Page",
-  "id": "facebookpage",
+  "name": "facebookpage",
   "url": "https://www.facebook.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -263,7 +263,7 @@
 {
   "img": "services/linkedin.svg",
   "title": "LinkedIn",
-  "id": "linkedin",
+  "name": "linkedin",
   "url": "https://www.linkedin.com/messaging",
   "preload": "default.js",
   "useTitle": true,
@@ -272,7 +272,7 @@
 {
   "img": "services/hibox.svg",
   "title": "Hibox",
-  "id": "hibox",
+  "name": "hibox",
   "url": "https://app.hibox.co",
   "preload": "default.js",
   "useTitle": true,
@@ -281,7 +281,7 @@
 {
   "img": "services/coupleme.svg",
   "title": "Couple.me",
-  "id": "coupleme",
+  "name": "coupleme",
   "url": "https://app.couple.me/",
   "preload": "default.js",
   "useTitle": true,
@@ -290,7 +290,7 @@
 {
   "img": "services/yahoomessenger.svg",
   "title": "Yahoo! Messenger",
-  "id": "yahoomessenger",
+  "name": "yahoomessenger",
   "url": "https://messenger.yahoo.com/",
   "preload": "default.js",
   "useTitle": true,
@@ -299,7 +299,7 @@
 {
   "img": "services/zendesk.svg",
   "title": "Zendesk",
-  "id": "zendesk",
+  "name": "zendesk",
   "url": "https://zendesk.com/agent/",
   "preload": "default.js"
 }

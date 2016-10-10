@@ -326,11 +326,38 @@ var app =
 
 	var services = {
 
-		allServices: [],
+		serviceTemplates: [],
 
 		services: [],
 
 	    increment: new Date().getTime(),
+
+	    /**
+	     * Возвращает шаблон сервиса, а если задан параметр field - конкретное поле шаблона
+	    **/
+	    getServiceTemplateByName: function(name, field){
+
+	        var me = this;
+	        if(me.serviceTemplates.length){
+
+	            for(var t in me.serviceTemplates){
+
+	                if(me.serviceTemplates[t]['name'] === name){
+
+	                    if(field && me.serviceTemplates[t][field]){
+
+	                        return me.serviceTemplates[t][field];
+	                    }
+	                    else{
+
+	                        return me.serviceTemplates[t];
+	                    }
+	                }
+	            }
+	        }
+
+	        return null;
+	    },
 
 	    getNextId: function(){
 
@@ -345,13 +372,11 @@ var app =
 	                title: state.title,
 	                img: state.img,
 	                id: me.getNextId(),
+	                name: state.name,
 	                url: state.url,
 	                showNoticesField: state.showNoticesField,
 	                disableSoundsField: state.disableSoundsField,
 	                nameField: state.nameField || state.title,
-	                preload: state.preload,
-	                useTitle: state.useTitle,
-	                hasTeam: state.hasTeam,
 	                enabled: true
 	            };
 
@@ -376,13 +401,11 @@ var app =
 	                title: state.title,
 	                img: state.img,
 	                id: state.id,
+	                name: state.name,
 	                url: state.url,
 	                showNoticesField: state.showNoticesField,
 	                disableSoundsField: state.disableSoundsField,
 	                nameField: me.escapeString(me.unescapeString(state.nameField)),
-	                preload: state.preload,
-	                useTitle: state.useTitle,
-	                hasTeam: state.hasTeam,
 	                enabled: state.enabled
 	            };        
 
@@ -403,14 +426,17 @@ var app =
 	            text = serviceData.nameField || serviceData.title,
 	            disabled = serviceData.enabled ? '' : 'disabled',
 	            toggle = serviceData.enabled ? 'data-toggle="tab"' : '',
-	            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"';
+	            style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"',
+	            serviceTemplate = me.getServiceTemplateByName(serviceData.name),
+	            preload = serviceTemplate['preload'] ? './preload/' + serviceTemplate['preload'] : '',
+	            // preload = '',
+	            preloadAttr = preload ? 'preload="'+preload+'"' : '';
 
-	        text = me.escapeString(me.unescapeString(text));
+	        text = me.escapeString(me.unescapeString(serviceData.nameField));
 
 	        //Создать webview
 	        $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
-	            // '<webview nodeintegration preload="./preload/vk.js" partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
-	            '<webview preload="./preload/'+serviceData.preload+'" partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
+	            '<webview '+preloadAttr+' partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
 	        '</div>').appendTo("#tabs-container");
 
 	        var wv = me.getWv(serviceData.id);
@@ -488,7 +514,7 @@ var app =
 	        });
 
 	        //Отображение badges c количеством новых уведомлений
-	        if(serviceData.useTitle === true){
+	        if(serviceTemplate['useTitle'] === true){
 	            wv.addEventListener('page-title-updated', function(event){
 	                var count = me.findNewMessagesInTitle(event.title);
 
@@ -569,18 +595,18 @@ var app =
 
 		getAll: function(){
 
-			return this.allServices;
+			return this.serviceTemplates;
 		},
 
 		getServiceById: function(id){
 
 			var me = this;
 
-			if(me.allServices.length){
+			if(me.serviceTemplates.length){
 
-				for(var s in me.allServices){
-					if(me.allServices[s].id == id){
-						return me.allServices[s];
+				for(var s in me.serviceTemplates){
+					if(me.serviceTemplates[s].id == id){
+						return me.serviceTemplates[s];
 					}
 				}
 			}
@@ -607,7 +633,7 @@ var app =
 	$.ajax({
 	  	url: 'data/services.json',
 	  	success: function(data){
-			services.allServices = JSON.parse(data) || {};
+	        services.serviceTemplates = JSON.parse(data) || {};
 	  	},
 	  	error: function(xhr, status, err){
 			console.log("Ошибка загрузки списка сервисов");

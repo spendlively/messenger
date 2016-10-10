@@ -133,7 +133,7 @@ var EditServiceModal = React.createClass({
 		                    <form className="form-horizontal">
 
 		                        <div className="form-group">
-		                            <label htmlFor="inputEditNameField" className="col-sm-3 control-label">{this.state.name}</label>
+		                            <label htmlFor="inputEditNameField" className="col-sm-3 control-label">{this.state.nameLabel}</label>
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 

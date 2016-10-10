@@ -4,7 +4,7 @@ var AddServiceModal = React.createClass({
 
 		var l12n = app.localization,
 			data = l12n.getData('addServiceModal');
-
+			
 		data.img = '';
 		data.title = '';
 		data.id = '';
@@ -87,7 +87,7 @@ var AddServiceModal = React.createClass({
 
    //      if (this.state.hasTeam === true) {
 			// team = <div className="form-group">
-   // 	              	<label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.name}</label>
+   // 	              	<label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.nameLabel}</label>
    //                  <div className="col-sm-9">
    //                      <input 
    //                      	onChange={this.teamHandler} 
@@ -121,7 +121,7 @@ var AddServiceModal = React.createClass({
 		                    <form className="form-horizontal">
 
 		                        <div className="form-group">
-		                            <label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.name}</label>
+		                            <label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.nameLabel}</label>
 		                            <div className="col-sm-9">
 		                                <input 
 		                                	onChange={this.nameHandler} 

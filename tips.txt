@@ -191,7 +191,7 @@ wv.addEventListener('devtools-focused', function(event){console.log("devtools-fo
 
 
 Лишнее убрать из конфига
-Добавить serviseid, по которому находить нужные настройки
+Добавить name, по которому находить нужные настройки
 
 При загрузке использовать конфиг по умолчанию, для создания основного конфига
 
@@ -199,7 +199,7 @@ wv.addEventListener('devtools-focused', function(event){console.log("devtools-fo
 Добавть {} в урл
 
 
-Немного переделал сборку
+Немного переделал команды для сборки:
 npm run build - сборка для всех архитектур
 npm run build:linux - сборка для linux x64
 npm run build:darwin - сборка для мас x64

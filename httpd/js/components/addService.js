@@ -13,7 +13,7 @@ var AddService = React.createClass({
     app.componentsObserver.registerComponent('addService', this);
 	},
 
-  clickHandler: function(id){
+  clickHandler: function(name){
 
     var me = this,
         config = app.config,
@@ -22,9 +22,9 @@ var AddService = React.createClass({
 
     addServiceModal.beforeOpen.call(addServiceModal);
 
-    if(id && data.length){
+    if(name && data.length){
       for(var d in data){
-        if(id == data[d].id){
+        if(name == data[d].name){
           config.updateService(data[d]);
           break;
         }
@@ -39,7 +39,7 @@ var AddService = React.createClass({
     var services = me.getData().map(function(s){
 
       return (
-          <div onClick={function(){me.clickHandler(s.id)}} key={s.id} className="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div data-name={s.title} className="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
+          <div onClick={function(){me.clickHandler(s.name)}} key={s.name} className="col-lg-3 col-md-3 col-sm-4 col-xs-12"><div data-name={s.title} className="service_block ptr" data-toggle="modal" data-target="#modal-add-service">
               <img height="60%" src={s.img} />
               <h5>{s.title}</h5>
           </div></div>
