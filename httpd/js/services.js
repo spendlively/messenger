@@ -49,10 +49,10 @@ var services = {
                 img: state.img,
                 id: me.getNextId(),
                 name: state.name,
-                url: state.url,
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
                 nameField: state.nameField || state.title,
+                teamField: state.teamField,
                 enabled: true
             };
 
@@ -78,10 +78,10 @@ var services = {
                 img: state.img,
                 id: state.id,
                 name: state.name,
-                url: state.url,
                 showNoticesField: state.showNoticesField,
                 disableSoundsField: state.disableSoundsField,
                 nameField: me.escapeString(me.unescapeString(state.nameField)),
+                teamField: state.teamField,
                 enabled: state.enabled
             };        
 
@@ -105,14 +105,19 @@ var services = {
             style = serviceData.enabled ? 'style="opacity:1; cursor:pointer"' : 'style="opacity:0.3; cursor:default"',
             serviceTemplate = me.getServiceTemplateByName(serviceData.name),
             preload = serviceTemplate['preload'] ? './preload/' + serviceTemplate['preload'] : '',
-            // preload = '',
-            preloadAttr = preload ? 'preload="'+preload+'"' : '';
+            preloadAttr = preload ? 'preload="'+preload+'"' : '',
+            url = serviceTemplate['url'];
 
         text = me.escapeString(me.unescapeString(serviceData.nameField));
 
+        //Подстановка teamId
+        if(serviceTemplate['hasTeam'] === true){
+            url = url.replace("{teamId}", serviceData.teamField);
+        }
+
         //Создать webview
         $('<div role="tabpanel" class="tab-pane webview height100" id="'+serviceData.id+'">' +
-            '<webview '+preloadAttr+' partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+serviceData.url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
+            '<webview '+preloadAttr+' partition="persist:'+serviceData.id+'" id="wv-'+serviceData.id+'" src="'+url+'" autosize="on" minwidth="576" minheight="432" style="display:inline-flex; width:100%; height:99%;"></webview>' +
         '</div>').appendTo("#tabs-container");
 
         var wv = me.getWv(serviceData.id);

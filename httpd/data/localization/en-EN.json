@@ -38,7 +38,8 @@
     "addServiceModal": {
     	"add": "Add",
         "nameLabel": "Name",
-    	"teamLabel": "Team",
+        "teamLabel": "Team",
+    	"emptyTeamAlert": "Please provide a team name",
     	"showNotices": "Show notifications",
     	"disableSounds": "Mute all sounds",
     	"notice": "Remember to enable desktop notifications in your settings",
@@ -49,6 +50,7 @@
     	"edit": "Edit",
     	"nameLabel": "Name",
         "teamLabel": "Team",
+        "emptyTeamAlert": "Please provide a team name",
     	"enableService": "Enable service",
     	"showNotices": "Show notifications",
     	"disableSounds": "Mute all sounds",

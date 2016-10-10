@@ -54,6 +54,13 @@ var EditServiceModal = React.createClass({
 		this.setState({nameField: event.target.value});
 	},
 
+	teamHandler: function(event){
+
+        if(event.target.value.length > 30) return;
+
+		this.setState({teamField: event.target.value});
+	},	
+
     saveService: function(){
 
     	var me = this;
@@ -113,6 +120,27 @@ var EditServiceModal = React.createClass({
 
 	render: function(){
 
+        var me = this,
+        	team = '',
+        	serviceTemplate = app.services.getServiceTemplateByName(this.state.name),
+        	hasTeam = serviceTemplate && serviceTemplate['hasTeam'] ? serviceTemplate['hasTeam'] : false;
+
+        if (hasTeam) {
+			team = <div className="form-group">
+   	              	<label htmlFor="teamInputEditTeamField" className="col-sm-3 control-label">{this.state.teamLabel} {this.state.title}</label>
+                    <div className="col-sm-9">
+                        <input 
+                        	onChange={this.teamHandler} 
+                        	onKeyDown={this.keyPressHandler}
+                        	className="form-control" 
+                        	id="teamInputEditTeamField" 
+                        	placeholder="" 
+                        	value={this.state.teamField} 
+                    	/>
+                    </div>
+                </div>
+        }
+
 		return (
 			<div className="modal fade modal-service" id="modal-edit-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
 		        <div className="modal-dialog" role="document">
@@ -145,6 +173,8 @@ var EditServiceModal = React.createClass({
 	                                	/>
 		                            </div>
 		                        </div>
+
+	                        	{team}
 
 		                        <div className="form-group">
 		                            <label htmlFor="switch-modal" className="col-sm-3 control-label">{this.state.enableService}</label>

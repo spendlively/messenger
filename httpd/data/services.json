@@ -3,7 +3,7 @@
   "img": "services/slack.svg",
   "title": "Slack",
   "name": "slack",
-  "url": "https://slack.com/",
+  "url": "https://{teamId}.slack.com",
   "preload": "default.js",
   "useTitle": true,
   "hasTeam": true
@@ -120,10 +120,10 @@
   "img": "services/grape.svg",
   "title": "Grape",
   "name": "grape",
-  "url": "https://chatgrape.com/",
+  "url": "https://{teamId}.chatgrape.com",
   "preload": "default.js",
   "useTitle": true,
-  "hasTeam": false
+  "hasTeam": true
 },
 {
   "img": "services/gitter.svg",
@@ -300,7 +300,8 @@
   "img": "services/zendesk.svg",
   "title": "Zendesk",
   "name": "zendesk",
-  "url": "https://zendesk.com/agent/",
-  "preload": "default.js"
+  "url": "https://{teamId}.zendesk.com/agent",
+  "preload": "default.js",
+  "hasTeam": true
 }
 ]

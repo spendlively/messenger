@@ -27,6 +27,15 @@ var AddServiceModal = React.createClass({
 
     addService: function(){
 
+    	var me = this,
+    		serviceTemplate = app.services.getServiceTemplateByName(this.state.name),
+        	hasTeam = serviceTemplate && serviceTemplate['hasTeam'] ? serviceTemplate['hasTeam'] : false;
+
+		if(hasTeam && this.state.teamField.length === 0){
+			alert(this.state.emptyTeamAlert);
+			return;
+		}
+
         app.services.addService(this.state);
     },
 
@@ -66,15 +75,6 @@ var AddServiceModal = React.createClass({
 		this.setState({teamField: event.target.value});
 	},
 
-	teamKeyPressHandler: function(event){
-
-         if(event.keyCode == 13){
-         	this.addService();
-         	event.stopPropagation();
-         	event.preventDefault();
-         }		
-	},
-
     beforeOpen: function(){
 
     	var me = this;
@@ -86,6 +86,11 @@ var AddServiceModal = React.createClass({
 	        	el.focus();
 	        }
         }, 500);
+
+        //Сброс поля команда
+    	me.setState({
+    		teamField: ''
+    	});
     },
 
     afterOpen: function(){
@@ -100,23 +105,24 @@ var AddServiceModal = React.createClass({
 
         var me = this,
         	team = '',
-        	hasTeam = app.services.getServiceTemplateByName(this.state.name, 'hasTeam');
+        	serviceTemplate = app.services.getServiceTemplateByName(this.state.name),
+        	hasTeam = serviceTemplate && serviceTemplate['hasTeam'] ? serviceTemplate['hasTeam'] : false;
 
-   //      if (hasTeam) {
-			// team = <div className="form-group">
-   // 	              	<label htmlFor="teamInputAddTeamField" className="col-sm-3 control-label">{this.state.teamLabel} {this.state.title}</label>
-   //                  <div className="col-sm-9">
-   //                      <input 
-   //                      	onChange={this.teamHandler} 
-   //                      	onKeyDown={this.teamKeyPressHandler}
-   //                      	className="form-control" 
-   //                      	id="teamInputAddTeamField" 
-   //                      	placeholder="" 
-   //                      	value={this.state.teamField} 
-   //                  	/>
-   //                  </div>
-   //              </div>
-   //      }
+        if (hasTeam) {
+			team = <div className="form-group">
+   	              	<label htmlFor="teamInputAddTeamField" className="col-sm-3 control-label">{this.state.teamLabel} {this.state.title}</label>
+                    <div className="col-sm-9">
+                        <input 
+                        	onChange={this.teamHandler} 
+                        	onKeyDown={this.keyPressHandler}
+                        	className="form-control" 
+                        	id="teamInputAddTeamField" 
+                        	placeholder="" 
+                        	value={this.state.teamField} 
+                    	/>
+                    </div>
+                </div>
+        }
 
 		return (
 			<div className="modal fade modal-service" id="modal-add-service" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
