@@ -11,16 +11,16 @@ ipcRenderer.on('ping', function(ths, params){
 });
 
 
-function updateBudges(){
+// function updateBudges(){
 
-	if(id !== null){
-		ipcRenderer.sendToHost({
-			id: id,
-			count: count++
-		});
-	}
-	setTimeout(updateBudges, updateInterval);
-}
+// 	if(id !== null){
+// 		ipcRenderer.sendToHost({
+// 			id: id,
+// 			count: count++
+// 		});
+// 	}
+// 	setTimeout(updateBudges, updateInterval);
+// }
 
-setTimeout(updateBudges, updateInterval);
+// setTimeout(updateBudges, updateInterval);
 
