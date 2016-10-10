@@ -4,7 +4,8 @@ var BrowserWindow = electron.BrowserWindow;  // Модуль создающий 
 var fs = require('fs');
 var ipcMain = require('electron').ipcMain;
 var pathToDefaultConfig = __dirname + '/httpd/data/config-default.json';
-var pathToConfig = __dirname + '/httpd/data/config.json';
+// var pathToConfig = __dirname + '/httpd/data/config.json';
+var pathToConfig = app.getPath('userData') + '/config.json';
 var {Menu} = require('electron');
 var sanitizer = require('sanitizer');
 var {Tray} = require('electron');
@@ -12,9 +13,9 @@ var tray = null;
 var mainWindow = null;
 var messages = {count: 0};
 var currentCount = 0;
-
-// var qwe = {asd: 'zxc'};
-// module.exports.qwe = qwe;
+var configEncoded;
+var configText;
+var config;
 
 //Обновление badges
 global.messages = messages;
@@ -49,28 +50,10 @@ ipcMain.on('update-tray', function(event) {
     currentCount = count;
 });
 
-//Если конфиг не создан - использовать дефолтный
-//Дефолтный конфиг не хранится в репозе, 
-//соответственно не будет перезаписан при обновлении
-if(!fs.existsSync(pathToConfig)){
-    fs.writeFileSync(pathToConfig, fs.readFileSync(pathToDefaultConfig));
-}
 
-//Чтение конфига
-var configEncoded = fs.readFileSync(pathToConfig, 'utf8');
-var configText = decodeURIComponent(configEncoded);
-var config = JSON.parse(configText);
 
-//Расшариваю конфиг
-global.config = config;
 
-//Сохранение конфига
-ipcMain.on('save-config', function(event) {
-    config = global.config;
-    configText = JSON.stringify(config);
-    fs.chmodSync(pathToConfig, 0777);
-    fs.writeFileSync(pathToConfig, configText);
-});
+
 
 //Отправки отчета о ошибках на сервер Electron
 //Нужно для сборки
@@ -120,6 +103,21 @@ function initWindow(){
 // Этот метод будет вызван когда Electron закончит инициализацию 
 // и будет готов к созданию браузерных окон.
 app.on('ready', function() {
+
+    //Работа с конфигом
+    if(!fs.existsSync(pathToConfig)){
+        fs.writeFileSync(pathToConfig, fs.readFileSync(pathToDefaultConfig));
+    }
+    configEncoded = fs.readFileSync(pathToConfig, 'utf8');
+    configText = decodeURIComponent(configEncoded);
+    config = JSON.parse(configText);
+    global.config = config;
+    ipcMain.on('save-config', function(event) {
+        config = global.config;
+        configText = JSON.stringify(config);
+        fs.chmodSync(pathToConfig, 0777);
+        fs.writeFileSync(pathToConfig, configText);
+    });
 
     //Инициализация окна
     initWindow();
