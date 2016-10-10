@@ -12,8 +12,8 @@ var mainWindow = null;
 var messages = {count: 0};
 var currentCount = 0;
 
-var qwe = {asd: 'zxc'};
-module.exports.qwe = qwe;
+// var qwe = {asd: 'zxc'};
+// module.exports.qwe = qwe;
 
 //Обновление badges
 global.messages = messages;

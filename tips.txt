@@ -166,3 +166,24 @@ wv.addEventListener('update-target-url', function(event){console.log("update-tar
 wv.addEventListener('devtools-opened', function(event){console.log("devtools-opened");});
 wv.addEventListener('devtools-closed', function(event){console.log("devtools-closed");});
 wv.addEventListener('devtools-focused', function(event){console.log("devtools-focused");});
+
+
+
+
+Требования к дизайну
+1. Карта экранов
+ - т.е. по нажатию на какую кнопку открывается какое окно, можно указать стрелочками
+2. Карта цветов
+- например
+ (цвет) -> #ff0000
+ (цвет) -> #00ff00
+ и т.д.
+3. Список шрифтов
+- для нестандартных шрифтов - соответствующий файл
+
+
+4. Размеченные состояния каждого из экранов,
+
+5. Нарезка элементов для всех экранов,
+6. Видео/gif со всеми нестандартными анимациями,
+7. Иконки приложения.
