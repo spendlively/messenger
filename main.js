@@ -50,8 +50,10 @@ ipcMain.on('update-tray', function(event) {
 });
 
 //Если конфиг не создан - использовать дефолтный
+//Дефолтный конфиг не хранится в репозе, 
+//соответственно не будет перезаписан при обновлении
 if(!fs.existsSync(pathToConfig)){
-    fs.createReadStream(pathToDefaultConfig).pipe(fs.createWriteStream(pathToConfig));
+    fs.writeFileSync(pathToConfig, fs.readFileSync(pathToDefaultConfig));
 }
 
 //Чтение конфига
