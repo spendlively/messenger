@@ -92,7 +92,7 @@ function initWindow(){
     mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
 
     //DevTools
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
