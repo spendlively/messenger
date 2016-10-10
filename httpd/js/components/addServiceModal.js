@@ -4,7 +4,7 @@ var AddServiceModal = React.createClass({
 
 		var l12n = app.localization,
 			data = l12n.getData('addServiceModal');
-			
+
 		data.img = '';
 		data.title = '';
 		data.id = '';
@@ -59,6 +59,22 @@ var AddServiceModal = React.createClass({
          }		
 	},
 
+	teamHandler: function(event){
+
+        if(event.target.value.length > 30) return;
+
+		this.setState({teamField: event.target.value});
+	},
+
+	teamKeyPressHandler: function(event){
+
+         if(event.keyCode == 13){
+         	this.addService();
+         	event.stopPropagation();
+         	event.preventDefault();
+         }		
+	},
+
     beforeOpen: function(){
 
     	var me = this;
@@ -83,17 +99,18 @@ var AddServiceModal = React.createClass({
 	render: function(){
 
         var me = this,
-        	team = '';
+        	team = '',
+        	hasTeam = app.services.getServiceTemplateByName(this.state.name, 'hasTeam');
 
-   //      if (this.state.hasTeam === true) {
+   //      if (hasTeam) {
 			// team = <div className="form-group">
-   // 	              	<label htmlFor="inputAddNameField" className="col-sm-3 control-label">{this.state.nameLabel}</label>
+   // 	              	<label htmlFor="teamInputAddTeamField" className="col-sm-3 control-label">{this.state.teamLabel} {this.state.title}</label>
    //                  <div className="col-sm-9">
    //                      <input 
    //                      	onChange={this.teamHandler} 
    //                      	onKeyDown={this.teamKeyPressHandler}
    //                      	className="form-control" 
-   //                      	id="inputAddTeamField" 
+   //                      	id="teamInputAddTeamField" 
    //                      	placeholder="" 
    //                      	value={this.state.teamField} 
    //                  	/>

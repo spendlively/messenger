@@ -30,7 +30,7 @@
   "img": "services/telegram.svg",
   "title": "Telegram",
   "name": "telegram",
-  "url": "https://web.telegram.org",
+  "url": "https://web.telegram.org/#/im",
   "preload": "default.js",
   "useTitle": true,
   "hasTeam": false

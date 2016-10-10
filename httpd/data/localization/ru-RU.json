@@ -38,6 +38,7 @@
     "addServiceModal": {
     	"add": "Добавить",
     	"nameLabel": "Имя",
+        "teamLabel": "Команда",
     	"showNotices": "Показывать уведомления",
     	"disableSounds": "Отключить все звуки",
     	"notice": "Не забудьте включить уведомления для рабочего стола в настройках",
@@ -47,6 +48,7 @@
     "editServiceModal": {
     	"edit": "Редактирование",
     	"nameLabel": "Имя",
+        "teamLabel": "Команда",
     	"enableService": "Включить сервис",
     	"showNotices": "Показывать уведомления",
     	"disableSounds": "Отключить все звуки",
