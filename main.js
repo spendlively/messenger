@@ -17,20 +17,20 @@ var configEncoded;
 var configText;
 var config;
 
-// var AutoLaunch = require('auto-launch');
-// var opiosAutoLauncher = new AutoLaunch({
-//     name: 'Opios',
-//     // path: '/Applications/Minecraft.app',
-// });
-// opiosAutoLauncher.isEnabled()
-// .then(function(isEnabled){
-//     if(isEnabled){
-//         return;
-//     }
-//     opiosAutoLauncher.enable();
-// })
-// .catch(function(err){
-// });
+var AutoLaunch = require('auto-launch');
+var opiosAutoLauncher = new AutoLaunch({
+    name: 'Opios',
+    // path: '/Applications/Minecraft.app',
+});
+opiosAutoLauncher.isEnabled()
+.then(function(isEnabled){
+    if(isEnabled){
+        return;
+    }
+    opiosAutoLauncher.enable();
+})
+.catch(function(err){
+});
 
 //Обновление badges
 global.messages = messages;
