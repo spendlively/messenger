@@ -20,7 +20,7 @@ var config;
 var AutoLaunch = require('auto-launch');
 var opiosAutoLauncher = new AutoLaunch({
     name: 'Opios'
-    // path: '/Applications/Opios.app',
+    path: __dirname + '/../../Opios.app',
 });
 
 // opiosAutoLauncher.isEnabled()
