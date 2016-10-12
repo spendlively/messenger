@@ -123,7 +123,8 @@ function initWindow(){
         height: 580,
         minWidth: 600,
         minHeight: 480,
-        icon: __dirname + '/opios.png'
+        icon: __dirname + '/opios.png',
+        closable: false
     });
 
     //Badges для винды
