@@ -18,15 +18,18 @@ var configText;
 var config;
 
 var AutoLaunch = require('auto-launch');
-var options = {
-    name: 'Opios'
-};
-if(process.platform != 'darwin'){
-    options.mac = {
-        useLaunchAgent: true
-    };
-}
-var opiosAutoLauncher = new AutoLaunch(options);
+var opiosAutoLauncher = null;
+
+// AutoLaunch = require('auto-launch');
+// var options = {
+//     name: 'Opios'
+// };
+// if(process.platform != 'darwin'){
+//     options.mac = {
+//         useLaunchAgent: true
+//     };
+// }
+// opiosAutoLauncher = new AutoLaunch(options);
 
 // opiosAutoLauncher.isEnabled()
 // .then(function(isEnabled){
@@ -74,6 +77,17 @@ ipcMain.on('update-tray', function(event) {
 
 //Вкл/выкл автозагрузчика
 ipcMain.on('set-auto-launch', function(event, params) {
+
+    var AutoLaunch = require('auto-launch');
+    var options = {
+        name: 'Opios'
+    };
+    // if(process.platform != 'darwin'){
+        // options.mac = {
+        //     useLaunchAgent: true
+        // };
+    // }
+    var opiosAutoLauncher = new AutoLaunch(options);
 
     if(params.checked){
         opiosAutoLauncher.enable();
