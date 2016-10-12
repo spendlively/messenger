@@ -30,9 +30,9 @@ var opiosAutoLauncher = new AutoLaunch(options);
 
 
 const shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory){
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore()
+    mainWindow.focus()
   }
 });
 if (shouldQuit) {
