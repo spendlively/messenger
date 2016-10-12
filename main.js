@@ -155,13 +155,13 @@ app.on('ready', function() {
     configText = decodeURIComponent(configEncoded);
     config = JSON.parse(configText);
 
-    //Вкл/Откл автозагрузки
-    if(config.config.launchOnStart){
-        opiosAutoLauncher.enable();
-    }
-    else{
-        opiosAutoLauncher.disable();
-    }
+    // //Вкл/Откл автозагрузки
+    // if(config.config.launchOnStart){
+    //     opiosAutoLauncher.enable();
+    // }
+    // else{
+    //     opiosAutoLauncher.disable();
+    // }
 
     global.config = config;
     ipcMain.on('save-config', function(event) {
