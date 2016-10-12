@@ -172,31 +172,204 @@ app.on('ready', function() {
     //Инициализация окна
     initWindow();
 
-    var template = [
-        {
-            label: "Application",
-            submenu: [
-                { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
-                { type: "separator" },
-                { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-            ]
-        }, 
-        {
-            label: "Edit",
-            submenu: [
-                { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-                { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
-                { type: "separator" },
-                { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
-                { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-                { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-                { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
-            ]
-        }
-    ];
+    // var template = [
+    //     {
+    //         label: "Application",
+    //         submenu: [
+    //             { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
+    //             { type: "separator" },
+    //             { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+    //         ]
+    //     }, 
+    //     {
+    //         label: "Edit",
+    //         submenu: [
+    //             { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+    //             { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+    //             { type: "separator" },
+    //             { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+    //             { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+    //             { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+    //             { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+    //         ]
+    //     }
+    // ];
 
-    var menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
+    // var menu = Menu.buildFromTemplate(template);
+    // Menu.setApplicationMenu(menu);
+
+const template = [
+  {
+    label: 'Edit',
+    submenu: [
+      {
+        role: 'undo'
+      },
+      {
+        role: 'redo'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'cut'
+      },
+      {
+        role: 'copy'
+      },
+      {
+        role: 'paste'
+      },
+      {
+        role: 'pasteandmatchstyle'
+      },
+      {
+        role: 'delete'
+      },
+      {
+        role: 'selectall'
+      }
+    ]
+  },
+  {
+    label: 'View',
+    submenu: [
+      {
+        label: 'Reload',
+        accelerator: 'CmdOrCtrl+R',
+        click (item, focusedWindow) {
+          if (focusedWindow) focusedWindow.reload()
+        }
+      },
+      {
+        label: 'Toggle Developer Tools',
+        accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
+        click (item, focusedWindow) {
+          if (focusedWindow) focusedWindow.webContents.toggleDevTools()
+        }
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'resetzoom'
+      },
+      {
+        role: 'zoomin'
+      },
+      {
+        role: 'zoomout'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'togglefullscreen'
+      }
+    ]
+  },
+  {
+    role: 'window',
+    submenu: [
+      {
+        role: 'minimize'
+      },
+      {
+        role: 'close'
+      }
+    ]
+  },
+  {
+    role: 'help',
+    submenu: [
+      {
+        label: 'Learn More',
+        click () { require('electron').shell.openExternal('http://electron.atom.io') }
+      }
+    ]
+  }
+]
+
+if (process.platform === 'darwin') {
+  const name = require('electron').remote.app.getName()
+  template.unshift({
+    label: name,
+    submenu: [
+      {
+        role: 'about'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'services',
+        submenu: []
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'hide'
+      },
+      {
+        role: 'hideothers'
+      },
+      {
+        role: 'unhide'
+      },
+      {
+        type: 'separator'
+      },
+      {
+        role: 'quit'
+      }
+    ]
+  })
+  // Edit menu.
+  template[1].submenu.push(
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Speech',
+      submenu: [
+        {
+          role: 'startspeaking'
+        },
+        {
+          role: 'stopspeaking'
+        }
+      ]
+    }
+  )
+  // Window menu.
+  template[3].submenu = [
+    {
+      label: 'Close',
+      accelerator: 'CmdOrCtrl+W',
+      role: 'close'
+    },
+    {
+      label: 'Minimize',
+      accelerator: 'CmdOrCtrl+M',
+      role: 'minimize'
+    },
+    {
+      label: 'Zoom',
+      role: 'zoom'
+    },
+    {
+      type: 'separator'
+    },
+    {
+      label: 'Bring All to Front',
+      role: 'front'
+    }
+  ]
+}
+
+const menu = Menu.buildFromTemplate(template)
+Menu.setApplicationMenu(menu)    
 
     //Менюшка в трее
     tray = new Tray(__dirname + '/opios16.png');
