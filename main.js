@@ -82,10 +82,9 @@ ipcMain.on('set-auto-launch', function(event, params) {
     //     opiosAutoLauncher.disable();
     // }
 
-    var AutoLaunch = require('auto-launch');
+    var AutoLaunch = require('auto-launch-gpmdp');
     var appLauncher = new AutoLaunch({
-        name: 'Opios',
-        isHidden: true
+        name: 'Opios'
     });
 
     if(params.checked){
