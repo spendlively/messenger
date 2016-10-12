@@ -28,7 +28,7 @@ if(process.platform == 'darwin'){
 }
 var opiosAutoLauncher = new AutoLaunch(options);
 
-
+//Не открывать вторую копию opios
 const shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory){
   if (mainWindow) {
     if (mainWindow.isMinimized()) mainWindow.restore()
