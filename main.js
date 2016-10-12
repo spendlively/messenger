@@ -84,7 +84,8 @@ ipcMain.on('set-auto-launch', function(event, params) {
 
     var AutoLaunch = require('auto-launch');
     var appLauncher = new AutoLaunch({
-        name: 'Opios'
+        name: 'Opios',
+        isHidden: true
     });
 
     if(params.checked){
