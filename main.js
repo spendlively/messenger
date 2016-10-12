@@ -160,48 +160,48 @@ app.on('ready', function() {
     //Инициализация окна
     initWindow();
 
-    var template = [{
-        label: "Application",
-        submenu: [
-            { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
-            { type: "separator" },
-            { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-        ]}, {
-        label: "Edit",
-        submenu: [
-            { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
-            { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
-            { type: "separator" },
-            { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
-            { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-            { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-            { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
-        ]}
-    ];
+    // var template = [{
+    //     label: "Application",
+    //     submenu: [
+    //         { label: "About Application", selector: "orderFrontStandardAboutPanel:" },
+    //         { type: "separator" },
+    //         { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+    //     ]}, {
+    //     label: "Edit",
+    //     submenu: [
+    //         { label: "Undo", accelerator: "CmdOrCtrl+Z", selector: "undo:" },
+    //         { label: "Redo", accelerator: "Shift+CmdOrCtrl+Z", selector: "redo:" },
+    //         { type: "separator" },
+    //         { label: "Cut", accelerator: "CmdOrCtrl+X", selector: "cut:" },
+    //         { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+    //         { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+    //         { label: "Select All", accelerator: "CmdOrCtrl+A", selector: "selectAll:" }
+    //     ]}
+    // ];
 
-    var menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
+    // var menu = Menu.buildFromTemplate(template);
+    // Menu.setApplicationMenu(menu);
 
-    //Менюшка в трее
-    tray = new Tray(__dirname + '/opios16.png');
-    var contextMenu = Menu.buildFromTemplate([{
-        label: 'Выйти', 
-        click (item, focusedWindow) {
-            app.quit();
-        }
-    },{
-        label: 'Показать Opios', 
-        click (item, focusedWindow) {
-            if(mainWindow === null){
-                initWindow();
-                mainWindow.focus();
-            }
-            else{
-                mainWindow.focus();
-            }
-        }
-    }]);
+    // //Менюшка в трее
+    // tray = new Tray(__dirname + '/opios16.png');
+    // var contextMenu = Menu.buildFromTemplate([{
+    //     label: 'Выйти', 
+    //     click (item, focusedWindow) {
+    //         app.quit();
+    //     }
+    // },{
+    //     label: 'Показать Opios', 
+    //     click (item, focusedWindow) {
+    //         if(mainWindow === null){
+    //             initWindow();
+    //             mainWindow.focus();
+    //         }
+    //         else{
+    //             mainWindow.focus();
+    //         }
+    //     }
+    // }]);
 
-    // tray.setToolTip('This is my application.');
-    tray.setContextMenu(contextMenu);
+    // // tray.setToolTip('This is my application.');
+    // tray.setContextMenu(contextMenu);
 });
