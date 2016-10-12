@@ -141,21 +141,17 @@ function initWindow(){
         mainWindow = null;
     });
 
-
-mainWindow.on('close', (e) => {
-    if (willQuitApp) {
-        mainWindow = null;
-    } else {
-        e.preventDefault();
-        mainWindow.hide();
-    }
-});
-
-app.on('activate', () => mainWindow.show());
-
-/* 'before-quit' is emitted when Electron receives 
- * the signal to exit and wants to start closing windows */
-app.on('before-quit', () => willQuitApp = true);
+    //Предотвращение закрытия окна
+    mainWindow.on('close', (e) => {
+        if (willQuitApp) {
+            mainWindow = null;
+        } else {
+            e.preventDefault();
+            mainWindow.hide();
+        }
+    });
+    app.on('activate', () => mainWindow.show());
+    app.on('before-quit', () => willQuitApp = true);
 
 }
 
