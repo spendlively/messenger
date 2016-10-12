@@ -141,9 +141,7 @@ function initWindow(){
         mainWindow = null;
     });
 
-    mainWindow.on('close', function() {
-        return false;
-    });
+    mainWindow.onbeforeunload = function (e) { return false }
 }
 
 // Этот метод будет вызван когда Electron закончит инициализацию 
