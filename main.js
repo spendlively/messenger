@@ -291,9 +291,9 @@ const template = [
 ]
 
 if (process.platform === 'darwin') {
-  const name = require('electron').remote.app.getName()
+  // const name = require('electron').remote.app.getName()
   template.unshift({
-    label: name,
+    label: 'name',
     submenu: [
       {
         role: 'about'
