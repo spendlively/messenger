@@ -21,7 +21,7 @@ var AutoLaunch = require('auto-launch');
 var options = {
     name: 'Opios'
 };
-if(process.platform != 'darwin'){
+if(process.platform == 'darwin'){
     options.mac = {
         useLaunchAgent: true
     };
