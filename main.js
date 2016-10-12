@@ -148,7 +148,7 @@ function initWindow(){
         // } else {
         //   /* the user only tried to close the window */
           e.preventDefault();
-          window.hide();
+          mainWindow.hide();
         // }
       });
 }
