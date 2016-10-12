@@ -18,11 +18,15 @@ var configText;
 var config;
 
 var AutoLaunch = require('auto-launch');
-var opiosAutoLauncher = new AutoLaunch({
+var options = {
     name: 'Opios'
-    // ,
-    // path: __dirname + '/../../Opios.app',
-});
+};
+if(process.platform != 'darwin'){
+    options.mac = {
+        useLaunchAgent: true
+    };
+}
+var opiosAutoLauncher = new AutoLaunch(options);
 
 // opiosAutoLauncher.isEnabled()
 // .then(function(isEnabled){
