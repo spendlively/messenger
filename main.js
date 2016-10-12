@@ -141,7 +141,16 @@ function initWindow(){
         mainWindow = null;
     });
 
-    mainWindow.onbeforeunload = function (e) { return false }
+      mainWindow.on('close', (e) => {
+        // if (willQuitApp) {
+        //    the user tried to quit the app 
+        //   window = null;
+        // } else {
+        //   /* the user only tried to close the window */
+          e.preventDefault();
+          window.hide();
+        // }
+      });
 }
 
 // Этот метод будет вызван когда Electron закончит инициализацию 
