@@ -17,16 +17,16 @@ var configEncoded;
 var configText;
 var config;
 
-// var AutoLaunch = require('auto-launch');
-// var options = {
-//     name: 'Opios'
-// };
-// if(process.platform != 'darwin'){
-//     options.mac = {
-//         useLaunchAgent: true
-//     };
-// }
-// var opiosAutoLauncher = new AutoLaunch(options);
+var AutoLaunch = require('auto-launch');
+var options = {
+    name: 'Opios'
+};
+if(process.platform != 'darwin'){
+    options.mac = {
+        useLaunchAgent: true
+    };
+}
+var opiosAutoLauncher = new AutoLaunch(options);
 
 // opiosAutoLauncher.isEnabled()
 // .then(function(isEnabled){
@@ -75,28 +75,12 @@ ipcMain.on('update-tray', function(event) {
 //Вкл/выкл автозагрузчика
 ipcMain.on('set-auto-launch', function(event, params) {
 
-    // if(params.checked){
-    //     opiosAutoLauncher.enable();
-    // }
-    // else{
-    //     opiosAutoLauncher.disable();
-    // }
-
-    var AutoLaunch = require('auto-launch-gpmdp');
-    var appLauncher = new AutoLaunch({
-        name: 'Opios'
-    });
-
     if(params.checked){
-        appLauncher.isEnabled().then(function(enabled){
-            if(enabled) return;
-            return appLauncher.enable()
-        }).then(function(err){});    
+        opiosAutoLauncher.enable();
     }
     else{
-        return appLauncher.disable();
+        opiosAutoLauncher.disable();
     }
-     
 });
 
 
@@ -157,13 +141,13 @@ app.on('ready', function() {
     configText = decodeURIComponent(configEncoded);
     config = JSON.parse(configText);
 
-    // //Вкл/Откл автозагрузки
-    // if(config.config.launchOnStart){
-    //     opiosAutoLauncher.enable();
-    // }
-    // else{
-    //     opiosAutoLauncher.disable();
-    // }
+    //Вкл/Откл автозагрузки
+    if(config.config.launchOnStart){
+        opiosAutoLauncher.enable();
+    }
+    else{
+        opiosAutoLauncher.disable();
+    }
 
     global.config = config;
     ipcMain.on('save-config', function(event) {

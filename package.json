@@ -19,6 +19,7 @@
     "linux": {}
   },
   "dependencies": {
+    "auto-launch": "^5.0.1",
     "auto-launch-gpmdp": "^2.1.0",
     "sanitizer": "^0.1.3"
   },
