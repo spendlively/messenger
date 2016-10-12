@@ -19,18 +19,19 @@ var config;
 
 var AutoLaunch = require('auto-launch');
 var opiosAutoLauncher = new AutoLaunch({
-    name: 'Opios',
-    // path: '/Applications/Minecraft.app',
+    name: 'Opios'
+    // path: '/Applications/Opios.app',
 });
-opiosAutoLauncher.isEnabled()
-.then(function(isEnabled){
-    if(isEnabled){
-        return;
-    }
-    opiosAutoLauncher.enable();
-})
-.catch(function(err){
-});
+
+// opiosAutoLauncher.isEnabled()
+// .then(function(isEnabled){
+//     if(isEnabled){
+//         return;
+//     }
+//     opiosAutoLauncher.enable();
+// })
+// .catch(function(err){
+// });
 
 //Обновление badges
 global.messages = messages;
@@ -66,8 +67,16 @@ ipcMain.on('update-tray', function(event) {
 });
 
 
+//Вкл/выкл автозагрузчика
+ipcMain.on('set-auto-launch', function(event, params) {
 
-
+    if(params.checked){
+        opiosAutoLauncher.enable();
+    }
+    else{
+        opiosAutoLauncher.disable();
+    }
+});
 
 
 //Отправки отчета о ошибках на сервер Electron
@@ -126,6 +135,15 @@ app.on('ready', function() {
     configEncoded = fs.readFileSync(pathToConfig, 'utf8');
     configText = decodeURIComponent(configEncoded);
     config = JSON.parse(configText);
+
+    //Вкл/Откл автозагрузки
+    if(config.config.launchOnStart){
+        opiosAutoLauncher.enable();
+    }
+    else{
+        opiosAutoLauncher.disable();
+    }
+
     global.config = config;
     ipcMain.on('save-config', function(event) {
         config = global.config;

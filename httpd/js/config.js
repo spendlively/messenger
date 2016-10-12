@@ -57,6 +57,14 @@ var config = {
 		console.log("Saving service", serviceData.id);
 	},
 
+	setAutoLaunch: function(checked){
+
+		var me = this, 
+		    ipcRenderer = require('electron').ipcRenderer;  
+
+		ipcRenderer.send('set-auto-launch', {checked: checked});
+	},
+
     removeService: function(id){
 
         var me = this,

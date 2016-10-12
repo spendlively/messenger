@@ -34,6 +34,8 @@ var SettingsBlock = React.createClass({
 
   		if(name){
   			app.config.save(name, checked);
+
+        app.config.setAutoLaunch(checked);
   		}
   	},
 

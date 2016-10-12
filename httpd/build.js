@@ -120,6 +120,14 @@ var app =
 			console.log("Saving service", serviceData.id);
 		},
 
+		setAutoLaunch: function(checked){
+
+			var me = this, 
+			    ipcRenderer = __webpack_require__(2).ipcRenderer;  
+
+			ipcRenderer.send('set-auto-launch', {checked: checked});
+		},
+
 	    removeService: function(id){
 
 	        var me = this,
