@@ -123,8 +123,8 @@ function initWindow(){
         height: 580,
         minWidth: 600,
         minHeight: 480,
-        icon: __dirname + '/opios.png',
-        closable: false
+        icon: __dirname + '/opios.png'
+        // closable: false
     });
 
     //Badges для винды
@@ -139,6 +139,10 @@ function initWindow(){
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
         mainWindow = null;
+    });
+
+    mainWindow.on('close', function() {
+        return false;
     });
 }
 
