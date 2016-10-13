@@ -358,18 +358,9 @@ app.on('ready', function() {
 
     //Менюшка в трее
     tray = new Tray(__dirname + '/icons/opios16.png');
-    tray.on('click', () => {
-      if(mainWindow.isVisible()){
-        mainWindow.hide();
-      } 
-      else{
-        mainWindow.show();
-        mainWindow.focus();
-      }
-    });
 
     //Контекстное меню иконки трея доступно только для windows и linux
-    if(process.platform == 'darwin'){
+    if(process.platform != 'darwin'){
       var contextMenu = Menu.buildFromTemplate([{
           label: 'Выйти', 
           click (item, focusedWindow) {
@@ -389,5 +380,17 @@ app.on('ready', function() {
           }
       }]);
       tray.setContextMenu(contextMenu);
+    }
+    else{
+      tray.on('click', (e) => {
+        e.preventDefault();        
+        if(mainWindow.isVisible()){
+          mainWindow.hide();
+        } 
+        else{
+          mainWindow.show();
+          mainWindow.focus();
+        }
+      });
     }
 });
