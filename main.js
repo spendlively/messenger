@@ -401,7 +401,7 @@ Menu.setApplicationMenu(menu)
             }
             else{
                 mainWindow.show();
-                // mainWindow.focus();
+                mainWindow.focus();
             }
         }
     }]);
