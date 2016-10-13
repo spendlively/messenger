@@ -400,7 +400,8 @@ Menu.setApplicationMenu(menu)
                 mainWindow.focus();
             }
             else{
-                mainWindow.focus();
+                mainWindow.show();
+                // mainWindow.focus();
             }
         }
     }]);
