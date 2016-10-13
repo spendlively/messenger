@@ -208,5 +208,9 @@ npm run build:win64 - сборка для windows x64
 
 
 //Ссылки
+//Сокрытие
 https://discuss.atom.io/t/how-to-catch-the-event-of-clicking-the-app-windows-close-button-in-electron-app/21425/8
+
+//wechat
+https://github.com/geeeeeeeeek/electronic-wechat.git 
 
