@@ -24,7 +24,7 @@ window.a = function(text){
   else if (Notification.permission === "granted") {
     var notification = new Notification("Новое сообщение", {
         body: 'Пользователь Аристарх написал вам ...',
-        icon: __dirname + '/../opios.png'
+        icon: __dirname + '/../icons/opios.png'
     });
   }
 
@@ -33,7 +33,7 @@ window.a = function(text){
       if (permission === "granted") {
           var notification = new Notification("Новое сообщение", {
               body: 'Пользователь Аристарх написал вам...',
-              icon: __dirname + '/../opios.png'
+              icon: __dirname + '/../icons/opios.png'
           });
       }
     });
