@@ -1,0 +1,122 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.tnb{
+	height: 50px;
+	/*background-color: red;*/
+	box-shadow: 0 0 26px #999;
+	color: #bbb;
+	font-size: 16px;
+}
+
+.tnb ul{
+	list-style-type: none;
+    list-style: none;
+}
+
+.tnb ul li{
+	height: 50px;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 10px;
+	display: inline-block;
+	position: relative;
+}
+
+.tnb ul li.tnb-li-home{
+	padding-left: 16px;
+}
+
+.tnb ul li.active-btn{
+	border-top: 3px solid red;
+	font-weight: bold;
+}
+
+.tnb-logo{
+	position: relative;
+	top: -3px;
+}
+
+.tnb-logo img{
+	height: 32px;
+}
+
+.tnb-text{
+	position: relative;
+}
+
+.tnb-logo-new img{
+	height: 32px;
+	position: relative;
+	top: -3px;
+}
+
+.badge.badge-active{
+	position: absolute;
+    top: 3px;
+    left: 25px;
+    background-color: red;
+}
+
+.tnb-li-right{
+	float: right;
+
+}
+
+.tnb-logo.opios-logo img{
+    height: 38px;
+    margin-top: -3px;
+}
+
+article{
+	margin-top: 35px;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-bottom: 50px;
+	height: 900px;
+	box-shadow: 5px 5px 26px #999;
+	/*background-color: green;*/
+}
+
+.service-body{
+	
+}
+
+aside.aside-left{
+
+	float: left;
+	width: 50px;
+	height: 50px;
+	/*background-color: red;*/
+	position: absolute;
+	top: 85px;
+	left: 0px;
+}
+
+.aside-tag {
+	width: 35px;
+	height: 200px;
+	border-radius: 0 15px 15px 0;
+	margin-top: 10px;
+
+
+	padding-right: 10px;
+	padding-top: 80px;
+	writing-mode: tb-rl;
+	/*transform: rotate(90deg);
+	transform-origin: left top 0;*/
+}
+
+.aside-tag.yellow{
+	background: yellow;
+}
+
+.aside-tag.red{
+	background: red;
+}
+
+.aside-tag.violet{
+	background: violet;
+}
