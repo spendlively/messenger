@@ -132,7 +132,7 @@ function initWindow(){
     mainWindow.loadURL('file://' + __dirname + '/httpd/newDesign.html');
 
     //DevTools
-    mainWindow.webContents.openDevTools();
+    // mainWindow.webContents.openDevTools();
 
     // Этот метод будет выполнен когда генерируется событие закрытия окна.
     mainWindow.on('closed', function() {
