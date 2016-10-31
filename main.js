@@ -128,8 +128,8 @@ function initWindow(){
     });
 
     //index.html
-    // mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
-    mainWindow.loadURL('file://' + __dirname + '/httpd/newDesign.html');
+    mainWindow.loadURL('file://' + __dirname + '/httpd/index.html');
+    // mainWindow.loadURL('file://' + __dirname + '/httpd/newDesign.html');
 
     //DevTools
     // mainWindow.webContents.openDevTools();
